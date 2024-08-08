@@ -1,0 +1,23 @@
+p {
+
+}
+
+.main {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+
+.work {
+  display: flex;
+  justify-content: space-between;
+
+  .info {
+    width: 200px;
+  }
+
+  .gallery {
+    width: calc(100% - 250px);
+  }
+}
+

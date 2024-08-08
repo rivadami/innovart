@@ -1,6 +1,22 @@
 <app-header></app-header>
 <app-layout>
-  <h1>WE SPECIALIZE IN LUXURY & LIFESTYLE BRANDING</h1>
-  <p>We are a team of culture creators, brand launchers and advertising nerds. We are a creative and consulting firm
-    that cultivates audiences and keeps the conversation going for luxury and lifestyle brands like yours.</p>
+  <div class="margin-wrapper">
+    <h1>{{ home?.title }}</h1>
+    <p class="right-p">{{home?.description }}</p>
+  </div>
+  <img class="main" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
+  <div>
+    <a href="">SELECTED WORK</a>
+    <a href="">VIEW ALL WORK</a>
+  </div>
+  <div class="work" *ngFor="let item of home?.selectedWork?.edges">
+    <div class="info">
+      <h3>{{item?.node?.portfolioSingleFields.clientName}}</h3>
+      <h4>{{item?.node?.portfolioSingleFields.clientLocation}}</h4>
+      <p>{{item?.node?.portfolioSingleFields.description}}</p>
+    </div>
+    <div class="gallery">
+      <app-gallery-horizontal [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"></app-gallery-horizontal>
+    </div>
+  </div>
 </app-layout>
