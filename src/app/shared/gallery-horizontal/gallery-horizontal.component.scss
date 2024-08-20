@@ -1,12 +1,13 @@
 
 .main-carousel {
-  background: #EEE;
+  height: 630px;
 }
 
 .carousel-cell {
-  width: 100%;
-  height: 400px;
-  margin-right: 10px;
-  background: #8C8;
-  border-radius: 5px;
+  margin-right: 25px;
+  img {
+    width: 100%;
+    height: 630px;
+    object-fit: cover;
+  }
 }

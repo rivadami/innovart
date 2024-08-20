@@ -1,19 +1,246 @@
 /* You can add global styles to this file, and also import other style files */
+
+$mq-tablet: 768px;
+$mq-desktop: 1200px;
+$black: #000;
+$grey: #b9bab7;
+$white: #fff;
+
+@font-face {
+  font-family: 'NeueHaasGrotDisp';
+  src: url('./assets/fonts/NeueHaasGrotDisp-55Roman.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueHaasGrotDisp';
+  src: url('./assets/fonts/NeueHaasGrotDisp-45Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --title-l-font-size: 128px;
+  --title-font-size: 64px;
+  --title-s-font-size: 48px;
+  --body-font-size: 25px;
+  --body-m-font-size: 16px;
+  --body-s-font-size: 12px;
+  --body-xs-font-size: 10px;
+  --body-font-family: 'NeueHaasGrotDisp', sans-serif;
+  --body-font-weight: 400;
+  --body-line-height: 1.4em;
+  --body-letter-spacing: .03em;
+  --title-line-height: 1em;
+  --title-letter-spacing: .075em;
+  --body-color: $black;
+  --body-bg: $white;
+  --gutter: 1rem;
+}
+
+@media (min-width: $mq-tablet) and (max-width: $mq-desktop - 1px) {
+  :root {
+      --font-size-regular: 16px;
+      --gutter: 1.5rem;
+  }
+}
+
+@media (min-width: $mq-desktop) {
+  :root {
+      --font-size-regular: 18px;
+      --gutter: 1.75rem;
+  }
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+  line-height: var(--body-line-height);
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-line-height);
+  letter-spacing: var(--body-letter-spacing);
+  color: var(--body-color);
+  background-color: var(--body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 html {
   scroll-behavior: smooth;
 }
-
-body {
-  margin: 0;
-  padding: 0;
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-.margin-wrapper {
-  padding: 1rem;
-
-  .left-p {}
-  .right-p {
-    width: 50%;
-    margin-left: auto;
+.title{
+  font-size: var(--title-font-size);
+  line-height: var(--title-line-height);
+  font-weight: var(--body-font-weight);
+  letter-spacing: var(--title-letter-spacing);
+}
+.title-l{
+  font-size: var(--title-l-font-size);
+}
+.title-s{
+  font-size: var(--title-s-font-size);
+}
+.text{
+  font-size: var(--body-font-size);
+}
+.text-m{
+  font-size: var(--body-m-font-size);
+}
+.text-s{
+  font-size: var(--body-s-font-size);
+}
+.text-xs{
+  font-size: var(--body-xs-font-size);
+}
+.text-black{
+  color: $black
+}
+.text-grey{
+  color: $grey;
+}
+.text-white{
+  color: $white;
+}
+.p-0{
+  padding: 0;
+}
+.wrapper{
+  padding: 30px;
+  display: grid;
+  gap: 30px;
+  &--top-0{
+    padding-top: 0;
   }
+  &--top-25{
+    padding-top: 25px;
+  }
+  &--top-50{
+    padding-top: 50px;
+  }
+  &--top-75{
+    padding-top: 75px;
+  }
+  &--bottom-25{
+    padding-bottom: 25px;
+  }
+  &--bottom-40{
+    padding-bottom: 40px;
+  }
+  &--bottom-75{
+    padding-bottom: 75px;
+  }
+  &--bottom-195{
+    padding-bottom: 195px;
+  }
+  &--right-0{
+    padding-right: 0;
+  }
+  &--bottom-0{
+    padding-bottom: 0;
+  }
+}
+.d-flex{
+  display: flex;
+}
+.gap-70{
+  gap: 70px
+}
+.min-w-250{
+  min-width: 250px;
+}
+.max-w-1250{
+  max-width: 1250px;
+}
+.w-min{
+  width: min-content;
+}
+.container{
+  &--small{
+    max-width: 600px;
+  }
+  &--push-right{
+    margin-left: 50%
+  }
+}
+.img{
+  &--full{
+    width: 100%;
+  }
+}
+.link{
+  color: $grey;
+  text-decoration: none;
+  &:hover{
+    color: $black;
+  }
+}
+.divider{
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 0;
+  margin: 0 25px;
+  &--mr{
+    margin: 0 25px 0 0;  
+  }
+  &--m0{
+    margin: 0;
+  }
+  
+}
+
+.work{
+  .info{
+    .info-title{
+
+    }
+    .info-description{
+      
+    }
+  }
+}
+.text-uppercase{
+  text-transform: uppercase;
 }

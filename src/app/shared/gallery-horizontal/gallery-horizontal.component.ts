@@ -19,9 +19,13 @@ export class GalleryHorizontalComponent implements AfterViewInit {
     const elem = this.carousel.nativeElement;
     const flkty = new Flickity(elem, {
       // options
-      cellAlign: 'left',
+      cellAlign: "left",
+      draggable: true,
+      pageDots: false,
       contain: true,
-      draggable: true
+      freeScroll: false,
+      prevNextButtons: false,
+      autoPlay: false,      
     });
   }
 }

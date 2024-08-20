@@ -1,6 +1,4 @@
-p {
-
-}
+$black: #000;
 
 .main {
   width: 100%;
@@ -11,13 +9,148 @@ p {
 .work {
   display: flex;
   justify-content: space-between;
+  height: 630px;
 
   .info {
-    width: 200px;
+    flex: 0 1 400px;
+    /* fixed width */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 30px;
+    gap: 30px;
+  }
+
+  .info-description {
+    display: grid;
+    gap: 40px;
+
+    .info-box {
+      display: flex;
+      justify-content: space-between;
+
+      &-client {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      &-images {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+    }
   }
 
   .gallery {
-    width: calc(100% - 250px);
+    flex: 1 1 auto;
+    /* dynamic width */
   }
 }
 
+
+.testimonial-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  padding-bottom: 120px;
+
+  .testimonial-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .testimonial-name {}
+
+    .testimonial-title {}
+
+    .testimonial-company {}
+  }
+}
+
+#footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between!important;
+  align-items: unset!important;
+
+  .footer-col-1 {
+    flex: 0 1 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+
+    .footer-logo{
+      max-width: 110px;
+    }
+  }
+
+  .footer-col-2 {
+    flex: 1 1 auto;
+    flex-direction: row;
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;    
+  }
+
+  .footer-col-3 {
+    flex: 0 1 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .logo {
+    width: 140px;
+  }
+  .nav {
+    .list {
+      .menu-item {
+        font-size: var(--body-s-font-size);
+        line-height: var(--body-line-height);
+        color: $black;
+        &.active {
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+.btn{
+  background-color: #000;
+  border-radius: 100px;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: var(--body-m-font-size);
+  border: 1px solid black;
+  text-decoration: none;
+  &--icon{
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    justify-content: space-between;
+    svg{
+      width: 27px;
+    }
+  }
+  &:hover{
+    color: black;
+    background-color: white;
+    svg{
+      path{
+        fill: #000!important;
+      }
+    }
+  }
+}
+.align-items-end{
+  align-items: flex-end;
+}
