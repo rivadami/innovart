@@ -1,0 +1,14 @@
+<div #carouselText class="main-carousel">
+  <div class="carousel-cell" *ngFor="let item of gallery">
+    <!--<img [srcset]="item?.node?.testimonialSingleFields?.description"
+         [alt]="item?.node?.testimonialSingleFields?.description">-->
+    <div class="testimonial-slider">
+      <p class="testimonial-quote">"{{item?.node?.testimonialSingleFields?.description}}”</p>
+      <div class="testimonial-info">
+        <span class="testimonial-name">{{item?.node?.testimonialSingleFields?.name}}</span>
+        <span class="testimonial-title">{{item?.node?.testimonialSingleFields?.title}}</span>
+        <span class="testimonial-company text-grey">{{item?.node?.testimonialSingleFields?.company}}</span>
+      </div>
+    </div>
+  </div>
+</div>
