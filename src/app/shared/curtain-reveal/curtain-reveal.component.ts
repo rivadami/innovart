@@ -12,10 +12,11 @@ export class CurtainRevealComponent implements AfterViewInit {
   @ViewChild('curtainWrapper') curtainElement!: ElementRef;
 
   ngAfterViewInit(): void {
-    ScrollReveal().reveal(this.curtainElement.nativeElement, {
-      interval: 600,
+    //    ScrollReveal().reveal(this.curtainElement.nativeElement, {
+    ScrollReveal().reveal('.reveal-content', {
+      interval: 200,
       duration: 2000,
-      viewFactor: 0.2,
+      viewFactor: 0.1,
       beforeReveal: (el) => {
         (el as HTMLElement).classList.add('revealed');
       },
