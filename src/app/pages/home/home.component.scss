@@ -50,24 +50,7 @@ $black: #000;
 }
 
 
-.testimonial-slider {
-  display: flex;
-  flex-direction: column;
-  gap: 70px;
-  padding-bottom: 120px;
 
-  .testimonial-info {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-
-    .testimonial-name {}
-
-    .testimonial-title {}
-
-    .testimonial-company {}
-  }
-}
 
 #footer {
   display: flex;
@@ -92,7 +75,7 @@ $black: #000;
     flex-direction: row;
     display: flex;
     gap: 60px;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
   }
 
   .footer-col-3 {

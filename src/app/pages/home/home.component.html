@@ -25,13 +25,16 @@
             <div class="info-box-client"><span class="text-xs text-grey text-uppercase">Client:</span>
               <h4 class="text-s">{{item?.node?.portfolioSingleFields.clientName}}</h4>
             </div>
-            <div class="info-box-images"><span class="text-xs text-grey text-uppercase">Images:</span><label
-                class="text-s caption">1 of 6</label></div>
+
+            <div class="info-box-images">
+              <span class="text-xs text-grey text-uppercase">Images:</span>
+              <label *ngIf="gallery" class="text-s caption">{{ gallery.currentIndex }} of {{ gallery.totalSlides }}</label>
+            </div>
           </div>
         </div>
       </div>
       <div class="gallery">
-        <app-gallery-horizontal
+        <app-gallery-horizontal #gallery
           [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"></app-gallery-horizontal>
       </div>
     </div>
@@ -43,17 +46,10 @@
     <h2 class="title title-s w-min text-uppercase">Client Testimonial</h2>
   </div>
   <div class="wrapper wrapper--top-75 wrapper--bottom-195">
-    <div class="testimonial-slider">
-      <p class="testimonial-quote">"I've worked with Innovart for 15 years on various Related Group projects and have
-        always been completely satisfied with their performance. They do an excellent job providing us with beautiful,
-        unique branding, and other memorable, innovative marketing collateral in a timely manner, which we truly
-        appreciate in such a fast-paced industry”</p>
-      <div class="testimonial-info">
-        <span class="testimonial-name">Alison Goldberg</span>
-        <span class="testimonial-title">Chief Marketing Officer</span>
-        <span class="testimonial-company text-grey">The Related Group</span>
-      </div>
-    </div>
+    <ng-container *ngIf="home">
+      <app-gallery-text-horizontal
+        [gallery]="home?.testimonials?.edges"></app-gallery-text-horizontal>
+    </ng-container>
     <div class="arrow">
       icon left
       icon right

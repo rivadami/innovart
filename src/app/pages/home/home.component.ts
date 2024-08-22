@@ -4,8 +4,8 @@ import { HeaderComponent } from '../../shared/header/header.component';
 import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
 import { NgForOf, NgIf } from '@angular/common';
-import Flickity from 'flickity';
 import { GalleryHorizontalComponent } from '../../shared/gallery-horizontal/gallery-horizontal.component';
+import { GalleryTextHorizontalComponent } from '../../shared/gallery-text-horizontal/gallery-text-horizontal.component';
 
 @Component({
   selector: 'app-home',
@@ -16,12 +16,12 @@ import { GalleryHorizontalComponent } from '../../shared/gallery-horizontal/gall
     NgIf,
     NgForOf,
     GalleryHorizontalComponent,
+    GalleryTextHorizontalComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
-  @ViewChild('carousel') carousel!: ElementRef;
   home: any;
 
   constructor(private readonly apollo: Apollo) {
