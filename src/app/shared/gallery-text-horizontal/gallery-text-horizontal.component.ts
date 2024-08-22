@@ -19,13 +19,14 @@ export class GalleryTextHorizontalComponent implements AfterViewInit {
     const elem = this.carousel.nativeElement;
     const flkty = new Flickity(elem, {
       // options
-      cellAlign: "left",
+      cellAlign: 'center',
       draggable: true,
       pageDots: false,
-      contain: true,
       freeScroll: false,
       prevNextButtons: false,
       autoPlay: false,
+      wrapAround: true,
+      groupCells: true
     });
   }
 

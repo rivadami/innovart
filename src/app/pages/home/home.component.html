@@ -1,6 +1,6 @@
 <app-header></app-header>
 <app-layout>
-  <div class="wrapper wrapper--top-25 wrapper--bottom-40">
+  <div class="wrapper wrapper--top-25 wrapper--bottom-50">
     <h1 class="title title-l">{{ home?.title }}</h1>
     <div class="container container--small container--push-right">
       <p class="text">{{home?.description }}</p>
@@ -45,15 +45,11 @@
   <div class="wrapper wrapper--top-75 wrapper--bottom-75">
     <h2 class="title title-s w-min text-uppercase">Client Testimonial</h2>
   </div>
-  <div class="wrapper wrapper--top-75 wrapper--bottom-195">
+  <div class="wrapper wrapper--x-0 wrapper--top-75 wrapper--bottom-195">
     <ng-container *ngIf="home">
       <app-gallery-text-horizontal
         [gallery]="home?.testimonials?.edges"></app-gallery-text-horizontal>
     </ng-container>
-    <div class="arrow">
-      icon left
-      icon right
-    </div>
   </div>
 </app-layout>
 <div class="wrapper">
@@ -64,7 +60,7 @@
     <div class="max-w-1250">
       <p class="title-s">WE ARE YOUR ADVISOR, CREATIVE, ACCOUNT PLANNER, PHOTOGRAPHER, COPYWRITER, DESIGNER & PRODUCER.
         ALL OF THE ABOVE AND THEN SOME.</p>
-      <p class="title-s"><a class="link" href="#">LET'S TALK</a> ABOUT WHAT'S NEXT FOR YOUR BRAND.</p>
+      <p class="title-s"><a class="link text-underline" href="#">LET'S TALK</a> ABOUT WHAT'S NEXT FOR YOUR BRAND.</p>
     </div>
   </div>
   <div class="wrapper">
@@ -79,37 +75,37 @@
     <div class="footer-col-2">
       <div class="text-s">
         <h4 class="text-xs text-grey">PHONE</h4>
-        <a>305 993 1862</a>
+        <a class="link link--black" href="">305 993 1862</a>
       </div>
       <div class="text-s">
         <h4 class="text-xs text-grey">EMAIL</h4>
-        <a>hello&#64;innovart.agency</a>
+        <a class="link link--black" href="">hello&#64;innovart.agency</a>
       </div>
     </div>
     <div class="footer-col-3">
       <div class="nav">
         <h4 class="text-xs text-grey">SECTIONS</h4>
         <ul class="list">
-          <li class="menu-item">Portfolio</li>
-          <li class="menu-item">Company</li>
-          <li class="menu-item">Methodology</li>
-          <li class="menu-item">Contact</li>
+          <li class="menu-item"><a href="#">Portfolio</a></li>
+          <li class="menu-item"><a href="#">Company</a></li>
+          <li class="menu-item"><a href="#">Methodology</a></li>
+          <li class="menu-item"><a href="#">Contact</a></li>
         </ul>
       </div>
       <div class="nav">
         <h4 class="text-xs text-grey">SOCIAL</h4>
         <ul class="list">
-          <li class="menu-item">Instagram</li>
-          <li class="menu-item">Facebook</li>
-          <li class="menu-item">Vimeo</li>
+          <li class="menu-item"><a href="#">Instagram</a></li>
+          <li class="menu-item"><a href="#">Facebook</a></li>
+          <li class="menu-item"><a href="#">Vimeo</a></li>
         </ul>
       </div>
       <div class="nav">
         <h4 class="text-xs text-grey">RESOURCES</h4>
         <ul class="list">
-          <li class="menu-item">Privacy Policy</li>
-          <li class="menu-item">Terms of Sale</li>
-          <li class="menu-item">Work with Us</li>
+          <li class="menu-item"><a href="#">Privacy Policy</a></li>
+          <li class="menu-item"><a href="#">Terms of Sale</a></li>
+          <li class="menu-item"><a href="#">Work with Us</a></li>
         </ul>
       </div>
     </div>

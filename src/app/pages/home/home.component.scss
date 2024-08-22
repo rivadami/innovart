@@ -115,6 +115,7 @@ $black: #000;
   font-size: var(--body-m-font-size);
   border: 1px solid black;
   text-decoration: none;
+  transition: all .5s;
   &--icon{
     display: flex;
     gap: 30px;
@@ -122,6 +123,11 @@ $black: #000;
     justify-content: space-between;
     svg{
       width: 27px;
+    }
+  }
+  svg{
+    *{
+      transition: all .5s;
     }
   }
   &:hover{
