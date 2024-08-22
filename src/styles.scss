@@ -5,6 +5,8 @@ $mq-desktop: 1200px;
 $black: #000;
 $grey: #b9bab7;
 $white: #fff;
+$bg: #eeefed;
+
 
 @font-face {
   font-family: 'NeueHaasGrotDisp';
@@ -23,7 +25,7 @@ $white: #fff;
 }
 
 :root {
-  --title-l-font-size: 128px;
+  --title-big-font-size: 8.5vw;
   --title-font-size: 64px;
   --title-s-font-size: 48px;
   --body-font-size: 25px;
@@ -36,8 +38,8 @@ $white: #fff;
   --body-letter-spacing: .03em;
   --title-line-height: 1em;
   --title-letter-spacing: .075em;
-  --body-color: $black;
-  --body-bg: $white;
+  --body-color: #000;
+  --body-bg: #eeefed;;
   --gutter: 1rem;
 }
 
@@ -218,8 +220,8 @@ table {
   letter-spacing: var(--title-letter-spacing);
 }
 
-.title-l {
-  font-size: var(--title-l-font-size);
+.title-big {
+  font-size: var(--title-big-font-size);
 }
 
 .title-s {

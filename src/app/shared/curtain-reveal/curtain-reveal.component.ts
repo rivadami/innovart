@@ -13,7 +13,9 @@ export class CurtainRevealComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     ScrollReveal().reveal(this.curtainElement.nativeElement, {
-      duration: 1000,
+      interval: 600,
+      duration: 2000,
+      viewFactor: 0.2,
       beforeReveal: (el) => {
         (el as HTMLElement).classList.add('revealed');
       },
