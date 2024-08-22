@@ -1,13 +1,15 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import Flickity from 'flickity';
+import { CurtainRevealComponent } from '../curtain-reveal/curtain-reveal.component';
 
 @Component({
   selector: 'app-gallery-horizontal',
   standalone: true,
-    imports: [
-        NgForOf
-    ],
+  imports: [
+    NgForOf,
+    CurtainRevealComponent
+  ],
   templateUrl: './gallery-horizontal.component.html',
   styleUrl: './gallery-horizontal.component.scss'
 })

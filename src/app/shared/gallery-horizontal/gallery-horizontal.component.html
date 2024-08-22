@@ -1,6 +1,8 @@
 <div #carousel class="main-carousel">
   <div class="carousel-cell" *ngFor="let item of gallery">
-    <img [srcset]="item?.node?.srcSet"
-         [alt]="item?.node?.title">
+    <app-curtain-reveal>
+      <img [srcset]="item?.node?.srcSet"
+           [alt]="item?.node?.title">
+    </app-curtain-reveal>
   </div>
 </div>
