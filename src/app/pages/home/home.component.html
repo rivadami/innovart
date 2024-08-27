@@ -12,7 +12,9 @@
     <a class="link title title-s w-min min-w-250" href="#">VIEW ALL WORK</a>
   </div>
   <div class="wrapper wrapper--right-0 wrapper--bottom-0" *ngFor="let item of home?.selectedWork?.edges">
-    <hr class="divider divider--mr">
+    <app-line-reveal>
+      <div class="line line--mr horizontal"></div>
+    </app-line-reveal>
     <div class="work">
       <div class="info">
         <div class="info-title">
@@ -53,7 +55,9 @@
   </div>
 </app-layout>
 <div class="wrapper">
-  <hr class="divider divider--m0">
+  <app-line-reveal>
+    <div class="line line--mr horizontal"></div>
+  </app-line-reveal>
 </div>
 <footer id="footer">
   <div class="wrapper wrapper--top-25 wrapper--bottom-195">
@@ -64,7 +68,9 @@
     </div>
   </div>
   <div class="wrapper">
-    <hr class="divider divider--m0">
+    <app-line-reveal>
+      <div class="line line--mr horizontal"></div>
+    </app-line-reveal>
   </div>
   <div class="wrapper wrapper--top-0 wrapper--bottom-75 d-flex">
     <div class="footer-col-1">

@@ -6,6 +6,8 @@ import { gql } from '@apollo/client/core';
 import { NgForOf, NgIf } from '@angular/common';
 import { GalleryHorizontalComponent } from '../../shared/gallery-horizontal/gallery-horizontal.component';
 import { GalleryTextHorizontalComponent } from '../../shared/gallery-text-horizontal/gallery-text-horizontal.component';
+import { LineRevealComponent } from '../../shared/line-reveal/line-reveal.component';
+
 
 @Component({
   selector: 'app-home',
@@ -17,6 +19,7 @@ import { GalleryTextHorizontalComponent } from '../../shared/gallery-text-horizo
     NgForOf,
     GalleryHorizontalComponent,
     GalleryTextHorizontalComponent,
+    LineRevealComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

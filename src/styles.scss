@@ -2,11 +2,11 @@
 
 $mq-tablet: 768px;
 $mq-desktop: 1200px;
+$mq-wide: 1600px;
 $black: #000;
 $grey: #b9bab7;
 $white: #fff;
 $bg: #eeefed;
-
 
 @font-face {
   font-family: 'NeueHaasGrotDisp';
@@ -41,19 +41,38 @@ $bg: #eeefed;
   --body-color: #000;
   --body-bg: #eeefed;;
   --gutter: 1rem;
+  --border: #b9bab7;
 }
 
+
+
+@media (max-width: $mq-tablet - 1px) {
+  :root {
+    --title-big-font-size: 36px;
+    --gutter: 1.5rem;    
+    --title-font-size: 32px;
+    --title-s-font-size: 24px;
+    --body-font-size: 18px;
+    --body-m-font-size: 14px;
+    --body-s-font-size: 10px;
+    --body-xs-font-size: 8px;    
+  }
+}
 @media (min-width: $mq-tablet) and (max-width: $mq-desktop - 1px) {
   :root {
-    --font-size-regular: 16px;
-    --gutter: 1.5rem;
+
   }
 }
 
 @media (min-width: $mq-desktop) {
   :root {
-    --font-size-regular: 18px;
     --gutter: 1.75rem;
+  }
+}
+
+@media (min-width: $mq-wide) {
+  :root {
+    --title-big-font-size: 136px;
   }
 }
 
@@ -339,9 +358,10 @@ table {
   &--small {
     max-width: 600px;
   }
-
-  &--push-right {
-    margin-left: 50%
+  @media (min-width: $mq-desktop) {
+    &--push-right {
+      margin-left: 50%;
+    }
   }
 }
 
@@ -365,17 +385,17 @@ table {
   }
 }
 
-.divider {
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 0;
-  margin: 0 25px;
-
+.line{
+  background-color: var(--border);
+  height: 1px;
   &--mr {
     margin: 0 25px 0 0;
   }
-
   &--m0 {
     margin: 0;
+  }
+  &.horizontal{
+    height: 1px;
   }
 
 }
