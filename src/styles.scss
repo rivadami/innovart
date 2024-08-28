@@ -1,11 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'variables';
 
-$mq-tablet: 768px;
-$mq-desktop: 1200px;
-$mq-wide: 1600px;
-$black: #000;
-$grey: #b9bab7;
-$white: #fff;
 $bg: #eeefed;
 
 @font-face {
@@ -49,13 +43,13 @@ $bg: #eeefed;
 @media (max-width: $mq-tablet - 1px) {
   :root {
     --title-big-font-size: 36px;
-    --gutter: 1.5rem;    
+    --gutter: 1.5rem;
     --title-font-size: 32px;
     --title-s-font-size: 24px;
     --body-font-size: 18px;
     --body-m-font-size: 14px;
     --body-s-font-size: 10px;
-    --body-xs-font-size: 8px;    
+    --body-xs-font-size: 8px;
   }
 }
 @media (min-width: $mq-tablet) and (max-width: $mq-desktop - 1px) {
