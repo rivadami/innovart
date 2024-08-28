@@ -1,0 +1,58 @@
+@import "variables";
+
+#footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between !important;
+  align-items: unset !important;
+
+  .footer-col-1 {
+    flex: 0 1 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+
+    .footer-logo {
+      max-width: 110px;
+    }
+  }
+
+  .footer-col-2 {
+    flex: 1 1 auto;
+    flex-direction: row;
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
+  .footer-col-3 {
+    flex: 0 1 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .logo {
+    width: 140px;
+  }
+
+  .nav {
+    .list {
+      .menu-item {
+        font-size: var(--body-s-font-size);
+        line-height: var(--body-line-height);
+        color: $black;
+
+        &.active {
+          color: red;
+        }
+      }
+    }
+  }
+}

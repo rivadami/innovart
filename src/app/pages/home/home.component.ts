@@ -8,6 +8,7 @@ import { GalleryHorizontalComponent } from '../../shared/gallery-horizontal/gall
 import { GalleryTextHorizontalComponent } from '../../shared/gallery-text-horizontal/gallery-text-horizontal.component';
 import { LineRevealComponent } from '../../shared/line-reveal/line-reveal.component';
 import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragraph-reveal.component';
+import { FooterComponent } from '../../shared/footer/footer.component';
 
 
 @Component({
@@ -22,6 +23,7 @@ import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragrap
     GalleryTextHorizontalComponent,
     LineRevealComponent,
     ParagraphRevealComponent,
+    FooterComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
