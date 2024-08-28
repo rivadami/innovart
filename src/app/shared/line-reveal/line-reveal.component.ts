@@ -12,7 +12,6 @@ export class LineRevealComponent implements AfterViewInit {
   @ViewChild('lineWrapper') lineElement!: ElementRef;
 
   ngAfterViewInit(): void {
-    //    ScrollReveal().reveal(this.lineElement.nativeElement, {
     ScrollReveal().reveal('.reveal-content', {
       interval: 200,
       duration: 2000,
