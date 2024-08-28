@@ -7,6 +7,7 @@ import { NgForOf, NgIf } from '@angular/common';
 import { GalleryHorizontalComponent } from '../../shared/gallery-horizontal/gallery-horizontal.component';
 import { GalleryTextHorizontalComponent } from '../../shared/gallery-text-horizontal/gallery-text-horizontal.component';
 import { LineRevealComponent } from '../../shared/line-reveal/line-reveal.component';
+import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragraph-reveal.component';
 
 
 @Component({
@@ -20,6 +21,7 @@ import { LineRevealComponent } from '../../shared/line-reveal/line-reveal.compon
     GalleryHorizontalComponent,
     GalleryTextHorizontalComponent,
     LineRevealComponent,
+    ParagraphRevealComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

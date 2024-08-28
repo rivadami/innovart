@@ -4,11 +4,13 @@ $bg: #eeefed;
   position: relative;
   overflow: hidden;
 }
+
 .reveal-content {
   transform-origin: left;
   transform: scaleX(0);
   transition: transform 1s ease-in-out;
-  &.revealed{
+
+  &.revealed {
     transform: scaleX(1);
   }
 }

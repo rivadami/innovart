@@ -45,7 +45,6 @@ export class GalleryHorizontalComponent implements AfterViewInit {
       flkty.on('select', () => {
         this.currentIndex = flkty.selectedIndex + 1;
         this.totalSlides = totalSlides;
-        console.log("updating??", this.currentIndex);
       });
     }, 1000)
   }
