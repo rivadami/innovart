@@ -1,1 +1,43 @@
-<p>portfolio works!</p>
+<app-header></app-header>
+<app-layout>
+  <div class="wrapper wrapper--top-25 wrapper--bottom-50">
+    <h1 class="title title-big"> title </h1>
+    <div class="container container--small container--push-right">
+      <p class="text"> description </p>
+    </div>
+  </div>
+  <div class="wrapper wrapper--right-0 wrapper--bottom-0" *ngFor="let item of home?.selectedWork?.edges">
+    <app-line-reveal>
+      <div class="line line--mr horizontal"></div>
+    </app-line-reveal>
+    <div class="work">
+      <div class="gallery">
+        <app-gallery-horizontal #gallery
+          [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"></app-gallery-horizontal>
+      </div>
+      <div class="info">
+        <div class="info-title">
+          <h3 class="text">{{item?.node?.portfolioSingleFields.title}}</h3>
+          <h4 class="text text-grey">{{item?.node?.portfolioSingleFields.clientLocation}}</h4>
+        </div>
+        <div class="info-description">
+          <div class="info-box">
+            <div class="info-box-client"><span class="text-xs text-grey text-uppercase">Client</span>
+              <h4 class="text-s">{{item?.node?.portfolioSingleFields.clientName}}</h4>
+            </div>
+            <div class="info-box-images">
+              <span class="text-xs text-grey text-uppercase">Images</span>
+              <label *ngIf="gallery" class="text-s caption">{{ gallery.currentIndex }} of {{ gallery.totalSlides }}</label>
+            </div>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+  <div class="wrapper">
+    <hr class="divider divider--m0">
+  </div>
+  <div class="wrapper wrapper--top-75 wrapper--bottom-75">
+    <h2 class="title title-s w-min text-uppercase">Load mor<br>Projects</h2>
+  </div>
+</app-layout>
