@@ -21,8 +21,14 @@ $white: #fff;
                 font-size: var(--body-xs-font-size);
                 padding: 5px;
                 line-height: var(--body-line-height);
-                &.active{
+                .link{
                     color: $black;
+                    &.active{
+                        color: $grey;
+                    }
+                    &:hover{
+                        color: $grey;
+                    }
                 }
             }
         }

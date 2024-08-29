@@ -24,12 +24,12 @@
         <div class="info-description">
           <p class="text-m">{{item?.node?.portfolioSingleFields.description}}</p>
           <div class="info-box">
-            <div class="info-box-client"><span class="text-xs text-grey text-uppercase">Client:</span>
+            <div class="info-box-client"><span class="text-xs text-grey text-uppercase">Client</span>
               <h4 class="text-s">{{item?.node?.portfolioSingleFields.clientName}}</h4>
             </div>
 
             <div class="info-box-images">
-              <span class="text-xs text-grey text-uppercase">Images:</span>
+              <span class="text-xs text-grey text-uppercase">Images</span>
               <label *ngIf="gallery" class="text-s caption">{{ gallery.currentIndex }} of {{ gallery.totalSlides }}</label>
             </div>
           </div>
