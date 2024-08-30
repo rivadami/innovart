@@ -1,0 +1,69 @@
+<app-header></app-header>
+<app-layout>
+  <div class="wrapper wrapper--top-25 wrapper--bottom-50">
+    <app-line-reveal>
+        <div class="line horizontal"></div>
+    </app-line-reveal>
+    <div class="container container--between">
+      <h1 class="title title-big"> title </h1>
+      <span class="title text-uppercase"> next project </span>
+    </div>
+    <div class="container container--small">
+      <p class="text"> description </p>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="gallery">
+      <app-gallery-horizontal #gallery
+        [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"></app-gallery-horizontal>
+    </div>
+    <div class="container container--small container--push-right">
+      <p class="text"> description </p>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="images images--left">
+      <img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
+    <div>
+  </div>
+  <div class="wrapper">
+    <div class="images images--right images--inline">
+      <img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
+      <img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
+    <div>
+  </div>  
+  <div class="wrapper">  
+    <div class="testimonial-slider">
+      <p class="testimonial-quote">"{{item?.node?.testimonialSingleFields?.description}}”</p>
+      <div class="testimonial-info">
+        <span class="testimonial-name">{{item?.node?.testimonialSingleFields?.name}}</span>
+        <span class="testimonial-title">{{item?.node?.testimonialSingleFields?.title}}</span>
+        <span class="testimonial-company">{{item?.node?.testimonialSingleFields?.company}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="images images--left">
+      <img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
+      <img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
+    <div>
+  </div>    
+  <div class="wrapper">
+    <div class="container container--small">
+      <p class="text"> description </p>
+    </div>
+    <div>
+  </div>
+  <div class="wrapper">
+    <div class="gallery">
+      <app-gallery-horizontal #gallery
+        [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"></app-gallery-horizontal>
+    </div>
+  </div>  
+  <div class="wrapper wrapper--top-75 wrapper--bottom-75">
+    <div class="container container--small container--right">
+      <span class="title text-uppercase"> next project </span>
+    </div>
+  </div>
+</app-layout>
