@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { LayoutComponent } from '../../shared/layout/layout.component';
 import { HeaderComponent } from '../../shared/header/header.component';
-import { Apollo } from 'apollo-angular';
-import { gql } from '@apollo/client/core';
 import { NgForOf, NgIf } from '@angular/common';
 import { GalleryHorizontalComponent } from '../../shared/gallery-horizontal/gallery-horizontal.component';
 import { GalleryTextHorizontalComponent } from '../../shared/gallery-text-horizontal/gallery-text-horizontal.component';
 import { LineRevealComponent } from '../../shared/line-reveal/line-reveal.component';
 import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragraph-reveal.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
-
+import { Apollo } from 'apollo-angular';
+import { gql } from '@apollo/client/core';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-single-portfolio',
   standalone: true,
   imports: [
     LayoutComponent,
@@ -25,11 +24,11 @@ import { FooterComponent } from '../../shared/footer/footer.component';
     ParagraphRevealComponent,
     FooterComponent,
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './single-portfolio.component.html',
+  styleUrl: './single-portfolio.component.scss'
 })
-export class HomeComponent implements OnInit {
-  home: any;
+export class SinglePortfolioComponent implements OnInit {
+  portfolio: any;
 
   constructor(private readonly apollo: Apollo) {
   }
@@ -122,8 +121,9 @@ export class HomeComponent implements OnInit {
         }`
     }).valueChanges.subscribe((result: any) => {
       console.log("@==>", result.data.page.homeFields);
-      this.home = result.data.page.homeFields;
+      this.portfolio = result.data.page.homeFields;
     });
   }
+
 
 }
