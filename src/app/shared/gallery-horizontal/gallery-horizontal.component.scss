@@ -11,3 +11,27 @@
     object-fit: cover;
   }
 }
+
+.arrows{
+  width: calc(100% - 920px);
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  .arrow{
+    display: flex;
+    width: 52px;
+    svg * {
+      transition: all .5s;
+    }
+    &:hover{
+      svg{
+        rect{
+          stroke: $black!important;
+        }
+        path{
+          fill: $black!important;
+        }
+      }
+    }
+  }
+}

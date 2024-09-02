@@ -48,4 +48,14 @@ export class GalleryHorizontalComponent implements AfterViewInit {
       });
     }, 1000)
   }
+
+  goToNext(): void {
+    this.galleryEffect.next();
+  }
+
+  goToPrev(): void {
+    this.galleryEffect.previous();
+  }
+
+
 }
