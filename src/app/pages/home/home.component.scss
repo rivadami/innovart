@@ -1,10 +1,4 @@
-@import "variables";
-
-.main {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-}
+@import "../../../assets/styles/_variables.scss";
 
 .work {
   display: flex;
@@ -47,45 +41,4 @@
     flex: 1 1 auto;
     /* dynamic width */
   }
-}
-
-
-
-
-
-.btn{
-  background-color: #000;
-  border-radius: 100px;
-  color: #fff;
-  padding: 15px 30px;
-  font-size: var(--body-m-font-size);
-  border: 1px solid black;
-  text-decoration: none;
-  transition: all .5s;
-  &--icon{
-    display: flex;
-    gap: 30px;
-    width: 100%;
-    justify-content: space-between;
-    svg{
-      width: 27px;
-    }
-  }
-  svg{
-    *{
-      transition: all .5s;
-    }
-  }
-  &:hover{
-    color: black;
-    background-color: white;
-    svg{
-      path{
-        fill: #000!important;
-      }
-    }
-  }
-}
-.align-items-end{
-  align-items: flex-end;
 }

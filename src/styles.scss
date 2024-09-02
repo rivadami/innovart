@@ -1,6 +1,4 @@
-@import 'variables';
-
-$bg: #eeefed;
+@import "assets/styles/_variables.scss";
 
 @font-face {
   font-family: 'NeueHaasGrotDisp';
@@ -16,58 +14,6 @@ $bg: #eeefed;
   font-weight: 300;
   font-style: normal;
   font-display: swap;
-}
-
-:root {
-  --title-big-font-size: 8.5vw;
-  --title-font-size: 64px;
-  --title-s-font-size: 48px;
-  --body-font-size: 25px;
-  --body-m-font-size: 16px;
-  --body-s-font-size: 12px;
-  --body-xs-font-size: 10px;
-  --body-font-family: 'NeueHaasGrotDisp', sans-serif;
-  --body-font-weight: 400;
-  --body-line-height: 1.4em;
-  --body-letter-spacing: .03em;
-  --title-line-height: 1em;
-  --title-letter-spacing: .075em;
-  --body-color: #000;
-  --body-bg: #eeefed;;
-  --gutter: 1rem;
-  --border: #b9bab7;
-}
-
-
-
-@media (max-width: $mq-tablet - 1px) {
-  :root {
-    --title-big-font-size: 36px;
-    --gutter: 1.5rem;
-    --title-font-size: 32px;
-    --title-s-font-size: 24px;
-    --body-font-size: 18px;
-    --body-m-font-size: 14px;
-    --body-s-font-size: 10px;
-    --body-xs-font-size: 8px;
-  }
-}
-@media (min-width: $mq-tablet) and (max-width: $mq-desktop - 1px) {
-  :root {
-
-  }
-}
-
-@media (min-width: $mq-desktop) {
-  :root {
-    --gutter: 1.75rem;
-  }
-}
-
-@media (min-width: $mq-wide) {
-  :root {
-    --title-big-font-size: 136px;
-  }
 }
 
 html,
@@ -394,40 +340,45 @@ table {
 
 }
 
-.work {
-  .info {
-    .info-title {}
-
-    .info-description {}
-  }
-}
-
 .text-uppercase {
   text-transform: uppercase;
 }
 
-#footer {
-  .footer-logo {
-    max-width: 110px;
+.btn{
+  background-color: #000;
+  border-radius: 100px;
+  color: #fff;
+  padding: 15px 30px;
+  font-size: var(--body-m-font-size);
+  border: 1px solid black;
+  text-decoration: none;
+  transition: all .5s;
+  &--icon{
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    justify-content: space-between;
+    svg{
+      width: 27px;
+    }
   }
-
-  .nav {
-    .list {
-      .menu-item {
-        a {
-          font-size: var(--body-s-font-size);
-          line-height: var(--body-line-height);
-          color: $black;
-          text-decoration: none;
-          &:hover {
-            color: $grey;
-          }
-
-          &.active {
-            color: $grey;
-          }
-        }
+  svg{
+    *{
+      transition: all .5s;
+    }
+  }
+  &:hover{
+    color: black;
+    background-color: white;
+    svg{
+      path{
+        fill: #000!important;
       }
     }
   }
 }
+
+.align-items-end{
+  align-items: flex-end;
+}
+
