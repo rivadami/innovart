@@ -1,8 +1,4 @@
-$mq-tablet: 768px;
-$mq-desktop: 1200px;
-$black: #000;
-$grey: #b9bab7;
-$white: #fff;
+@import "../../assets/styles/_variables.scss";
 
 .text-carousel {
   /*height: 630px;*/
