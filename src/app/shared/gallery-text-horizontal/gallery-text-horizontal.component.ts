@@ -13,11 +13,12 @@ import Flickity from 'flickity';
 })
 export class GalleryTextHorizontalComponent implements AfterViewInit {
   @ViewChild('carouselText') carousel!: ElementRef;
-  @Input() gallery: any
+  @Input() gallery: any;
+  galleryEffect!: Flickity;
 
   ngAfterViewInit(): void {
     const elem = this.carousel.nativeElement;
-    const flkty = new Flickity(elem, {
+    this.galleryEffect = new Flickity(elem, {
       // options
       cellAlign: 'center',
       draggable: true,
@@ -29,5 +30,15 @@ export class GalleryTextHorizontalComponent implements AfterViewInit {
       groupCells: true
     });
   }
+
+  goToNext(): void {
+    this.galleryEffect.next();
+  }
+
+  goToPrev(): void {
+    this.galleryEffect.previous();
+  }
+
+
 
 }
