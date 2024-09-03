@@ -1,7 +1,9 @@
 <app-header></app-header>
 <app-layout>
   <div class="wrapper wrapper--top-25 wrapper--bottom-50">
-    <h1 class="title title-big">{{ home?.title }}</h1>
+    <app-paragraph-reveal>
+      <h1 class="title title-big">{{ home?.title }}</h1>
+    </app-paragraph-reveal>      
     <div class="container container--small container--push-right">
       <p class="text">{{home?.description }}</p>
     </div>
