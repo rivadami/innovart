@@ -13,7 +13,7 @@ import SplitType from 'split-type'
   styleUrl: './paragraph-reveal.component.scss'
 })
 export class ParagraphRevealComponent implements AfterViewInit {
-  @Input() classSelector!: string;
+  @Input({required: true}) classSelector!: string;
   @ViewChild('container', {static: true}) container!: ElementRef<HTMLElement>;
   textAnim: any;
 

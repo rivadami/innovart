@@ -1,8 +1,8 @@
 <app-header></app-header>
 <app-layout>
-  <div class="wrapper wrapper--top-25 wrapper--bottom-50">
-    <app-paragraph-reveal>
-      <h1 class="title title-big">{{ home?.title }}</h1>
+  <div class="wrapper wrapper--top-25 wrapper--bottom-50" *ngIf="home">
+    <app-paragraph-reveal classSelector="title-big">
+      <p class="title title-big">{{ home?.title }}</p>
     </app-paragraph-reveal>
     <div class="container container--small container--push-right">
       <p class="text">{{ home?.description }}</p>
