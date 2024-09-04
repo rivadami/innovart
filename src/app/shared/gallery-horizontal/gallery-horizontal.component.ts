@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { NgForOf } from '@angular/common';
+import { NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import Flickity from 'flickity';
 import { CurtainRevealComponent } from '../curtain-reveal/curtain-reveal.component';
 
@@ -8,7 +8,9 @@ import { CurtainRevealComponent } from '../curtain-reveal/curtain-reveal.compone
   standalone: true,
   imports: [
     NgForOf,
-    CurtainRevealComponent
+    CurtainRevealComponent,
+    NgIf,
+    NgOptimizedImage
   ],
   templateUrl: './gallery-horizontal.component.html',
   styleUrl: './gallery-horizontal.component.scss'
@@ -17,6 +19,8 @@ export class GalleryHorizontalComponent implements AfterViewInit {
   @ViewChild('carousel') carousel!: ElementRef;
   @Output() slideChange = new EventEmitter<{ currentIndex: number, totalSlides: number }>();
   @Input() gallery: any
+  @Input() showButtons: boolean = false;
+  @Input() showButtonsOutside: boolean = false;
   currentIndex?: number;
   totalSlides?: number;
 

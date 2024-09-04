@@ -1,4 +1,4 @@
-@import "../../assets/styles/_variables.scss";
+@import "../../../variables";
 
 .text-carousel {
   /*height: 630px;*/
@@ -34,16 +34,16 @@
       .testimonial-slider {
         color: $black;
         .testimonial-info {
-           
+
           .testimonial-name {}
-  
+
           .testimonial-title {}
-  
+
           .testimonial-company {
-            
+
           }
         }
-      }      
+      }
     }
   }
 }
