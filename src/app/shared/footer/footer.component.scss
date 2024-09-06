@@ -70,15 +70,16 @@
     }
     @media (max-width: $mq-tablet - 1px) {
       &.footer-copyright{
-        gap: 120px 30px;
+        gap: 30px 10px;
         flex-wrap: wrap;
         .footer-col-1{
           order: 2;
           flex: 0 1 110px;
         }
         .footer-col-2{
+          padding-top: 3px;
           order: 3;
-          flex: 1 1 auto;
+          flex: 1 1 135px;
           align-items: flex-end;
           justify-content: flex-end;          
         }
