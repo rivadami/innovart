@@ -3,10 +3,25 @@
 .work {
   display: flex;
   justify-content: space-between;
-  height: 630px;
+  flex-direction: column-reverse;
+  gap: 15px;
+  @media (min-width: $mq-tablet) {
+    gap: 0;
+    flex-direction: row;
+    height: 400px;
+  }  
+  @media (min-width: $mq-desktop) {
+    height: 630px;
+  }  
 
   .info {
-    flex: 0 1 400px;
+    @media (min-width: $mq-tablet) {
+      flex: 0 1 30%;
+      max-width: 400px;
+    }
+    @media (min-width: $mq-wide) {
+      flex: 0 1 400px;
+    }  
     /* fixed width */
     display: flex;
     flex-direction: column;
@@ -16,7 +31,10 @@
   }
 
   .info-description {
-    display: grid;
+    display: none;
+    @media (min-width: $mq-tablet) {
+      display: grid;
+    }    
     gap: 40px;
 
     .info-box {
@@ -38,6 +56,13 @@
   }
 
   .gallery {
+    height: 100vw;
+    max-height: 400px;
+    @media (min-width: $mq-tablet) {
+      flex-direction: row;
+      height: 100%;
+      max-height: unset;
+    }  
     flex: 1 1 auto;
     /* dynamic width */
   }

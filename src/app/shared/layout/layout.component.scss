@@ -1,3 +1,5 @@
-.main{
-    padding-top: 115px;
+@import "../../../variables";
+
+.main {
+    padding-top: var(--padding-main);
 }

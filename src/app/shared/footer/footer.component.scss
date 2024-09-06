@@ -6,32 +6,88 @@
   justify-content: space-between !important;
   align-items: unset !important;
 
-  .footer-col-1 {
-    flex: 0 1 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 30px;
+  .wrapper {
 
-    .footer-logo {
-      max-width: 110px;
+    .footer-col-1 {
+      @media (min-width: $mq-tablet) {
+        flex: 1 0 33.3%;
+      }
+
+      @media (min-width: $mq-desktop) {
+        flex: 0 1 400px;
+      }
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 30px;
+
+      .footer-logo {
+        max-width: 110px;
+      }
     }
-  }
 
-  .footer-col-2 {
-    flex: 1 1 auto;
-    flex-direction: row;
-    display: flex;
-    gap: 60px;
-    flex-wrap: wrap;
-  }
 
-  .footer-col-3 {
-    flex: 0 1 400px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 30px;
+    .footer-col-2 {
+      @media (min-width: $mq-tablet) {
+        flex: 1 1 33.3%;
+      }
+
+      @media (min-width: $mq-desktop) {
+        flex: 1 1 auto;
+      }
+
+      flex-direction: row;
+      display: flex;
+      gap: 20px;
+
+      @media (min-width: $mq-tablet) {
+        gap: 60px;
+      }
+
+      flex-wrap: wrap;
+    }
+
+    .footer-col-3 {
+
+      @media (min-width: $mq-desktop) {
+        flex: 1 0 33.3%;
+      }
+
+      @media (min-width: $mq-desktop) {
+        flex: 0 1 400px;
+      }
+
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      justify-content: flex-start;
+
+      @media (min-width: $mq-tablet) {
+        justify-content: space-between;
+        gap: 30px;
+      }
+    }
+    @media (max-width: $mq-tablet - 1px) {
+      &.footer-copyright{
+        gap: 120px 30px;
+        flex-wrap: wrap;
+        .footer-col-1{
+          order: 2;
+          flex: 0 1 110px;
+        }
+        .footer-col-2{
+          order: 3;
+          flex: 1 1 auto;
+          align-items: flex-end;
+          justify-content: flex-end;          
+        }
+        .footer-col-3{
+          order: 1;
+          flex: 1 1 100%;
+        }
+      }
+    }
   }
 
   display: flex;
@@ -47,11 +103,13 @@
       .menu-item {
         font-size: var(--body-s-font-size);
         line-height: var(--body-line-height);
+
         a {
           font-size: inherit;
           line-height: inherit;
           color: $black;
           text-decoration: none;
+
           &:hover {
             color: $grey;
           }

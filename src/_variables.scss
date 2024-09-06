@@ -7,47 +7,50 @@ $grey: #b9bab7;
 $white: #fff;
 
 :root {
-    --title-big-font-size: 8.5vw;
-    --title-font-size: 64px;
-    --title-s-font-size: 48px;
-    --body-font-size: 25px;
-    --body-m-font-size: 16px;
+    --title-big-font-size: 36px;
+    --gutter: 1.5rem;
+    --title-font-size: 32px;
+    --title-s-font-size: 24px;
+    --body-font-size: 15px;
+    --body-m-font-size: 14px;
     --body-s-font-size: 12px;
     --body-xs-font-size: 10px;
+    --gutter: 1rem;
     --body-font-family: 'NeueHaasGrotDisp', sans-serif;
     --body-font-weight: 400;
     --body-line-height: 1.4em;
     --body-letter-spacing: .03em;
-    --title-line-height: 1em;
+    --title-line-height: 1.1em;
     --title-letter-spacing: .075em;
     --body-color: #000;
     --body-bg: #eeefed;;
-    --gutter: 1rem;
     --border: #b9bab7;
+    --padding-main: 0;
+    --top-75: 75px
+    --bottom-75: 75px;
+    --bottom-195: 195px;
   }
-  
-  @media (max-width: $mq-tablet - 1px) {
+
+  @media (min-width: $mq-tablet) {
     :root {
-      --title-big-font-size: 36px;
-      --gutter: 1.5rem;
-      --title-font-size: 32px;
-      --title-s-font-size: 24px;
-      --body-font-size: 18px;
-      --body-m-font-size: 14px;
-      --body-s-font-size: 10px;
-      --body-xs-font-size: 8px;
+      --title-big-font-size: 7.5vw;
+      --title-font-size: 48px;
+      --title-s-font-size: 36px;
+      --body-font-size: 21px;
+      --body-m-font-size: 16px;
+      --gutter: 1.75rem;
     }
   }
-  
-  @media (min-width: $mq-tablet) and (max-width: $mq-desktop - 1px) {
-    :root {
-  
-    }
-  }
+
   
   @media (min-width: $mq-desktop) {
     :root {
+      --title-big-font-size: 8.5vw;
+      --title-font-size: 64px;
+      --title-s-font-size: 48px;
+      --body-font-size: 25px;
       --gutter: 1.75rem;
+      --padding-main: 115px;
     }
   }
   

@@ -15,7 +15,10 @@ $white: #fff;
         .list{
             display: flex;
             align-items: center;
-            gap: 70px;
+            gap: 35px;
+            @media (min-width: $mq-desktop) {
+                gap: 70px;
+            }
             .menu-item{
                 font-size: var(--body-xs-font-size);
                 padding: 5px;
