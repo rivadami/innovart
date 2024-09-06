@@ -1,6 +1,6 @@
 <app-header></app-header>
 <app-layout>
-  <div class="wrapper wrapper--top-25 wrapper--bottom-50" *ngIf="home">
+  <div class="wrapper wrapper--top-25 wrapper--bottom-50 min-100vh" *ngIf="home">
     <app-paragraph-reveal classSelector="title-big">
       <p class="title title-big">{{ home?.title }}</p>
     </app-paragraph-reveal>
@@ -8,7 +8,9 @@
       <p class="text">{{ home?.description }}</p>
     </div>
   </div>
-  <img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
+  <app-curtain-reveal>
+    <img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
+  </app-curtain-reveal>    
   <div class="wrapper wrapper--top-25 wrapper--bottom-195 d-flex gap-70">
     <h2 class="title title-s w-min min-w-250">SELECTED WORK</h2>
     <a class="link title title-s w-min min-w-250" href="#">VIEW ALL WORK</a>
@@ -41,7 +43,7 @@
       <div class="gallery">
         <app-gallery-horizontal #gallery
                                 [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"
-                                [showButtons]="true"></app-gallery-horizontal>
+                                [showButtons]="false"></app-gallery-horizontal>
       </div>
     </div>
   </div>
@@ -60,7 +62,7 @@
 </app-layout>
 <div class="wrapper">
   <app-line-reveal>
-    <div class="line line--mr horizontal"></div>
+    <div class="line horizontal"></div>
   </app-line-reveal>
 </div>
 <app-footer></app-footer>

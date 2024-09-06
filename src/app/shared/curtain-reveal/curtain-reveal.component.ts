@@ -22,11 +22,5 @@ export class CurtainRevealComponent implements AfterViewInit {
       },
       reset: false // Animation occurs only once
     });
-
-    ScrollReveal().reveal('.menu-item', {
-      interval: 200,
-      duration: 2000,
-      viewFactor: 0.1,
-   });
   }
 }
