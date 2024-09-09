@@ -464,6 +464,7 @@ table {
   }
 }
 
+
 .container {
   &--small {
     max-width: 655px;
@@ -606,6 +607,7 @@ table {
 .min-100vh {
   min-height: 100vh;
 }
+
 
 .button {
   position: relative;
@@ -805,4 +807,36 @@ table {
     align-items: flex-start;
   }
 
+}
+
+
+//menu styles
+.fullscreen-dialog {
+  .mat-mdc-dialog-panel {
+    position: fixed !important;  // Override position: static with position: fixed
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;  // Ensure there's no margin
+    padding: 0;  // Ensure there's no padding
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.custom-backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }

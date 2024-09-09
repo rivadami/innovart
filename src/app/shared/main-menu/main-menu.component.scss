@@ -1,0 +1,31 @@
+.fullscreen-menu {
+  /*max-width: 100vw !important;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  text-align: center;
+  overflow: hidden;*/
+}
+
+h2 {
+  margin-bottom: 2rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 1rem 0;
+}
+
+ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+}
