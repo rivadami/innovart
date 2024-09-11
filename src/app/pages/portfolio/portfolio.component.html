@@ -1,0 +1,68 @@
+<app-header></app-header>
+<app-layout>
+  <div class="wrapper">
+    <app-line-reveal>
+      <div class="line horizontal"></div>
+    </app-line-reveal>
+  </div>
+  <div class="wrapper wrapper--top-0 min-h-400 d-flex flex-column justify-content-between">
+    <app-paragraph-reveal classSelector="title">
+      <h1 class="title text-uppercase">Portfolio</h1>  
+    </app-paragraph-reveal>    
+    <div class="container container--small">
+      <p class="text">Our approach is honest, insight-driven and brand strategy-based. We're a multi-disciplinary team
+        of thinkers that puts function before aesthetic and works to create enduring design solutions that connect with
+        people.</p>
+    </div>
+  </div>
+  <!--
+  <ng-container *ngIf="portfolio">
+    <div *ngFor="let item of portfolio.edges">
+      <h1>{{item.node.title}}</h1>
+    </div>
+  </ng-container>
+  <button (click)="loadMore()" [disabled]="!hasMore">cargar mas {{noPosts}} {{hasMore}}</button>
+-->
+  <div class="work-container">
+    <ng-container *ngIf="portfolio">
+      <div class="wrapper wrapper--right-0 wrapper--bottom-0" *ngFor="let item of portfolio.edges">
+        <app-line-reveal>
+          <div class="line line--mr horizontal"></div>
+        </app-line-reveal>
+        <div class="work">
+          <div class="gallery">
+            <app-gallery-horizontal #gallery [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"
+              [showButtons]="false" classCss="big"></app-gallery-horizontal>
+          </div>
+          <div class="info">
+            <div class="info-title">
+              <h3 class="text">{{item?.node?.portfolioSingleFields.title}}</h3>
+              <h4 class="text text-grey">{{item?.node?.portfolioSingleFields.clientLocation}}</h4>
+            </div>
+            <div class="info-description">
+              <div class="info-box">
+                <div class="info-box-client"><span class="text-xs text-grey text-uppercase">Client</span>
+                  <h4 class="text-s">{{item?.node?.portfolioSingleFields.clientName}}</h4>
+                </div>
+                <div class="info-box-images">
+                  <span class="text-xs text-grey text-uppercase">Images</span>
+                  <label *ngIf="gallery" class="text-s caption">{{ gallery.currentIndex }} of {{ gallery.totalSlides
+                    }}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="wrapper">
+    <hr class="divider divider--m0">
+  </div>
+  <div class="wrapper wrapper--top-75 wrapper--bottom-195" [class.hidden]="!hasMore">
+    <h2 class="title title-s w-min text-uppercase">
+      <a (click)="loadMore()">Load more<br>Projects</a>
+    </h2>
+  </div>
+</app-layout>
+<app-footer></app-footer>

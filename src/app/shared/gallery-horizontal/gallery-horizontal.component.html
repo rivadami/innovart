@@ -1,0 +1,30 @@
+<div #carousel class="main-carousel" [ngClass]="classCss" >
+  <div class="carousel-cell" *ngFor="let item of gallery">
+    <app-curtain-reveal>
+      <img [srcset]="item?.node?.srcSet"
+           [alt]="item?.node?.title">
+    </app-curtain-reveal>
+  </div>
+</div>
+<ng-container *ngIf="showButtons">
+  <ng-template #insideIcons>
+    <div class="arrows inside">
+      <a class="arrow arrow-left">
+        <img ngSrc="/assets/icons/left-arrow-inside.svg" width="52" height="31" alt="">
+      </a>
+      <a class="arrow arrow-right">
+        <img ngSrc="/assets/icons/right-arrow-inside.svg" width="52" height="31" alt="">
+      </a>
+    </div>
+  </ng-template>
+  <ng-container *ngIf="showButtonsOutside;else insideIcons">
+    <div class="arrows outside">
+      <a class="arrow arrow-left">
+        <img ngSrc="/assets/icons/left-arrow-outside.svg" width="52" height="31" alt="">
+      </a>
+      <a class="arrow arrow-right">
+        <img ngSrc="/assets/icons/right-arrow-outside.svg" width="52" height="31" alt="">
+      </a>
+    </div>
+  </ng-container>
+</ng-container>

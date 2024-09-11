@@ -1,0 +1,68 @@
+@import "../../../variables";
+
+.work-container{
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+.work {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 15px;
+
+    @media (max-width: $mq-tablet - 1px) {
+        padding: 0 30px;
+    }
+
+    .info {
+        /* fixed width */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-right: 30px;
+        gap: 30px;
+
+        .info-title {
+            
+        }
+
+        .info-description {
+
+            .info-box {
+                display: flex;
+                justify-content: space-between;
+                gap: 80px;
+
+                &-client {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 3px;
+                    align-items: flex-end;
+                }
+
+                &-images {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 3px;
+                    align-items: flex-end;
+                }
+            }
+        }
+    }
+
+    .gallery {
+        height: 50vw;
+        min-height: 200px;
+        max-height: 400px;
+
+        @media (min-width: $mq-tablet) {
+            flex-direction: row;
+            height: 100%;
+            max-height: unset;
+        }
+
+        flex: 1 1 auto;
+        /* dynamic width */
+    }
+}

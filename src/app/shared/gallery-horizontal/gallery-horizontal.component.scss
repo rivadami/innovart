@@ -1,0 +1,101 @@
+@import "../../../variables";
+
+.main-carousel {
+  height: 100%;
+
+  .carousel-cell {
+    /*margin-left: 25px;*/
+
+    @media (min-width: $mq-tablet) {
+      margin-right: 25px;
+    }
+
+    img {
+      width: calc(100% - 2px);
+      padding: 0 1px;
+      object-fit: cover;
+      height: 50vw;
+      min-height: 200px;
+      max-height: 400px;
+
+      @media (min-width: $mq-tablet) {}
+
+      @media (min-width: $mq-desktop) {
+        height: 630px;
+        max-height: unset;
+      }
+    }
+  }
+
+  &.big{
+    .carousel-cell {
+  
+      img {
+        @media (min-width: $mq-desktop) {
+          height: 800px;
+          max-height: unset;
+        }
+      }
+    }
+  }
+
+  .arrows {
+    &.inside {
+      position: absolute;
+      bottom: 22px;
+      left: 22px;
+
+      .arrow {
+        cursor: pointer;
+
+        svg {
+          rect {
+            fill: $black !important;
+            fill-opacity: 0;
+          }
+        }
+
+        &:hover {
+          svg {
+            rect {
+              fill-opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    &.outside {
+      margin-top: 22px;
+
+      .arrow {
+        svg {
+          rect {
+            fill: $white !important;
+            fill-opacity: 0;
+          }
+        }
+
+        &:hover {
+          svg {
+            rect {
+              fill-opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    display: flex;
+    gap: 10px;
+
+    .arrow {
+      display: flex;
+      width: 52px;
+
+      svg * {
+        transition: all .5s;
+      }
+    }
+  }
+}
