@@ -198,6 +198,18 @@ table {
   flex-direction: row;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.col-left {
+  display: flex;
+}
+
+.col-right {
+  display: flex;
+}
+
 .justify-content-between {
   justify-content: space-between;
 }
@@ -400,6 +412,7 @@ table {
 }
 
 .grid-m-34 {
+  gap: 20px;
   grid-template-columns: 3fr 4fr;
 }
 
@@ -560,6 +573,22 @@ table {
       }
     }
   }
+
+  &--inverted {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+
+    &:hover {
+      color: #fff;
+      background-color: #000;
+      svg {
+        path {
+          fill: #fff !important;
+        }
+      }
+    }
+  }
 }
 
 .align-items-end {
@@ -684,48 +713,96 @@ table {
   }
 }
 
-.form{
+.form {
 
   .form-error {
     display: none;
   }
-  
-  .form-wrap{
+
+  .form-wrap {
     align-items: center;
-    padding: 25px 0;
+    padding: 10px 0;
 
     label,
     input,
     select,
-    textarea{
+    textarea {
+      font-family: var(--body-font-family);
+      font-weight: var(--body-font-weight);
+      line-height: var(--body-line-height);
+      display: block;
       font-size: var(--title-s-font-size);
       width: 100%;
       padding: 10px;
       background: none;
       border: none;
       color: #fff;
+
+      &:focus-visible {
+        outline-color: white;
+        outline-width: 2px;
+        outline-style: solid;
+        border-radius: 3px;
+      }
+
       &::placeholder {
         opacity: 1;
         color: #454545;
       }
-      
+
     }
   }
 
-  .form-text{
+  .form-text {}
 
+  .form-radio {
+    .align-inline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .form-group {
+      display: flex;
+    }
+
+    input[type="radio"] {
+      visibility: hidden;
+      height: 0;
+      width: 0;
+      display: none;
+    }
+
+    label {
+      cursor: pointer;
+      color: #454545;
+      width: auto;
+      text-transform: uppercase;
+      font-size: var(--body-font-size);
+    }
+
+    input[type="radio"]:checked+label {
+      color: #fff;
+    }
   }
 
-  .form-radio{
-
+  .form-select {
+    .col-right {
+      overflow: hidden;
+      background-image: url(/assets/icons/arrow-dropdown.svg);
+      background-repeat: no-repeat;
+      background-position: center right;
+      background-size: auto 35px;
+      select {
+        -webkit-appearance: none;
+      }
+    }
   }
 
-  .form-select{
-
+  .form-textarea {
+    align-items: flex-start;
   }
 
-  .form-textarea{
-
-  }
-  
 }
