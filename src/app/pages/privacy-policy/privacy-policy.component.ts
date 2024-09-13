@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { LayoutComponent } from '../../shared/layout/layout.component';
+import { LineRevealComponent } from '../../shared/line-reveal/line-reveal.component';
+import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragraph-reveal.component';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -9,7 +11,9 @@ import { LayoutComponent } from '../../shared/layout/layout.component';
     imports: [
         FooterComponent,
         HeaderComponent,
-        LayoutComponent
+        LayoutComponent,
+        LineRevealComponent,
+        ParagraphRevealComponent
     ],
   templateUrl: './privacy-policy.component.html',
   styleUrl: './privacy-policy.component.scss'
