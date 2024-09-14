@@ -7,5 +7,5 @@ import { graphqlProvider } from './graphql.provider';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(), graphqlProvider, provideAnimationsAsync()]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(), graphqlProvider, provideAnimationsAsync(), provideAnimationsAsync()]
 };

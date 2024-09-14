@@ -100,11 +100,10 @@ export class HeaderComponent implements OnInit {
   openMenu() {
     this.dialog.open(MainMenuComponent, {
       panelClass: 'fullscreen-dialog',
-      // height: '100vh',
-      // width: '100vw',
-      // position: {top: '0', left: '0'},
+      height: '100vh',
+      width: '100vw',
       hasBackdrop: true,
-      backdropClass: 'custom-backdrop',
+      backdropClass: 'custom-backdrop'
     });
   }
 }
