@@ -10,7 +10,6 @@ import { GalleryTextHorizontalComponent } from '../../shared/gallery-text-horizo
 import { LineRevealComponent } from '../../shared/line-reveal/line-reveal.component';
 import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragraph-reveal.component';
 import { CurtainRevealComponent } from '../../shared/curtain-reveal/curtain-reveal.component';
-import ScrollReveal from 'scrollreveal';
 import { QUERY_PORTFOLIO, QUERY_PORTFOLIO_INFO } from '../../queries/portfolio';
 
 @Component({
