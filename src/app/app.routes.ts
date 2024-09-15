@@ -8,6 +8,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsOfSaleComponent } from './pages/terms-of-sale/terms-of-sale.component';
 import { WorkWithUsComponent } from './pages/work-with-us/work-with-us.component';
+import { SinglePortfolioComponent } from './pages/single-portfolio/single-portfolio.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,10 @@ export const routes: Routes = [
       {
         path: 'portfolio',
         component: PortfolioComponent
+      },
+      {
+        path: 'portfolio/:id',
+        component: SinglePortfolioComponent
       },
       {
         path: 'methodology',
@@ -46,7 +51,7 @@ export const routes: Routes = [
         path: 'work-with-us',
         component: WorkWithUsComponent
       }
-      
+
     ]
   }
 ];

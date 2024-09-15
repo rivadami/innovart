@@ -9,6 +9,8 @@ import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragrap
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
+import { ActivatedRoute } from '@angular/router';
+import { QUERY_PORTFOLIO_SINGLE } from '../../queries/portfolio';
 
 @Component({
   selector: 'app-single-portfolio',
@@ -29,100 +31,23 @@ import { gql } from '@apollo/client/core';
 })
 export class SinglePortfolioComponent implements OnInit {
   portfolio: any;
+  id: string | null;
 
-  constructor(private readonly apollo: Apollo) {
+  constructor(private readonly apollo: Apollo,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.apollo.watchQuery({
-      query: gql`
-        query HomeQuery {
-          page(id: "12", idType: DATABASE_ID) {
-            seo {
-              metaDesc
-              metaRobotsNofollow
-              metaRobotsNoindex
-              opengraphImage {
-                sourceUrl
-                mediaDetails {
-                  height
-                  width
-                  file
-                }
-              }
-              canonical
-              opengraphDescription
-              schema {
-                raw
-              }
-              opengraphSiteName
-              opengraphUrl
-              opengraphTitle
-              opengraphType
-            }
-            title
-            homeFields {
-              title
-              description
-              mainImage {
-                node {
-                  altText
-                  title
-                  sourceUrl
-                  srcSet
-                }
-              }
-              viewAllWorkLabel
-              selectedWorkLabel
-              selectedWork {
-                edges {
-                  node {
-                    ... on PortfolioCompany {
-                      title
-                      link
-                      uri
-                      portfolioSingleFields {
-                        galleryGrid {
-                          edges {
-                            node {
-                              title
-                              altText
-                              sourceUrl
-                              srcSet
-                            }
-                          }
-                        }
-                        title
-                        clientLocation
-                        description
-                        clientName
-                      }
-                    }
-                  }
-                }
-              }
-              testimonialsLabel
-              testimonials {
-                edges {
-                  node {
-                    ... on Testimonial {
-                      testimonialSingleFields {
-                        name
-                        title
-                        company
-                        description
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }`
-    }).valueChanges.subscribe((result: any) => {
-      console.log("@==>", result.data.page.homeFields);
-      this.portfolio = result.data.page.homeFields;
-    });
+    this.id = this.route.snapshot.paramMap.get('id');
+    if (this.id) {
+      this.apollo.watchQuery({
+        query: gql`${QUERY_PORTFOLIO_SINGLE(this.id)}`
+      }).valueChanges.subscribe((result: any) => {
+        debugger
+        console.log("@==>", result.data.portfolioCompany);
+        this.portfolio = result.data.portfolioCompany;
+      });
+    }
   }
 
 
