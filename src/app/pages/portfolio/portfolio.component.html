@@ -1,20 +1,20 @@
 <app-header></app-header>
 <app-layout>
-  <div class="wrapper">
-    <app-line-reveal>
-      <div class="line horizontal"></div>
-    </app-line-reveal>
-  </div>
-  <div class="wrapper wrapper--top-0 min-h-400 d-flex flex-column justify-content-between">
-    <app-paragraph-reveal classSelector="title">
-      <h1 class="title text-uppercase">Portfolio</h1>
-    </app-paragraph-reveal>
-    <div class="container container--small">
-      <p class="text">Our approach is honest, insight-driven and brand strategy-based. We're a multi-disciplinary team
-        of thinkers that puts function before aesthetic and works to create enduring design solutions that connect with
-        people.</p>
+  <ng-container *ngIf="portfolioInfo">
+    <div class="wrapper">
+      <app-line-reveal>
+        <div class="line horizontal"></div>
+      </app-line-reveal>
     </div>
-  </div>
+    <div class="wrapper wrapper--top-0 min-h-400 d-flex flex-column justify-content-between">
+      <app-paragraph-reveal classSelector="title">
+        <h1 class="title text-uppercase">{{ portfolioInfo?.portfolioFields?.title }}</h1>
+      </app-paragraph-reveal>
+      <div class="container container--small">
+        <p class="text">{{ portfolioInfo?.portfolioFields?.description }}</p>
+      </div>
+    </div>
+  </ng-container>
   <!--<ng-container *ngIf="portfolio">
     <div *ngFor="let item of portfolio">
       <h1>{{item.node.title}}</h1>

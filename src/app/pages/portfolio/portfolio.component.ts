@@ -11,6 +11,7 @@ import { LineRevealComponent } from '../../shared/line-reveal/line-reveal.compon
 import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragraph-reveal.component';
 import { CurtainRevealComponent } from '../../shared/curtain-reveal/curtain-reveal.component';
 import ScrollReveal from 'scrollreveal';
+import { QUERY_PORTFOLIO, QUERY_PORTFOLIO_INFO } from '../../queries/portfolio';
 
 @Component({
   selector: 'app-portfolio',
@@ -31,6 +32,7 @@ import ScrollReveal from 'scrollreveal';
   styleUrl: './portfolio.component.scss'
 })
 export class PortfolioComponent implements OnInit {
+  portfolioInfo: any = null;
   portfolio: any[] = [];
   noPosts = 0;
   hasMore = true;
@@ -39,65 +41,35 @@ export class PortfolioComponent implements OnInit {
   constructor(private readonly apollo: Apollo) {
   }
 
-  ngAfterViewInit(): void {
-
-    ScrollReveal().reveal('body', {
-      interval: 200,
-      duration: 3000,
-      viewFactor: .1,
-    });
-
-  }
-
   ngOnInit(): void {
     this.loadFirstN();
+    this.loadPageInfo();
+  }
+
+  loadPageInfo() {
+    this.apollo
+    .watchQuery({query: gql`${QUERY_PORTFOLIO_INFO}`})
+    .valueChanges
+    .subscribe((result: any) => {
+      console.log("@==>", result.data.page);
+      this.portfolioInfo = result.data.page;
+    });
+
   }
 
   loadFirstN(noPosts: number = 4) {
-    this.apollo.watchQuery({
-        query: gql`
-          query PortfolioPosts {
-            portfolioCompanies(first: ${noPosts}, where: {status: PUBLISH}, after: "${this.afterKey ? this.afterKey : ''}") {
-              edges {
-                node {
-                  title
-                  link
-                  uri
-                  portfolioSingleFields {
-                    galleryGrid {
-                      edges {
-                        node {
-                          title
-                          altText
-                          sourceUrl
-                          srcSet
-                        }
-                      }
-                    }
-                    title
-                    clientLocation
-                    description
-                    clientName
-                  }
-                }
-              }
-              pageInfo {
-                hasNextPage
-                endCursor
-              }
-            }
-          }
-        `
-      }
-    ).valueChanges.subscribe((result: any) => {
-      console.log("@==>", result.data.portfolioCompanies);
-      result.data.portfolioCompanies.edges.forEach((edge: any) => {
-        this.portfolio.push(edge)
+    this.apollo
+      .watchQuery({query: gql`${QUERY_PORTFOLIO(noPosts, this.afterKey)}`})
+      .valueChanges
+      .subscribe((result: any) => {
+        console.log("@==>", result.data.portfolioCompanies);
+        result.data.portfolioCompanies.edges.forEach((edge: any) => {
+          this.portfolio.push(edge)
+        });
+        this.afterKey = result.data.portfolioCompanies.pageInfo.endCursor;
+        this.noPosts = result.data.portfolioCompanies.edges.length;
+        this.hasMore = result.data.portfolioCompanies.pageInfo.hasNextPage;
       });
-      this.afterKey = result.data.portfolioCompanies.pageInfo.endCursor;
-      this.noPosts = result.data.portfolioCompanies.edges.length;
-      this.hasMore = result.data.portfolioCompanies.pageInfo.hasNextPage;
-    });
   }
 
   loadMore() {
