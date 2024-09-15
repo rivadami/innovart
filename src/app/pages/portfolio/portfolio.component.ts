@@ -25,15 +25,16 @@ import ScrollReveal from 'scrollreveal';
     LineRevealComponent,
     ParagraphRevealComponent,
     FooterComponent,
-    CurtainRevealComponent,  
+    CurtainRevealComponent,
   ],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss'
 })
 export class PortfolioComponent implements OnInit {
-  portfolio: any;
-  noPosts  = 0;
+  portfolio: any[] = [];
+  noPosts = 0;
   hasMore = true;
+  afterKey = null;
 
   constructor(private readonly apollo: Apollo) {
   }
@@ -55,49 +56,52 @@ export class PortfolioComponent implements OnInit {
   loadFirstN(noPosts: number = 4) {
     this.apollo.watchQuery({
         query: gql`
-        query PortfolioPosts {
-          portfolioCompanies(first: ${noPosts}, where: {status: PUBLISH}, after: "") {
-            edges {
-              node {
-                title
-                link
-                uri
-                portfolioSingleFields {
-                  galleryGrid {
-                    edges {
-                      node {
-                        title
-                        altText
-                        sourceUrl
-                        srcSet
+          query PortfolioPosts {
+            portfolioCompanies(first: ${noPosts}, where: {status: PUBLISH}, after: "${this.afterKey ? this.afterKey : ''}") {
+              edges {
+                node {
+                  title
+                  link
+                  uri
+                  portfolioSingleFields {
+                    galleryGrid {
+                      edges {
+                        node {
+                          title
+                          altText
+                          sourceUrl
+                          srcSet
+                        }
                       }
                     }
+                    title
+                    clientLocation
+                    description
+                    clientName
                   }
-                  title
-                  clientLocation
-                  description
-                  clientName
                 }
               }
-            }
-            pageInfo {
-              hasNextPage
-              endCursor
+              pageInfo {
+                hasNextPage
+                endCursor
+              }
             }
           }
-        }
-      `
+        `
       }
     ).valueChanges.subscribe((result: any) => {
       console.log("@==>", result.data.portfolioCompanies);
-      this.portfolio = result.data.portfolioCompanies;
+      result.data.portfolioCompanies.edges.forEach((edge: any) => {
+        this.portfolio.push(edge)
+      });
+      this.afterKey = result.data.portfolioCompanies.pageInfo.endCursor;
       this.noPosts = result.data.portfolioCompanies.edges.length;
       this.hasMore = result.data.portfolioCompanies.pageInfo.hasNextPage;
     });
   }
 
-  loadMore(noPosts: number = 4) {
-    this.loadFirstN(noPosts + 4);
+  loadMore() {
+    this.loadFirstN();
   }
 
 }
