@@ -1,5 +1,14 @@
 @import "../../../variables";
 
+.stickied {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
 .work {
   display: flex;
   justify-content: space-between;
@@ -37,7 +46,7 @@
     padding-right: 30px;
     gap: 30px;
 
-    .info-title{
+    .info-title {
       flex: 1 1 auto;
     }
 
