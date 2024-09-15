@@ -11,6 +11,7 @@ import { LineRevealComponent } from '../../shared/line-reveal/line-reveal.compon
 import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragraph-reveal.component';
 import { CurtainRevealComponent } from '../../shared/curtain-reveal/curtain-reveal.component';
 import ScrollReveal from 'scrollreveal';
+import { QUERY_HOME } from '../../queries/home';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,7 @@ import ScrollReveal from 'scrollreveal';
     LineRevealComponent,
     ParagraphRevealComponent,
     FooterComponent,
-    CurtainRevealComponent,    
+    CurtainRevealComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -49,90 +50,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.apollo.watchQuery({
-      query: gql`
-        query HomeQuery {
-          page(id: "12", idType: DATABASE_ID) {
-            seo {
-              metaDesc
-              metaRobotsNofollow
-              metaRobotsNoindex
-              opengraphImage {
-                sourceUrl
-                mediaDetails {
-                  height
-                  width
-                  file
-                }
-              }
-              canonical
-              opengraphDescription
-              schema {
-                raw
-              }
-              opengraphSiteName
-              opengraphUrl
-              opengraphTitle
-              opengraphType
-            }
-            title
-            homeFields {
-              title
-              description
-              mainImage {
-                node {
-                  altText
-                  title
-                  sourceUrl
-                  srcSet
-                }
-              }
-              viewAllWorkLabel
-              selectedWorkLabel
-              selectedWork {
-                edges {
-                  node {
-                    ... on PortfolioCompany {
-                      title
-                      link
-                      uri
-                      portfolioSingleFields {
-                        galleryGrid {
-                          edges {
-                            node {
-                              title
-                              altText
-                              sourceUrl
-                              srcSet
-                            }
-                          }
-                        }
-                        title
-                        clientLocation
-                        description
-                        clientName
-                      }
-                    }
-                  }
-                }
-              }
-              testimonialsLabel
-              testimonials {
-                edges {
-                  node {
-                    ... on Testimonial {
-                      testimonialSingleFields {
-                        name
-                        title
-                        company
-                        description
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }`
+      query: gql`${QUERY_HOME}`
     }).valueChanges.subscribe((result: any) => {
       console.log("@==>", result.data.page.homeFields);
       this.home = result.data.page.homeFields;
