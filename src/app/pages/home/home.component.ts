@@ -48,7 +48,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.apollo.watchQuery({
       query: gql`${QUERY_HOME}`
     }).valueChanges.subscribe((result: any) => {

@@ -1,21 +1,22 @@
 <app-header></app-header>
 <app-layout>
-  <div class="wrapper">
-    <app-line-reveal>
-      <div class="line horizontal"></div>
-    </app-line-reveal>
-  </div>
-  <div class="wrapper wrapper--top-0 wrapper--m-bottom-195 min-h-400 d-flex flex-column justify-content-between">
-    <app-paragraph-reveal classSelector="title">
-      <h1 class="title text-uppercase">LEADING TRANSFORMATIVE<br>
-        PROJECTS THROUGHOUT THE YEARS</h1>
-    </app-paragraph-reveal>
-    <div class="container container--small">
-      <p class="text">Since 2003, we have partnered with our clients to build and differentiate their brands, whit a
-        unique methodology distinctive approach defined by honesty, driven by insights, and focused on integrated brand
-        strategy.</p>
+  <ng-container *ngIf="page">
+    <div class="wrapper">
+      <app-line-reveal>
+        <div class="line horizontal"></div>
+      </app-line-reveal>
     </div>
-  </div>
+    <div class="wrapper wrapper--top-0 wrapper--m-bottom-195 min-h-400 d-flex flex-column justify-content-between">
+      <app-paragraph-reveal classSelector="title">
+        <h1 class="title text-uppercase">
+          {{page?.companyFields?.title}}
+        </h1>
+      </app-paragraph-reveal>
+      <div class="container container--small">
+        <p class="text">{{page?.companyFields?.description}}</p>
+      </div>
+    </div>
+  </ng-container>
   <div class="wrapper">
     <app-line-reveal>
       <div class="line horizontal"></div>
@@ -130,7 +131,7 @@
             technology</p>
             <p class="text">Over the years, we have transcended industry boundaries and left a significant impact on a wide
               range of sectors, including but not limited to entertainment, beverage, fashion, real estate, hospitality, and
-              technology</p>            
+              technology</p>
         </div>
       </div>
     </div>
@@ -158,7 +159,7 @@
             technology</p>
             <p class="text">Over the years, we have transcended industry boundaries and left a significant impact on a wide
               range of sectors, including but not limited to entertainment, beverage, fashion, real estate, hospitality, and
-              technology</p>            
+              technology</p>
         </div>
       </div>
     </div>
@@ -218,9 +219,6 @@
       </div>
       <div class="logo-img">
         <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>      
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
       </div>
       <div class="logo-img">
         <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
@@ -230,7 +228,10 @@
       </div>
       <div class="logo-img">
         <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>  
+      </div>
+      <div class="logo-img">
+        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
+      </div>
       <div class="logo-img">
         <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
       </div>
@@ -241,6 +242,6 @@
         <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
       </div>
     </div>
-  </div>  
+  </div>
 </app-layout>
 <app-footer></app-footer>

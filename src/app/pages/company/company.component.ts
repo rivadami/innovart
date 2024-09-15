@@ -11,6 +11,8 @@ import { LineRevealComponent } from '../../shared/line-reveal/line-reveal.compon
 import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragraph-reveal.component';
 import { CurtainRevealComponent } from '../../shared/curtain-reveal/curtain-reveal.component';
 import ScrollReveal from 'scrollreveal';
+import { QUERY_HOME } from '../../queries/home';
+import { QUERY_COMPANY } from '../../queries/company';
 
 @Component({
   selector: 'app-company',
@@ -25,11 +27,24 @@ import ScrollReveal from 'scrollreveal';
         LineRevealComponent,
         ParagraphRevealComponent,
         FooterComponent,
-        CurtainRevealComponent,          
+        CurtainRevealComponent,
     ],
   templateUrl: './company.component.html',
   styleUrl: './company.component.scss'
 })
-export class CompanyComponent {
+export class CompanyComponent implements OnInit {
+  page: any;
+
+  constructor(private readonly apollo: Apollo) {
+  }
+
+  ngOnInit(): void {
+    this.apollo.watchQuery({
+      query: gql`${QUERY_COMPANY}`
+    }).valueChanges.subscribe((result: any) => {
+      console.log("@==>", result.data.page);
+      this.page = result.data.page;
+    });
+  }
 
 }
