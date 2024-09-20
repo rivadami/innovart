@@ -402,7 +402,7 @@ table {
 }
 
 .mb-30 {
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem!important;
 }
 
 .gap-20 {
@@ -451,6 +451,11 @@ table {
 
 
 .container {
+
+  &--medium {
+    max-width: 900px;
+  }
+
   &--small {
     max-width: 655px;
   }
@@ -476,6 +481,7 @@ table {
 .link {
   color: $grey;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
     color: $black;
@@ -811,4 +817,35 @@ table {
 
 .custom-backdrop {
   background-color: rgba(0, 0, 0, 0.9);
+}
+
+.carousel-cell{
+  &:nth-child(2){
+    .reveal-content{
+      &:after{
+        transition-delay: 250ms;
+      }
+    }
+  }
+  &:nth-child(3){
+    .reveal-content{
+      &:after{
+        transition-delay: 500ms;
+      }
+    }
+  }
+  &:nth-child(4){
+    .reveal-content{
+      &:after{
+        transition-delay: 750ms;
+      }
+    }
+  }    
+  &:nth-child(4){
+    .reveal-content{
+      &:after{
+        transition-delay: 1000ms;
+      }
+    }
+  }      
 }

@@ -43,7 +43,7 @@ export class SinglePortfolioComponent implements OnInit {
       this.apollo.watchQuery({
         query: gql`${QUERY_PORTFOLIO_SINGLE(this.id)}`
       }).valueChanges.subscribe((result: any) => {
-        debugger
+        //debugger
         console.log("@==>", result.data.portfolioCompany);
         this.portfolio = result.data.portfolioCompany;
       });

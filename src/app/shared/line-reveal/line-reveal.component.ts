@@ -12,14 +12,17 @@ export class LineRevealComponent implements AfterViewInit {
   @ViewChild('lineWrapper') lineElement!: ElementRef;
 
   ngAfterViewInit(): void {
-    ScrollReveal().reveal('.reveal-content', {
-      duration: 1000,
-      viewFactor: 0.2,
-      opacity: 1,
-      beforeReveal: (el) => {
-        (el as HTMLElement).classList.add('revealed');
-      },
-      reset: false // Animation occurs only once
-    });
+    setTimeout(() => {
+      ScrollReveal().reveal(this.lineElement.nativeElement, {
+      //ScrollReveal().reveal('.reveal-content', {
+        duration: 1000,
+        viewFactor: 0.1,
+        opacity: 1,
+        beforeReveal: (el) => {
+          (el as HTMLElement).classList.add('revealed');
+        },
+        reset: false // Animation occurs only once
+      });
+    }, 100);
   }
 }

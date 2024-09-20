@@ -11,24 +11,23 @@ import { LineRevealComponent } from '../../shared/line-reveal/line-reveal.compon
 import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragraph-reveal.component';
 import { CurtainRevealComponent } from '../../shared/curtain-reveal/curtain-reveal.component';
 import ScrollReveal from 'scrollreveal';
-import { QUERY_HOME } from '../../queries/home';
 import { QUERY_COMPANY } from '../../queries/company';
 
 @Component({
   selector: 'app-company',
   standalone: true,
-    imports: [
-        LayoutComponent,
-        HeaderComponent,
-        NgIf,
-        NgForOf,
-        GalleryHorizontalComponent,
-        GalleryTextHorizontalComponent,
-        LineRevealComponent,
-        ParagraphRevealComponent,
-        FooterComponent,
-        CurtainRevealComponent,
-    ],
+  imports: [
+    LayoutComponent,
+    HeaderComponent,
+    NgIf,
+    NgForOf,
+    GalleryHorizontalComponent,
+    GalleryTextHorizontalComponent,
+    LineRevealComponent,
+    ParagraphRevealComponent,
+    FooterComponent,
+    CurtainRevealComponent,
+  ],
   templateUrl: './company.component.html',
   styleUrl: './company.component.scss'
 })
@@ -36,6 +35,16 @@ export class CompanyComponent implements OnInit {
   page: any;
 
   constructor(private readonly apollo: Apollo) {
+  }
+
+  ngAfterViewInit(): void {
+
+    ScrollReveal().reveal('body', {
+      interval: 200,
+      duration: 1000,
+      viewFactor: .1,
+    });
+
   }
 
   ngOnInit(): void {

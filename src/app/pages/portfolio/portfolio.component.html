@@ -1,6 +1,6 @@
-<app-header></app-header>
-<app-layout>
-  <ng-container *ngIf="portfolioInfo">
+<app-header *ngIf="portfolioInfo"></app-header>
+<app-layout *ngIf="portfolioInfo">
+  <ng-container>
     <div class="wrapper">
       <app-line-reveal>
         <div class="line horizontal"></div>
@@ -60,8 +60,8 @@
   </div>
   <div class="wrapper wrapper--top-75 wrapper--bottom-195" [class.hidden]="!hasMore">
     <h2 class="title title-s w-min text-uppercase">
-      <a (click)="loadMore()">Load more<br>Projects</a>
+      <a class="link link--black" (click)="loadMore()">Load more<br>Projects</a>
     </h2>
   </div>
 </app-layout>
-<app-footer></app-footer>
+<app-footer *ngIf="portfolioInfo"></app-footer>

@@ -10,8 +10,8 @@
   </div>
   <img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
   <div class="wrapper wrapper--top-75 wrapper--m-top-25 wrapper--bottom-0 wrapper--m-bottom-195 d-flex flex-row gap-20 gap-m-70">
-    <h2 class="title title-s w-min-m min-w-m-250">SELECTED WORK</h2>
-    <a class="link title title-s w-min-m min-w-m-250" href="#">VIEW ALL WORK</a>
+    <h2 class="title title-s w-min-m min-w-m-250">{{ home?.selectedWorkLabel }}</h2>
+    <a class="link title title-s w-min-m min-w-m-250" href="#">{{ home?.viewAllWorkLabel }}</a>
   </div>
   <div class="wrapper wrapper--x-x-0 wrapper--m-right-0 wrapper--bottom-0" *ngFor="let item of home?.selectedWork?.edges">
     <app-line-reveal>

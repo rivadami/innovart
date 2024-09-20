@@ -1,17 +1,19 @@
-<app-header></app-header>
-<app-layout>
-  <ng-container *ngIf="page">
+<app-header *ngIf="page"></app-header>
+<app-layout *ngIf="page">
+  <ng-container>
     <div class="wrapper">
       <app-line-reveal>
         <div class="line horizontal"></div>
       </app-line-reveal>
     </div>
     <div class="wrapper wrapper--top-0 wrapper--m-bottom-195 min-h-400 d-flex flex-column justify-content-between">
-      <app-paragraph-reveal classSelector="title">
-        <h1 class="title text-uppercase">
-          {{page?.companyFields?.title}}
-        </h1>
-      </app-paragraph-reveal>
+      <div class="container container--medium">
+        <app-paragraph-reveal classSelector="title">
+          <h1 class="title text-uppercase">
+            {{page?.companyFields?.title}}
+          </h1>
+        </app-paragraph-reveal>
+      </div>
       <div class="container container--small">
         <p class="text">{{page?.companyFields?.description}}</p>
       </div>
@@ -244,4 +246,4 @@
     </div>
   </div>
 </app-layout>
-<app-footer></app-footer>
+<app-footer *ngIf="page"></app-footer>
