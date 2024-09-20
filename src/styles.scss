@@ -199,7 +199,7 @@ table {
   justify-content: space-between;
 }
 
-@media (max-width: $mq-tablet - 1px) {
+@media (max-width: ($mq-tablet - 1px)) {
   .x-hidden {
     display: none !important;
   }
@@ -337,7 +337,7 @@ table {
     padding-bottom: var(--bottom-195);
   }
 
-  @media (max-width: $mq-tablet - 1px) {
+  @media (max-width: ($mq-tablet - 1px)) {
     &--x-x-0 {
       padding-right: 0;
       padding-left: 0;
@@ -372,6 +372,10 @@ table {
 
     &--m-top-75 {
       padding-top: var(--top-75);
+    }
+
+    &--m-top-125 {
+      padding-top: 125px;
     }
 
     &--m-bottom-25 {
@@ -413,6 +417,10 @@ table {
   gap: 30px;
 }
 
+.gap-60 {
+  gap: 60px
+}
+
 .gap-70 {
   gap: 70px
 }
@@ -435,8 +443,10 @@ table {
   max-width: 1250px;
 }
 
-.min-h-400 {
-  min-height: 400px;
+@media (min-width: $mq-tablet) {
+  .min-h-400 {
+    min-height: 400px;
+  }
 }
 
 @media (min-width: $mq-desktop) {
@@ -453,7 +463,7 @@ table {
 .container {
 
   &--medium {
-    max-width: 900px;
+    max-width: 1200px;
   }
 
   &--small {
@@ -653,11 +663,13 @@ table {
   display: flex;
   flex-direction: column;
   gap: 60px;
+  width: 100%;
 
   .accordion-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
   }
 
   .accordion-content {

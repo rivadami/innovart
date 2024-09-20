@@ -1,12 +1,12 @@
 <app-header *ngIf="portfolioInfo"></app-header>
 <app-layout *ngIf="portfolioInfo">
   <ng-container>
-    <div class="wrapper">
+    <div class="wrapper x-hidden">
       <app-line-reveal>
         <div class="line horizontal"></div>
       </app-line-reveal>
     </div>
-    <div class="wrapper wrapper--top-0 min-h-400 d-flex flex-column justify-content-between">
+    <div class="wrapper wrapper--m-top-0  min-h-400 d-flex flex-column justify-content-between gap-60">
       <app-paragraph-reveal classSelector="title">
         <h1 class="title text-uppercase">{{ portfolioInfo?.portfolioFields?.title }}</h1>
       </app-paragraph-reveal>
@@ -22,18 +22,18 @@
     </div>
   </ng-container>
   <button (click)="loadMore()" [disabled]="!hasMore">cargar mas {{noPosts}} {{hasMore}}</button>-->
-  <div class="work-container">
+  <div class="wrapper wrapper--top-0 wrapper--x-0 wrapper--bottom-75 work-container">
     <ng-container *ngIf="portfolio">
-      <div class="wrapper wrapper--right-0 wrapper--bottom-0" *ngFor="let item of portfolio">
+      <div class="wrapper wrapper--x-x-0 wrapper--m-right-0 wrapper--bottom-0" *ngFor="let item of portfolio">
         <app-line-reveal>
-          <div class="line line--mr horizontal"></div>
+          <div class="line line--m-mr horizontal"></div>
         </app-line-reveal>
         <div class="work">
           <div class="gallery">
             <app-gallery-horizontal #gallery [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"
               [showButtons]="false" classCss="big"></app-gallery-horizontal>
           </div>
-          <div class="info">
+          <div class="info info--desktop">
             <div class="info-title">
               <h3 class="text">{{item?.node?.portfolioSingleFields.title}}</h3>
               <h4 class="text text-grey">{{item?.node?.portfolioSingleFields.clientLocation}}</h4>
@@ -51,14 +51,23 @@
               </div>
             </div>
           </div>
+          <div class="info info--mobile">
+            <div class="info-description">
+              <div class="info-box">
+                <div class="info-box-client"><span class="text-xs text-grey text-uppercase">Client</span>
+                  <h4 class="text-s">{{item?.node?.portfolioSingleFields.clientName}}</h4>
+                </div>
+              </div>
+            </div>
+          </div>          
         </div>
       </div>
     </ng-container>
   </div>
-  <div class="wrapper">
-    <hr class="divider divider--m0">
-  </div>
-  <div class="wrapper wrapper--top-75 wrapper--bottom-195" [class.hidden]="!hasMore">
+  <div class="wrapper wrapper--top-0 wrapper--m-top-75 wrapper--m-bottom-195" [class.hidden]="!hasMore">
+    <app-line-reveal class="x-hidden">
+      <div class="line horizontal"></div>
+    </app-line-reveal>
     <h2 class="title title-s w-min text-uppercase">
       <a class="link link--black" (click)="loadMore()">Load more<br>Projects</a>
     </h2>
