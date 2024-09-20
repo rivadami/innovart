@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header *ngIf="home"></app-header>
 <app-layout *ngIf="home">
   <div class="wrapper wrapper--top-25 wrapper--bottom-50">
     <app-paragraph-reveal classSelector="title-big">
@@ -19,7 +19,7 @@
     </app-line-reveal>
     <div class="work">
       <div class="info">
-        <div class="info-title stickied">
+        <div class="info-title">
           <h3 class="text">{{ item?.node?.portfolioSingleFields.title }}</h3>
           <h4 class="text text-grey">{{ item?.node?.portfolioSingleFields.clientLocation }}</h4>
         </div>
@@ -60,4 +60,4 @@
     </ng-container>
   </div>
 </app-layout>
-<app-footer></app-footer>
+<app-footer *ngIf="home"></app-footer>

@@ -568,6 +568,7 @@ table {
     &:hover {
       color: #fff;
       background-color: #000;
+
       svg {
         path {
           fill: #fff !important;
@@ -740,8 +741,6 @@ table {
     }
   }
 
-  .form-text {}
-
   .form-radio {
     .align-inline {
       display: flex;
@@ -782,7 +781,9 @@ table {
       background-repeat: no-repeat;
       background-position: center right;
       background-size: auto 35px;
+
       select {
+        appearance: none;
         -webkit-appearance: none;
       }
     }

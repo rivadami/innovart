@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
 
     ScrollReveal().reveal('body', {
       interval: 200,
-      duration: 3000,
+      duration: 1000,
       viewFactor: .1,
     });
 
