@@ -816,7 +816,7 @@ table {
 
 //menu styles
 :root {
-  --mat-dialog-container-small-max-width: 100vw;
+  //--mat-dialog-container-small-max-width: 100vw;
   --mdc-dialog-container-shape: 0px;
   --mat-app-corner-extra-large: 0px;
   --mdc-dialog-container-color: transparent;
@@ -825,6 +825,8 @@ table {
 .fullscreen-dialog {
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
+  width: 80% !important;
+  margin: 0 auto !important;
 }
 
 .custom-backdrop {
@@ -852,12 +854,12 @@ table {
         transition-delay: 750ms;
       }
     }
-  }    
+  }
   &:nth-child(4){
     .reveal-content{
       &:after{
         transition-delay: 1000ms;
       }
     }
-  }      
+  }
 }
