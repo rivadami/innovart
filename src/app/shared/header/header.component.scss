@@ -16,10 +16,13 @@
         width: 140px;
         z-index: 2;
         transition: all 1s;
-        &.active {
-            -webkit-filter: invert(100%);
-            filter: invert(100%);
+        @media (max-width: ($mq-tablet - 1px)) {
+            &.active {
+                -webkit-filter: invert(100%);
+                filter: invert(100%);
+            }
         }
+
     }
 
     .js-mm-toggle {
