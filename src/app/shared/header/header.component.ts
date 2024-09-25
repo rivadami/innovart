@@ -4,7 +4,8 @@ import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
 import { NgForOf, NgOptimizedImage } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { MainMenuComponent } from '../main-menu/main-menu.component';
+import { AnimatedMenuComponent } from '../animated-menu/animated-menu.component';
+import { QUERY_HEADER } from '../../queries/header';
 
 @Component({
   selector: 'app-header',
@@ -26,71 +27,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.apollo.watchQuery({
-      query: gql`
-        query MainQuery {
-          globalContent {
-            globalFields {
-              siteLogo {
-                node {
-                  altText
-                  title
-                  sourceUrl
-                  srcSet
-                }
-              }
-              contactPhrase
-              contactPhraseLink
-              whoWeAre
-              phoneNumber {
-                target
-                title
-                url
-              }
-              emailAddress {
-                target
-                title
-                url
-              }
-              socialMedia {
-                socialMediaItem {
-                  target
-                  title
-                  url
-                }
-              }
-              footerLogo {
-                node {
-                  altText
-                  title
-                  sourceUrl
-                  srcSet
-                }
-              }
-              copyright
-              bookCall {
-                target
-                title
-                url
-              }
-            }
-          }
-          menus {
-            nodes {
-              name
-              menuItems {
-                edges {
-                  node {
-                    label
-                    url
-                    uri
-                    parentId
-                    target
-                  }
-                }
-              }
-            }
-          }
-        }`
+      query: gql`${QUERY_HEADER}`
     }).valueChanges.subscribe((result: any) => {
       console.log("@==>", result);
       this.menu = result.data.menus.nodes;
@@ -98,7 +35,7 @@ export class HeaderComponent implements OnInit {
   }
 
   openMenu() {
-    this.dialog.open(MainMenuComponent, {
+    this.dialog.open(AnimatedMenuComponent, {
       panelClass: 'fullscreen-dialog',
       height: '100vh',
       width: '100vw',
