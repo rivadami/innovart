@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
-import { NgForOf, NgOptimizedImage } from '@angular/common';
+import { NgIf, NgForOf, NgOptimizedImage, NgClass } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { AnimatedMenuComponent } from '../animated-menu/animated-menu.component';
 import { QUERY_HEADER } from '../../queries/header';
@@ -12,6 +12,8 @@ import { QUERY_HEADER } from '../../queries/header';
   standalone: true,
   imports: [
     RouterLink,
+    NgIf,
+    NgClass,
     NgForOf,
     NgOptimizedImage
   ],
@@ -20,7 +22,8 @@ import { QUERY_HEADER } from '../../queries/header';
 })
 export class HeaderComponent implements OnInit {
   menu: string[] = [];
-
+  menuActive = false;
+  classCss: string;  
   constructor(private readonly apollo: Apollo,
               private dialog: MatDialog) {
   }
@@ -35,6 +38,17 @@ export class HeaderComponent implements OnInit {
   }
 
   openMenu() {
+    if(this.menuActive == true){
+      this.menuActive = false;
+      this.classCss = "";
+    } else{
+      this.menuActive = true;
+      this.classCss = "active";
+    }
+    console.log(this.classCss);
+    console.log(this.menuActive);
+
+    /*
     this.dialog.open(AnimatedMenuComponent, {
       panelClass: 'fullscreen-dialog',
       height: '100vh',
@@ -42,5 +56,6 @@ export class HeaderComponent implements OnInit {
       hasBackdrop: true,
       backdropClass: 'custom-backdrop'
     });
+    */
   }
 }
