@@ -400,9 +400,12 @@ table {
   grid-template-columns: 2fr 3fr;
 }
 
+
 .grid-m-34 {
-  gap: 20px;
-  grid-template-columns: 3fr 4fr;
+  gap: 50px;
+  @media (min-width: $mq-desktop) {
+    grid-template-columns: 3fr 4fr;
+  }
 }
 
 .mb-30 {
@@ -415,6 +418,10 @@ table {
 
 .gap-30 {
   gap: 30px;
+}
+
+.gap-50 {
+  gap: 50px;
 }
 
 .gap-60 {
@@ -698,13 +705,19 @@ table {
 
 .logos {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  @media (min-width: $mq-tablet) {
+    grid-template-columns: repeat(6, 1fr);
+  }
 
   .logo-img {
     transition: all 1s;
-    padding: 20px;
-
+    padding: 10px;
+    @media (min-width: $mq-tablet) {
+      padding: 20px;
+    }
+    background: $white;
     img {
       display: block;
       width: 100%;
