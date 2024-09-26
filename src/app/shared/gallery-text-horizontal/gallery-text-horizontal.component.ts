@@ -27,7 +27,8 @@ export class GalleryTextHorizontalComponent implements AfterViewInit {
       prevNextButtons: false,
       autoPlay: false,
       wrapAround: true,
-      groupCells: true
+      groupCells: true,
+      resize: true,      
     });
   }
 

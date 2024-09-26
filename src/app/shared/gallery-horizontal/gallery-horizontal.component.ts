@@ -37,6 +37,7 @@ export class GalleryHorizontalComponent implements AfterViewInit {
       freeScroll: false,
       prevNextButtons: false,
       autoPlay: false,
+      resize: true,
     });
 
     setTimeout(() => {
