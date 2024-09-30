@@ -202,10 +202,19 @@ table {
 .justify-content-end {
   justify-content: flex-end;
 }
-
 .text-end{
   text-align: right;
 }
+@media (min-width: $mq-tablet) {
+  .justify-content-tablet-end{
+    justify-content: flex-end;
+  }
+  .text-tablet-end{
+    text-align: right;
+  }
+}
+
+
 
 @media (max-width: ($mq-tablet - 1px)) {
   .x-hidden {
@@ -504,6 +513,7 @@ table {
   &--full {
     display: block;
     width: 100%;
+    height: auto;
   }
 }
 
