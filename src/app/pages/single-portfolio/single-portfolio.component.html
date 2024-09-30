@@ -1,70 +1,87 @@
 <app-header></app-header>
 <app-layout>
-  <!--<div class="wrapper wrapper&#45;&#45;top-25 wrapper&#45;&#45;bottom-50">
+  <div class="wrapper x-hidden">
     <app-line-reveal>
       <div class="line horizontal"></div>
     </app-line-reveal>
-    <div class="container container&#45;&#45;between">
-      <h1 class="title title-big"> title </h1>
-      <span class="title text-uppercase"> next project </span>
+  </div>
+  <div
+    class="wrapper wrapper--m-top-0  wrapper--m-bottom-195 min-h-400 d-flex flex-column justify-content-between gap-60">
+    <div class="d-flex justify-content-between">
+      <div class="container container--medium">
+        <app-paragraph-reveal classSelector="title">
+          <h1 class="title text-uppercase" [innerHTML]="">
+            ARIA COUNTRY RESIDENCES<br>MÉRIDA, MEXICO
+          </h1>
+        </app-paragraph-reveal>
+      </div>
+      <app-paragraph-reveal classSelector="title">
+        <h2 class="title w-min text-uppercase text-end">
+          <a class="link link--black">Next<br>Projects</a>
+        </h2>
+      </app-paragraph-reveal>
     </div>
-    <div class="container container&#45;&#45;small">
+    <div class="container container--small">
+      <p class="text">Since 1954, Hollub Group has set the standard for innovative, custom home building and renovations
+        in South Florida, elevating its lifestyle community canvas landscape from Pinecrest to Coral Gables and Miami
+        Beach.</p>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="gallery">
+      <!--<app-gallery-horizontal #gallery
+        [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"></app-gallery-horizontal>-->
+    </div>
+    <div class="container container--small container--push-right">
+      <p class="text">Since 1954, Hollub Group has set the standard for innovative, custom home building and renovations
+        in South Florida, elevating its lifestyle community canvas landscape from Pinecrest to Coral Gables and Miami
+        Beach.</p>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="images images--left">
+      <!--<img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">-->
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="images images--right images&#45;&#45;inline">
+      <!--<img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">-->
+      <!--<img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">-->
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="testimonial-slider">
+      <!--<p class="testimonial-quote">"{{item?.node?.testimonialSingleFields?.description}}”</p>
+      <div class="testimonial-info">
+        <span class="testimonial-name">{{item?.node?.testimonialSingleFields?.name}}</span>
+        <span class="testimonial-title">{{item?.node?.testimonialSingleFields?.title}}</span>
+        <span class="testimonial-company">{{item?.node?.testimonialSingleFields?.company}}</span>
+      </div>-->
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="images images--left">
+      <!--<img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
+      <img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">-->
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="container container--small">
       <p class="text"> description </p>
     </div>
   </div>
   <div class="wrapper">
     <div class="gallery">
-      <app-gallery-horizontal #gallery
-        [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"></app-gallery-horizontal>
-    </div>
-    <div class="container container&#45;&#45;small container&#45;&#45;push-right">
-      <p class="text"> description </p>
+      <!--    <app-gallery-horizontal #gallery
+                      [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"></app-gallery-horizontal>-->
     </div>
   </div>
-  <div class="wrapper">
-    <div class="images images&#45;&#45;left">
-      <img class="img img&#45;&#45;full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
-      <div>
-      </div>
-      <div class="wrapper">
-        <div class="images images&#45;&#45;right images&#45;&#45;inline">
-          <img class="img img&#45;&#45;full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
-          <img class="img img&#45;&#45;full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
-          <div>
-          </div>
-          <div class="wrapper">
-            <div class="testimonial-slider">
-              <p class="testimonial-quote">"{{item?.node?.testimonialSingleFields?.description}}”</p>
-              <div class="testimonial-info">
-                <span class="testimonial-name">{{item?.node?.testimonialSingleFields?.name}}</span>
-                <span class="testimonial-title">{{item?.node?.testimonialSingleFields?.title}}</span>
-                <span class="testimonial-company">{{item?.node?.testimonialSingleFields?.company}}</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="wrapper">
-            <div class="images images&#45;&#45;left">
-              <img class="img img&#45;&#45;full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
-              <img class="img img&#45;&#45;full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
-              <div>
-              </div>
-              <div class="wrapper">
-                <div class="container container&#45;&#45;small">
-                  <p class="text"> description </p>
-                </div>
-                <div>
-                </div>
-                <div class="wrapper">
-                  <div class="gallery">
-                    <app-gallery-horizontal #gallery
-                      [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"></app-gallery-horizontal>
-                  </div>
-                </div>
-                <div class="wrapper wrapper&#45;&#45;top-75 wrapper&#45;&#45;bottom-75">
-                  <div class="container container&#45;&#45;small container&#45;&#45;right">
-                    <span class="title text-uppercase"> next project </span>
-                  </div>
-                </div>-->
+  <div class="wrapper wrapper--top-75 wrapper--bottom-75">
+    <div class="container d-flex justify-content-end">
+      <h2 class="title title-s w-min text-uppercase text-end">
+        <a class="link link--black">Next<br>Projects</a>
+      </h2>
+    </div>
+  </div>
 </app-layout>
 <app-footer></app-footer>

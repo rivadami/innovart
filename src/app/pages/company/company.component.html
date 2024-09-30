@@ -1,24 +1,22 @@
 <app-header *ngIf="page"></app-header>
 <app-layout *ngIf="page">
-  <ng-container>
-    <div class="wrapper x-hidden">
-      <app-line-reveal>
-        <div class="line horizontal"></div>
-      </app-line-reveal>
+  <div class="wrapper x-hidden">
+    <app-line-reveal>
+      <div class="line horizontal"></div>
+    </app-line-reveal>
+  </div>
+  <div
+    class="wrapper wrapper--m-top-0  wrapper--m-bottom-195 min-h-400 d-flex flex-column justify-content-between gap-60">
+    <div class="container container--medium">
+      <app-paragraph-reveal classSelector="title">
+        <h1 class="title text-uppercase" [innerHTML]="page?.companyFields?.title">
+        </h1>
+      </app-paragraph-reveal>
     </div>
-    <div class="wrapper wrapper--m-top-0  wrapper--m-bottom-195 min-h-400 d-flex flex-column justify-content-between gap-60">
-      <div class="container container--medium">
-        <app-paragraph-reveal classSelector="title">
-          <h1 class="title text-uppercase">
-            {{page?.companyFields?.title}}
-          </h1>
-        </app-paragraph-reveal>
-      </div>
-      <div class="container container--small">
-        <p class="text">{{page?.companyFields?.description}}</p>
-      </div>
+    <div class="container container--small">
+      <p class="text">{{page?.companyFields?.description}}</p>
     </div>
-  </ng-container>
+  </div>
   <div class="wrapper wrapper--x-x-0">
     <app-line-reveal>
       <div class="line horizontal"></div>
@@ -128,12 +126,16 @@
           <div class="button button--plus"></div>
         </div>
         <div class="accordion-content">
-          <p class="text">Over the years, we have transcended industry boundaries and left a significant impact on a wide
-            range of sectors, including but not limited to entertainment, beverage, fashion, real estate, hospitality, and
+          <p class="text">Over the years, we have transcended industry boundaries and left a significant impact on a
+            wide
+            range of sectors, including but not limited to entertainment, beverage, fashion, real estate, hospitality,
+            and
             technology</p>
-            <p class="text">Over the years, we have transcended industry boundaries and left a significant impact on a wide
-              range of sectors, including but not limited to entertainment, beverage, fashion, real estate, hospitality, and
-              technology</p>
+          <p class="text">Over the years, we have transcended industry boundaries and left a significant impact on a
+            wide
+            range of sectors, including but not limited to entertainment, beverage, fashion, real estate, hospitality,
+            and
+            technology</p>
         </div>
       </div>
     </div>
@@ -156,12 +158,16 @@
           <div class="button button--plus"></div>
         </div>
         <div class="accordion-content">
-          <p class="text">Over the years, we have transcended industry boundaries and left a significant impact on a wide
-            range of sectors, including but not limited to entertainment, beverage, fashion, real estate, hospitality, and
+          <p class="text">Over the years, we have transcended industry boundaries and left a significant impact on a
+            wide
+            range of sectors, including but not limited to entertainment, beverage, fashion, real estate, hospitality,
+            and
             technology</p>
-            <p class="text">Over the years, we have transcended industry boundaries and left a significant impact on a wide
-              range of sectors, including but not limited to entertainment, beverage, fashion, real estate, hospitality, and
-              technology</p>
+          <p class="text">Over the years, we have transcended industry boundaries and left a significant impact on a
+            wide
+            range of sectors, including but not limited to entertainment, beverage, fashion, real estate, hospitality,
+            and
+            technology</p>
         </div>
       </div>
     </div>
@@ -190,7 +196,7 @@
       </div>
     </div>
   </div>
-  <div class="wrapper wrapper--top-0 wrapper--m-top-75 wrapper--m-bottom-75 ">
+  <div class="wrapper wrapper--top-0 wrapper--m-top-75 wrapper--m-bottom-195">
     <div class="logos">
       <div class="logo-img">
         <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />

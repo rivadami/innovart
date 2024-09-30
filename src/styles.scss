@@ -199,6 +199,14 @@ table {
   justify-content: space-between;
 }
 
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.text-end{
+  text-align: right;
+}
+
 @media (max-width: ($mq-tablet - 1px)) {
   .x-hidden {
     display: none !important;
@@ -718,14 +726,19 @@ table {
   .logo-img {
     transition: all 1s;
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @media (min-width: $mq-tablet) {
       padding: 20px;
     }
-    background: $white;
+    &:hover{
+      background: $white;
+    }
     img {
       display: block;
       width: 100%;
-      max-width: 100%;
+      max-width: 200px;
       mix-blend-mode: multiply;
       transition: all 1s;
     }
