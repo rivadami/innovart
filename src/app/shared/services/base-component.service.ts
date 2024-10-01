@@ -17,6 +17,6 @@ export class BaseComponentService {
   addBodyClass(): void {
     const bodyElement = document.body;
     const className = this.getComponentSelector();
-    this.renderer.addClass(bodyElement, className.replace('app-', ''));
+    this.renderer.setAttribute(bodyElement, 'class', className.replace('app-', ''));
   }
 }
