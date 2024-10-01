@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
 import { NgForOf, NgIf } from '@angular/common';
@@ -12,6 +12,7 @@ import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragrap
 import { CurtainRevealComponent } from '../../shared/curtain-reveal/curtain-reveal.component';
 import ScrollReveal from 'scrollreveal';
 import { QUERY_HOME } from '../../queries/home';
+import { BaseComponentService } from '../../shared/services/base-component.service';
 
 @Component({
   selector: 'app-home',
@@ -31,10 +32,13 @@ import { QUERY_HOME } from '../../queries/home';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent extends BaseComponentService implements OnInit {
   home: any;
 
-  constructor(private readonly apollo: Apollo) {
+  constructor(private readonly apollo: Apollo,
+              elementRef: ElementRef,
+              renderer: Renderer2) {
+    super(elementRef, renderer);
   }
 
   ngAfterViewInit(): void {

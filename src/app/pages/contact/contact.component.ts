@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Apollo } from 'apollo-angular';
-import { gql } from '@apollo/client/core';
+import { Component } from '@angular/core';
 import { NgForOf, NgIf } from '@angular/common';
 import { LayoutComponent } from '../../shared/layout/layout.component';
 import { HeaderComponent } from '../../shared/header/header.component';
@@ -10,7 +8,6 @@ import { GalleryTextHorizontalComponent } from '../../shared/gallery-text-horizo
 import { LineRevealComponent } from '../../shared/line-reveal/line-reveal.component';
 import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragraph-reveal.component';
 import { CurtainRevealComponent } from '../../shared/curtain-reveal/curtain-reveal.component';
-import ScrollReveal from 'scrollreveal';
 
 @Component({
   selector: 'app-contact',
@@ -25,7 +22,7 @@ import ScrollReveal from 'scrollreveal';
     LineRevealComponent,
     ParagraphRevealComponent,
     FooterComponent,
-    CurtainRevealComponent,    
+    CurtainRevealComponent,
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'

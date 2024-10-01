@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { LayoutComponent } from '../../shared/layout/layout.component';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { NgForOf, NgIf } from '@angular/common';
@@ -11,6 +11,7 @@ import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
 import { ActivatedRoute } from '@angular/router';
 import { QUERY_PORTFOLIO_SINGLE } from '../../queries/portfolio';
+import { BaseComponentService } from '../../shared/services/base-component.service';
 
 @Component({
   selector: 'app-single-portfolio',
@@ -29,12 +30,15 @@ import { QUERY_PORTFOLIO_SINGLE } from '../../queries/portfolio';
   templateUrl: './single-portfolio.component.html',
   styleUrl: './single-portfolio.component.scss'
 })
-export class SinglePortfolioComponent implements OnInit {
+export class SinglePortfolioComponent extends BaseComponentService implements OnInit {
   portfolio: any;
   id: string | null;
 
   constructor(private readonly apollo: Apollo,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              elementRef: ElementRef,
+              renderer: Renderer2) {
+    super(elementRef, renderer);
   }
 
   ngOnInit(): void {

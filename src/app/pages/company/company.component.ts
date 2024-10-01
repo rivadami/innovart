@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
 import { NgForOf, NgIf } from '@angular/common';
@@ -12,6 +12,7 @@ import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragrap
 import { CurtainRevealComponent } from '../../shared/curtain-reveal/curtain-reveal.component';
 import ScrollReveal from 'scrollreveal';
 import { QUERY_COMPANY } from '../../queries/company';
+import { BaseComponentService } from '../../shared/services/base-component.service';
 
 @Component({
   selector: 'app-company',
@@ -31,10 +32,13 @@ import { QUERY_COMPANY } from '../../queries/company';
   templateUrl: './company.component.html',
   styleUrl: './company.component.scss'
 })
-export class CompanyComponent implements OnInit {
+export class CompanyComponent extends BaseComponentService implements OnInit {
   page: any;
 
-  constructor(private readonly apollo: Apollo) {
+  constructor(private readonly apollo: Apollo,
+              elementRef: ElementRef,
+              renderer: Renderer2) {
+    super(elementRef, renderer);
   }
 
   ngAfterViewInit(): void {

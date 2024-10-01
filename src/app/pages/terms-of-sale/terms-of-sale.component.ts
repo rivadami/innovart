@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { LayoutComponent } from '../../shared/layout/layout.component';
@@ -9,6 +9,7 @@ import { gql } from '@apollo/client/core';
 import { QUERY_METHODY } from '../../queries/methodology';
 import { QUERY_TERMS } from '../../queries/terms';
 import { NgIf } from '@angular/common';
+import { BaseComponentService } from '../../shared/services/base-component.service';
 
 @Component({
   selector: 'app-terms-of-sale',
@@ -24,10 +25,13 @@ import { NgIf } from '@angular/common';
   templateUrl: './terms-of-sale.component.html',
   styleUrl: './terms-of-sale.component.scss'
 })
-export class TermsOfSaleComponent implements OnInit {
+export class TermsOfSaleComponent extends BaseComponentService implements OnInit {
   page: any;
 
-  constructor(private readonly apollo: Apollo) {
+  constructor(private readonly apollo: Apollo,
+              elementRef: ElementRef,
+              renderer: Renderer2) {
+    super(elementRef, renderer);
   }
 
   ngOnInit(): void {

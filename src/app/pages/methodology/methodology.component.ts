@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { LayoutComponent } from '../../shared/layout/layout.component';
@@ -8,6 +8,7 @@ import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
 import { QUERY_METHODY } from '../../queries/methodology';
 import { NgIf } from '@angular/common';
+import { BaseComponentService } from '../../shared/services/base-component.service';
 
 @Component({
   selector: 'app-methodology',
@@ -23,10 +24,13 @@ import { NgIf } from '@angular/common';
   templateUrl: './methodology.component.html',
   styleUrl: './methodology.component.scss'
 })
-export class MethodologyComponent implements OnInit {
+export class MethodologyComponent extends BaseComponentService implements OnInit {
   page: any;
 
-  constructor(private readonly apollo: Apollo) {
+  constructor(private readonly apollo: Apollo,
+              elementRef: ElementRef,
+              renderer: Renderer2) {
+    super(elementRef, renderer);
   }
 
   ngOnInit(): void {

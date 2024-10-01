@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
 import { NgForOf, NgIf } from '@angular/common';
@@ -12,6 +12,7 @@ import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragrap
 import { CurtainRevealComponent } from '../../shared/curtain-reveal/curtain-reveal.component';
 import ScrollReveal from 'scrollreveal';
 import { QUERY_PORTFOLIO, QUERY_PORTFOLIO_INFO } from '../../queries/portfolio';
+import { BaseComponentService } from '../../shared/services/base-component.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -31,14 +32,17 @@ import { QUERY_PORTFOLIO, QUERY_PORTFOLIO_INFO } from '../../queries/portfolio';
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss'
 })
-export class PortfolioComponent implements OnInit {
+export class PortfolioComponent extends BaseComponentService implements OnInit {
   portfolioInfo: any = null;
   portfolio: any[] = [];
   noPosts = 0;
   hasMore = true;
   afterKey = null;
 
-  constructor(private readonly apollo: Apollo) {
+  constructor(private readonly apollo: Apollo,
+              elementRef: ElementRef,
+              renderer: Renderer2) {
+    super(elementRef, renderer);
   }
 
   ngAfterViewInit(): void {
