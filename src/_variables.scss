@@ -3,8 +3,11 @@ $mq-desktop: 1200px;
 $mq-wide: 1600px;
 
 $black: #000;
+$carbon: #1c1c1c;
 $grey: #b9bab7;
+$darkgrey: #454545;
 $white: #fff;
+
 
 :root {
     --title-big-font-size: 36px;
@@ -20,8 +23,10 @@ $white: #fff;
     --body-font-weight: 400;
     --body-line-height: 1.4em;
     --body-letter-spacing: .03em;
-    --title-line-height: 1.1em;
+    --title-line-height: .97em;
     --title-letter-spacing: .03em;
+    --title-s-line-height: 1.1em;
+    --title-s-letter-spacing: .035em;    
     --body-color: #000;
     --body-bg: #eeefed;;
     --border: #b9bab7;
@@ -39,23 +44,23 @@ $white: #fff;
       --body-font-size: 21px;
       --body-m-font-size: 16px;
       --gutter: 1.75rem;
+      --padding-main: 175px;
     }
   }
 
-
   @media (min-width: $mq-desktop) {
     :root {
-      --title-big-font-size: 8.5vw;
+      /*--title-big-font-size: 8.5vw;*/
       --title-font-size: 64px;
       --title-s-font-size: 48px;
       --body-font-size: 25px;
       --gutter: 1.75rem;
-      --padding-main: 190px;
+      --padding-main: 175px;
     }
   }
 
   @media (min-width: $mq-wide) {
     :root {
-      --title-big-font-size: 136px;
+      --title-big-font-size: 120px;
     }
   }

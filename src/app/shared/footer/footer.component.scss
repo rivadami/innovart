@@ -20,7 +20,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 30px;
+      gap: 25px;
 
       .footer-logo {
         max-width: 110px;
@@ -32,10 +32,13 @@
       @media (min-width: $mq-tablet) {
         flex: 1 1 33.3%;
       }
+      .text-s{
+        min-width: 115px;
+      }
 
       @media (min-width: $mq-desktop) {
         flex: 1 1 auto;
-        padding-left: 150px;
+        padding-left: 140px;
       }
 
       flex-direction: row;
@@ -43,7 +46,7 @@
       gap: 20px;
 
       @media (min-width: $mq-tablet) {
-        gap: 60px;
+        gap: 25px;
       }
 
       flex-wrap: wrap;
@@ -51,12 +54,17 @@
 
     .footer-col-3 {
 
+      .nav{
+        width: 100%;
+        max-width: 115px;
+      }
+
       @media (min-width: $mq-desktop) {
         flex: 1 0 33.3%;
       }
 
       @media (min-width: $mq-desktop) {
-        flex: 0 1 410px;
+        flex: 0 1 400px;
       }
 
       display: flex;
@@ -64,9 +72,10 @@
       gap: 20px;
       justify-content: flex-start;
 
+      
       @media (min-width: $mq-tablet) {
-        justify-content: space-between;
-        gap: 30px;
+        justify-content: flex-end;
+        gap: 25px;
       }
     }
 

@@ -1,6 +1,6 @@
 <app-header *ngIf="home"></app-header>
 <app-layout *ngIf="home">
-  <div class="wrapper wrapper--top-25 wrapper--bottom-50">
+  <div class="wrapper wrapper--top-25 wrapper--bottom-75">
     <app-paragraph-reveal classSelector="title-big">
       <h1 class="title title-big max-85">{{ home?.title }}</h1>
     </app-paragraph-reveal>
@@ -50,10 +50,10 @@
       <div class="line horizontal"></div>
     </app-line-reveal>
   </div>
-  <div class="wrapper wrapper--top-0 wrapper-bottom-25 wrapper--m-top-75 wrapper--bottom-m-75">
+  <div class="wrapper wrapper--top-0 wrapper-bottom-25 wrapper--m-top-75 wrapper--m-bottom-75">
     <h2 class="title title-s w-min text-uppercase">Client Testimonial</h2>
   </div>
-  <div class="wrapper wrapper--x-m-0 wrapper--top-m-75 wrapper--bottom-m-195">
+  <div class="wrapper wrapper--x-m-0 wrapper--m-top-75 wrapper--m-bottom-195">
     <ng-container *ngIf="home">
       <app-gallery-text-horizontal
         [gallery]="home?.testimonials?.edges"></app-gallery-text-horizontal>

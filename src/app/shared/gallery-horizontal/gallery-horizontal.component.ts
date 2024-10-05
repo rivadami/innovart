@@ -41,6 +41,10 @@ export class GalleryHorizontalComponent implements AfterViewInit {
     });
 
     setTimeout(() => {
+      flkty.resize();
+    }, 100)
+
+    setTimeout(() => {
       // Get total number of slides
       const totalSlides = flkty.slides.length;
 
