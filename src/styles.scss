@@ -227,7 +227,7 @@ table {
 
 @media (min-width: $mq-tablet) {
   .s-hidden {
-    display: none;
+    display: none !important;
   }
 
   .s-flex {
@@ -248,7 +248,11 @@ table {
 .text-underline {
   text-decoration: underline !important;
   text-decoration-thickness: 1px !important;
-  text-underline-offset: 6px;
+  text-underline-offset: 3px;
+
+  @media (min-width: $mq-tablet) {
+    text-underline-offset: 6px;
+  }
 }
 
 .title {
@@ -310,17 +314,22 @@ table {
 }
 
 .wrapper {
-  padding: 25px;
+  padding: 15px 25px;
   display: grid;
-  gap: 25px;
+  gap: 15px;
+
+  @media (min-width: $mq-tablet) {
+    padding: 25px;
+    gap: 25px;
+  }
 
   &.hidden {
     display: none;
   }
 
   &--x-0 {
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
   }
 
   &--top-0 {
@@ -339,8 +348,20 @@ table {
     padding-top: 25px;
   }
 
+  &--top-30 {
+    padding-top: 30px;
+  }
+
+  &--top-45 {
+    padding-top: 45px;
+  }
+
   &--top-50 {
     padding-top: 50px;
+  }
+
+  &--top-60 {
+    padding-top: 60px;
   }
 
   &--top-75 {
@@ -351,8 +372,20 @@ table {
     padding-bottom: 25px;
   }
 
+  &--bottom-30 {
+    padding-bottom: 30px;
+  }
+
+  &--bottom-45 {
+    padding-bottom: 45px;
+  }
+
   &--bottom-50 {
     padding-bottom: 50px;
+  }
+
+  &--bottom-60 {
+    padding-bottom: 60px;
   }
 
   &--bottom-75 {
@@ -365,12 +398,17 @@ table {
 
   @media (max-width: ($mq-tablet - 1px)) {
     &--x-x-0 {
-      padding-right: 0;
-      padding-left: 0;
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+    }
+
+    &--x-gap-45 {
+      gap: 45px !important;
     }
   }
 
   @media (min-width: $mq-tablet) {
+
     &--x-m-0 {
       padding-right: 0;
       padding-left: 0;
@@ -432,10 +470,11 @@ table {
 
 
 .grid-m-34 {
-  gap: 50px;
+  gap: 60px;
 
   @media (min-width: $mq-desktop) {
     grid-template-columns: 3fr 4fr;
+    gap: 45px;
   }
 }
 
@@ -461,6 +500,10 @@ table {
 
 .gap-70 {
   gap: 70px
+}
+
+.gap-100 {
+  gap: 100px
 }
 
 @media (min-width: $mq-desktop) {
@@ -660,8 +703,13 @@ table {
 
 .button {
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: 10px;
+  height: 10px;
+
+  @media (min-width: $mq-tablet) {
+    width: 30px;
+    height: 30px;
+  }
 
   &:before,
   &:after {
@@ -677,18 +725,28 @@ table {
     &:before {
       top: 0;
       left: 50%;
-      width: 4px;
+      width: 2px;
       height: 100%;
-      margin-left: -2px;
+      margin-left: -1px;
+
+      @media (min-width: $mq-tablet) {
+        margin-left: -2px;
+        width: 4px;
+      }
     }
 
     /* horizontal line */
     &:after {
       top: 50%;
       left: 0;
+      height: 2px;
       width: 100%;
-      height: 4px;
-      margin-top: -2px;
+      margin-top: -1px;
+
+      @media (min-width: $mq-tablet) {
+        margin-top: -2px;
+        height: 4px;
+      }
     }
 
     &:hover {
@@ -707,25 +765,61 @@ table {
 }
 
 .accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  width: 100%;
 
   .accordion-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    width: 100%;
   }
 
   .accordion-content {
-    padding-bottom: 60px;
+    padding-bottom: 30px;
+
+    @media (min-width: $mq-tablet) {
+      padding-bottom: 100px;
+    }
+
     display: none;
+    max-width: 800px;
+  }
+
+  .accordion-content-left,
+  .accordion-content-right {
+    display: none;
+  }
+
+  @media (max-width: ($mq-tablet - 1px)) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px 15px;
+
+    .accordion-title {
+      .title-s {
+        width: calc(50vw - 50px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .accordion-content-left {
+      display: none;
+    }
+
+    .title-s {
+      font-size: var(--body-font-size);
+    }
   }
 
   &.active {
     .accordion-content {
+      display: block;
+    }
+
+    .accordion-content-left,
+    .accordion-content-right {
       display: block;
     }
 
@@ -789,10 +883,27 @@ table {
 
   .form-wrap {
     align-items: center;
-    padding: 10px 0;
+    padding: 15px 0;
+    gap: 0;
+
+    @media (max-width: ($mq-desktop - 1px)) {
+      &.form-wrap-m {
+        gap: 75px;
+        padding-bottom: 45px;
+      }
+    }
 
     &--extra {
+      padding: 45px 0;
+    }
+
+    @media (min-width: $mq-desktop) {
       padding: 35px 0;
+    }
+
+
+    @media (min-width: $mq-desktop) {
+      gap: 60px;
     }
 
     label,
@@ -803,12 +914,17 @@ table {
       font-weight: var(--body-font-weight);
       line-height: var(--body-line-height);
       display: block;
-      font-size: var(--title-s-font-size);
       width: 100%;
-      padding: 10px;
       background: none;
       border: none;
       color: #fff;
+      padding: 5px 0;
+      font-size: var(--body-font-size);
+
+      @media (min-width: $mq-desktop) {
+        font-size: var(--title-s-font-size);
+        padding: 10px;
+      }
 
       &:focus-visible {
         outline: none !important;
@@ -832,7 +948,7 @@ table {
       flex-wrap: wrap;
       justify-content: flex-start;
       align-items: flex-start;
-      gap: 10px;
+      gap: 15px;
     }
 
     .form-group {
@@ -865,7 +981,11 @@ table {
       background-image: url(/assets/icons/arrow-dropdown.svg);
       background-repeat: no-repeat;
       background-position: center right;
-      background-size: auto 35px;
+      background-size: auto 18px;
+
+      @media (min-width: $mq-tablet) {
+        background-size: auto 35px;
+      }
 
       select {
         appearance: none;
@@ -970,10 +1090,13 @@ body.contact {
       background-color: $carbon !important;
     }
 
-
     .logo {
       -webkit-filter: invert(100%);
       filter: invert(100%);
+    }
+
+    .js-mm-toggle {
+      color: $white !important;
     }
 
     .nav {
