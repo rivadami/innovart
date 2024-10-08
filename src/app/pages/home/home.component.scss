@@ -41,19 +41,21 @@
   .info {
     @media (min-width: $mq-tablet) {
       flex: 0 1 30%;
-      max-width: 400px;
+      max-width: 410px;
     }
 
     @media (min-width: $mq-wide) {
-      flex: 0 1 400px;
+      flex: 0 1 410px;
     }
 
     /* fixed width */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-right: 30px;
     gap: 25px;
+    @media (min-width: $mq-tablet) {
+      padding-right: 60px;
+    }
 
     .info-title {
       flex: 1 1 auto;

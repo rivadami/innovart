@@ -4,7 +4,6 @@ import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
 import { NgIf, NgForOf, NgOptimizedImage, NgClass } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { AnimatedMenuComponent } from '../animated-menu/animated-menu.component';
 import { QUERY_HEADER } from '../../queries/header';
 
 @Component({
