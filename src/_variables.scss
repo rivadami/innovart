@@ -41,7 +41,7 @@ $white: #fff;
       --title-big-font-size: 7.5vw;
       --title-font-size: 48px;
       --title-s-font-size: 36px;
-      --body-font-size: 21px;
+      --body-font-size: 18px;
       --body-m-font-size: 16px;
       --gutter: 1.75rem;
       --padding-main: 175px;
@@ -53,7 +53,7 @@ $white: #fff;
       /*--title-big-font-size: 8.5vw;*/
       --title-font-size: 64px;
       --title-s-font-size: 48px;
-      --body-font-size: 25px;
+      --body-font-size: 1.55vw;
       --gutter: 1.75rem;
       --padding-main: 175px;
     }
@@ -62,5 +62,6 @@ $white: #fff;
   @media (min-width: $mq-wide) {
     :root {
       --title-big-font-size: 120px;
+      --body-font-size: 25px;
     }
   }

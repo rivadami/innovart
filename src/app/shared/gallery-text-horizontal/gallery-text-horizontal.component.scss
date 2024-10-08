@@ -1,20 +1,21 @@
 @import "../../../variables";
 
 .text-carousel {
-  margin-left: -30px;
+  max-width: 900px;
+  //margin-left: -30px;
   .carousel-cell {
-    width: calc(100% - 100px);
+    //width: calc(100% - 100px);
     padding: 0 30px 0 0;
     @media (min-width: $mq-tablet) {
-      width: 80%;
-      padding: 0 25px;
+      //width: 80%;
+      //padding: 0 25px;
     }    
     @media (min-width: $mq-desktop) {
-      padding: 0 50px;
+      //padding: 0 50px;
     }    
     @media (min-width: $mq-wide) {
-      width: calc(100% - 920px);
-      padding: 0 75px;
+      //width: calc(100% - 920px);
+      //padding: 0 75px;
     }  
     
     .testimonial-slider {
@@ -28,7 +29,7 @@
       }
       @media (min-width: $mq-desktop) {
         gap: 70px;
-        padding-bottom: 120px;
+        padding-bottom: 90px;
       }
       color: $grey;
 
@@ -70,20 +71,20 @@
 .arrows{
   
   @media (min-width: $mq-tablet) {
-    width: 80%;
+    //width: 80%;
   }    
   @media (min-width: $mq-desktop) {
     
   }    
   @media (min-width: $mq-wide) {
-    width: calc(100% - 920px);
+    //width: calc(100% - 920px);
   }  
   margin: 0 auto;
   display: flex;
   gap: 10px;
   .arrow{
     cursor: pointer;
-    display: flex;
+    display: block;
     width: 52px;
     svg * {
       transition: all .5s;

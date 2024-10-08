@@ -136,6 +136,10 @@ p {
   font-weight: 300;
 }
 
+.fw-bold {
+  font-weight: 700;
+}
+
 a {
   transition: all .3s;
 }
@@ -311,6 +315,10 @@ table {
 
 .p-0 {
   padding: 0;
+}
+
+.gap-0{
+  gap: 0!important;
 }
 
 .wrapper {
@@ -640,13 +648,17 @@ table {
 
   &--icon {
     display: flex;
-    gap: 30px;
+    gap: 15px;
     width: 100%;
     justify-content: space-between;
 
     svg {
       width: 27px;
     }
+  }
+
+  &--discovery{
+    
   }
 
   svg {

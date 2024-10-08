@@ -2,18 +2,20 @@
 <app-layout *ngIf="home">
   <div class="wrapper wrapper--x-gap-45 wrapper--top-25 wrapper--bottom-45 wrapper-m--bottom-75">
     <app-paragraph-reveal classSelector="title-big">
-      <h1 class="title title-big max-85">{{ home?.title }}</h1>
+      <h1 class="title title-big" [innerHTML]="home?.title"></h1>
     </app-paragraph-reveal>
     <div class="container container--small container--push-right">
       <p class="text">{{ home?.description }}</p>
     </div>
   </div>
   <img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
-  <div class="wrapper wrapper--top-75 wrapper--m-top-25 wrapper--bottom-0 wrapper--m-bottom-195 d-flex flex-row gap-20 gap-m-70">
+  <div
+    class="wrapper wrapper--top-75 wrapper--m-top-25 wrapper--bottom-0 wrapper--m-bottom-195 d-flex flex-row gap-20 gap-m-70">
     <h2 class="title title-s w-min-m min-w-m-250">{{ home?.selectedWorkLabel }}</h2>
     <a class="link title title-s w-min-m min-w-m-250" href="#">{{ home?.viewAllWorkLabel }}</a>
   </div>
-  <div class="wrapper wrapper--x-x-0 wrapper--top-30 wrapper-m--top-25 wrapper--m-right-0 wrapper--bottom-0" *ngFor="let item of home?.selectedWork?.edges">
+  <div class="wrapper wrapper--x-x-0 wrapper--top-30 wrapper-m--top-25 wrapper--m-right-0 wrapper--bottom-0"
+    *ngFor="let item of home?.selectedWork?.edges">
     <app-line-reveal>
       <div class="line line--m-mr horizontal"></div>
     </app-line-reveal>
@@ -39,9 +41,8 @@
         </div>
       </div>
       <div class="gallery">
-        <app-gallery-horizontal #gallery
-                                [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"
-                                [showButtons]="false"></app-gallery-horizontal>
+        <app-gallery-horizontal #gallery [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"
+          [showButtons]="false"></app-gallery-horizontal>
       </div>
     </div>
   </div>
@@ -53,11 +54,16 @@
   <div class="wrapper wrapper--top-45 wrapper-m--top-0 wrapper--bottom-45 wrapper--m-top-75 wrapper--m-bottom-75">
     <h2 class="title title-s w-min text-uppercase">Client Testimonial</h2>
   </div>
-  <div class="wrapper wrapper--x-m-0 wrapper--m-top-75 wrapper--bottom-60 wrapper--m-bottom-195">
-    <ng-container *ngIf="home">
-      <app-gallery-text-horizontal
-        [gallery]="home?.testimonials?.edges"></app-gallery-text-horizontal>
-    </ng-container>
+  <div class="wrapper wrapper--m-top-75 wrapper--bottom-45 wrapper--m-bottom-195">
+    <div class="work work--free">
+      <div class="info">
+      </div>
+      <div class="gallery">
+        <ng-container *ngIf="home">
+          <app-gallery-text-horizontal [gallery]="home?.testimonials?.edges"></app-gallery-text-horizontal>
+        </ng-container>        
+      </div>
+    </div>
   </div>
 </app-layout>
 <app-footer *ngIf="home"></app-footer>

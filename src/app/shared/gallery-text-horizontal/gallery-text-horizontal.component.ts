@@ -20,16 +20,21 @@ export class GalleryTextHorizontalComponent implements AfterViewInit {
     const elem = this.carousel.nativeElement;
     this.galleryEffect = new Flickity(elem, {
       // options
-      cellAlign: 'center',
+      //cellAlign: 'center',
       draggable: true,
       pageDots: false,
       freeScroll: false,
       prevNextButtons: false,
-      autoPlay: false,
+      autoPlay: 5000,
       wrapAround: true,
-      groupCells: true,
+      //groupCells: true,
       resize: true,      
     });
+
+    setTimeout(() => {
+      this.galleryEffect.resize();
+    }, 100)
+
   }
 
   goToNext(): void {

@@ -6,6 +6,10 @@
   justify-content: space-between !important;
   align-items: unset !important;
 
+  .footer-menu{
+    align-items: flex-start;
+  }
+
   .wrapper {
 
     .footer-col-1 {
@@ -38,6 +42,9 @@
 
       @media (min-width: $mq-desktop) {
         flex: 1 1 auto;
+      }
+
+      @media (min-width: 1350px) {
         padding-left: 140px;
       }
 
@@ -59,8 +66,8 @@
         max-width: 115px;
       }
 
-      @media (min-width: $mq-desktop) {
-        flex: 1 0 33.3%;
+      @media (min-width: $mq-tablet) {
+        flex: 1 0 37%;
       }
 
       @media (min-width: $mq-desktop) {
