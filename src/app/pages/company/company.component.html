@@ -25,20 +25,12 @@
   <div class="wrapper wrapper--top-0 wrapper--bottom-60 wrapper--m-bottom-195 grid-m-34">
     <div class="col-left">
       <app-paragraph-reveal classSelector="title">
-        <h1 class="title text-uppercase">STORY</h1>
+        <h1 class="title text-uppercase">{{page?.companyFields?.story}}</h1>
       </app-paragraph-reveal>
     </div>
     <div class="col-right">
       <div class="container">
-        <p class="text">We are passionate, a bit crazy with ideas and big-minded - always striving for the stars —
-          working side-by-side with our clients and partners to tackle branding and marketing challenges together...as a
-          team.</p>
-        <p class="text">We are passionate, a bit crazy with ideas and big-minded - always striving for the stars —
-          working side-by-side with our clients and partners to tackle branding and marketing challenges together...as a
-          team.</p>
-        <p class="text">We are passionate, a bit crazy with ideas and big-minded - always striving for the stars —
-          working side-by-side with our clients and partners to tackle branding and marketing challenges together...as a
-          team.</p>
+        <p class="text" [innerHTML]="page?.companyFields?.storyDescription"></p>
       </div>
     </div>
   </div>
@@ -53,8 +45,14 @@
   <div class="wrapper wrapper--top-0 wrapper--m-bottom-195 grid-m-34 x-hidden">
     <div class="col-left d-flex flex-column gap-50 gap-m-120">
       <app-paragraph-reveal classSelector="title">
-        <h1 class="title text-uppercase">VALUES</h1>
+        <h4 class="title text-uppercase">{{page?.companyFields?.values}}</h4>
       </app-paragraph-reveal>
+      <!--
+      CRIS
+        valuesItems {
+          subDescription
+          subTitle
+    } --> 
       <div class="container container--xsmall">
         <h4 class="text-m text-grey">Commitment</h4>
         <p class="text-m">We do the right thing: this is our business strategy foundation; it guides the work we do and
@@ -73,21 +71,18 @@
     <div class="col-right justify-content-between gap-20">
       <div class="d-flex flex-column gap-50 gap-m-120 container container--xsmall">
         <app-paragraph-reveal classSelector="title">
-          <h1 class="title text-uppercase">VALUES</h1>
+          <h4 class="title text-uppercase">{{page?.companyFields?.mission}}</h4>
         </app-paragraph-reveal>
         <div class="container">
-          <p class="text-m">We do the right thing: this is our business strategy foundation; it guides the work we do
-            and
-            the manner in which we do it.</p>
+          <p class="text-m" [innerHTML]="page?.companyFields?.missionDescription"></p>
         </div>
       </div>
       <div class="d-flex flex-column gap-50 gap-m-120 container container--xsmall">
         <app-paragraph-reveal classSelector="title">
-          <h1 class="title text-uppercase">VALUES</h1>
+          <h4 class="title text-uppercase">{{page?.companyFields?.vision}}</h4>
         </app-paragraph-reveal>
         <div class="container">
-          <p class="text-m">We do the right thing: this is our business strategy foundation; it guides the work we do
-            the manner in which we do it.</p>
+          <p class="text-m" [innerHTML]="page?.companyFields?.visionDescription"></p>
         </div>
       </div>
     </div>
@@ -100,14 +95,12 @@
   <div class="wrapper wrapper--top-0 wrapper--bottom-30 wrapper--m-bottom-75 grid-m-34">
     <div class="col-left">
       <app-paragraph-reveal classSelector="title">
-        <h1 class="title text-uppercase">LEADERSHIP</h1>
+        <h1 class="title text-uppercase">{{page?.companyFields?.leadership}}</h1>
       </app-paragraph-reveal>
     </div>
     <div class="col-right">
       <div class="container">
-        <p class="text">Over the years, we have transcended industry boundaries and left a significant impact on a wide
-          range of sectors, including but not limited to entertainment, beverage, fashion, real estate, hospitality, and
-          technology</p>
+        <p class="text" [innerHTML]="page?.companyFields?.leadershipDescription"></p>
       </div>
     </div>
   </div>
@@ -116,6 +109,20 @@
       <div class="line horizontal"></div>
     </app-line-reveal>
   </div>
+        <!--
+      CRIS
+        team {
+          edges {
+            node {
+              ... on TeamMember {
+                teamSingleFields {
+                  title
+                  description
+                }
+              }
+            }
+          }
+        } --> 
   <div class="accordion active wrapper wrapper--top-0 wrapper--bottom-0 grid-m-34">
     <div class="col-left">
       <app-paragraph-reveal classSelector="title">
@@ -177,7 +184,7 @@
           and
           technology</p>
       </div>
-    </div>    
+    </div>
   </div>
   <div class="wrapper wrapper--m-bottom-195">
     <app-line-reveal>
@@ -192,17 +199,31 @@
   <div class="wrapper wrapper--top-0 wrapper--m-bottom-75 grid-m-34">
     <div class="col-left">
       <app-paragraph-reveal classSelector="title">
-        <h1 class="title text-uppercase">SELECTED CLIENTS</h1>
+        <h1 class="title text-uppercase">{{page?.companyFields?.clients}}</h1>
       </app-paragraph-reveal>
     </div>
     <div class="col-right">
       <div class="container">
-        <p class="text">Over the years, we have transcended industry boundaries and left a significant impact on a wide
-          range of sectors, including but not limited to entertainment, beverage, fashion, real estate, hospitality, and
-          technology</p>
+        <p class="text" [innerHTML]="page?.companyFields?.clientsDescription"></p>
       </div>
     </div>
   </div>
+  <!-- CRIS
+  clientsLogos {
+          edges {
+            node {
+              ... on Client {
+                title
+                featuredImage {
+                  node {
+                    id
+                  }
+                }
+              }
+            }
+          } 
+  
+  -->
   <div class="wrapper wrapper-m--top-0 wrapper--m-bottom-195">
     <div class="logos">
       <div class="logo-img">

@@ -35,6 +35,8 @@ export const QUERY_COMPANY = `
           subDescription
           subTitle
         }
+        mission
+        missionDescription
         vision
         visionDescription
         leadership
