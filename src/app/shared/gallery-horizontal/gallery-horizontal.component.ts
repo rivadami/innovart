@@ -25,10 +25,11 @@ export class GalleryHorizontalComponent implements AfterViewInit {
   @Input() showButtonsOutside: boolean = false;
   currentIndex?: number;
   totalSlides?: number;
+  galleryEffect!: Flickity;  
 
   ngAfterViewInit(): void {
     const elem = this.carousel.nativeElement;
-    const flkty = new Flickity(elem, {
+    this.galleryEffect = new Flickity(elem, {
       // options
       cellAlign: "left",
       draggable: true,
@@ -41,22 +42,31 @@ export class GalleryHorizontalComponent implements AfterViewInit {
     });
 
     setTimeout(() => {
-      flkty.resize();
-    }, 100)
+      this.galleryEffect.resize();
+    }, 100);
 
     setTimeout(() => {
       // Get total number of slides
-      const totalSlides = flkty.slides.length;
+      const totalSlides = this.galleryEffect.slides.length;
 
       // Emit the initial slide data
-      this.currentIndex = flkty.selectedIndex + 1;
+      this.currentIndex = this.galleryEffect.selectedIndex + 1;
       this.totalSlides = totalSlides;
 
       // Update and emit the current index whenever the slide changes
-      flkty.on('select', () => {
-        this.currentIndex = flkty.selectedIndex + 1;
+      this.galleryEffect.on('select', () => {
+        this.currentIndex = this.galleryEffect.selectedIndex + 1;
         this.totalSlides = totalSlides;
       });
-    }, 1000)
+    }, 1000);
   }
+
+  goToNext(): void {
+    this.galleryEffect.next();
+  }
+
+  goToPrev(): void {
+    this.galleryEffect.previous();
+  }  
+
 }

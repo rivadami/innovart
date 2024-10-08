@@ -1,17 +1,16 @@
-<app-header></app-header>
-<app-layout>
+<app-header *ngIf="portfolio"></app-header>
+<app-layout *ngIf="portfolio">
   <div class="wrapper x-hidden">
     <app-line-reveal>
       <div class="line horizontal"></div>
     </app-line-reveal>
   </div>
   <div
-    class="wrapper wrapper--m-top-0  wrapper--m-bottom-195 min-h-400 d-flex flex-column justify-content-between gap-60">
+    class="wrapper wrapper--bottom-60 wrapper--m-bottom-25 wrapper--m-top-0 min-h-400 d-flex flex-column justify-content-between gap-75">
     <div class="d-flex justify-content-between">
       <div class="container container--medium">
         <app-paragraph-reveal classSelector="title">
-          <h1 class="title text-uppercase" [innerHTML]="">
-            ARIA COUNTRY RESIDENCES<br>MÉRIDA, MEXICO
+          <h1 class="title text-uppercase" [innerHTML]="portfolio.portfolioSingleFields?.title">
           </h1>
         </app-paragraph-reveal>
       </div>
@@ -22,96 +21,67 @@
       </app-paragraph-reveal>
     </div>
     <div class="container container--small">
-      <p class="text">Since 1954, Hollub Group has set the standard for innovative, custom home building and renovations
-        in South Florida, elevating its lifestyle community canvas landscape from Pinecrest to Coral Gables and Miami
-        Beach.</p>
+      <p class="text" [innerHTML]="portfolio.portfolioSingleFields?.description"></p>
     </div>
   </div>
-  <div class="wrapper wrapper--m-bottom-75">
+  <div class="wrapper wrapper--bottom-60 wrapper--m-top-50 wrapper--m-bottom-195 gap-75">
     <div class="gallery">
-      <!--<app-gallery-horizontal #gallery
-        [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"></app-gallery-horizontal>-->
-      SLIDER
+      <app-gallery-horizontal #gallery
+        [gallery]="portfolio?.portfolioSingleFields?.mainGallery?.edges" [showButtons]="true"></app-gallery-horizontal>
     </div>
     <div class="container container--small container--push-right">
-      <p class="text">Since 1954, Hollub Group has set the standard for innovative, custom home building and renovations
-        in South Florida, elevating its lifestyle community canvas landscape from Pinecrest to Coral Gables and Miami
-        Beach.</p>
+      <p class="text">{{ portfolio.portfolioSingleFields?.galleryDescription }}</p>
     </div>
   </div>
-  <div class="wrapper wrapper--m-top-75 wrapper--m-bottom-75">
+  <div class="wrapper wrapper--bottom-60 wrapper--m-top-50 wrapper--m-bottom-195">
     <div class="images images--left">
       <div class="image-item">
-      <!--<img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">-->
-        <img class="img img--full"
-          src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/08/03_DW_balcony_.jpg" alt="EXAMPLE">
+          <img class="img img--full" [srcset]="portfolio?.portfolioSingleFields?.image1?.node?.srcSet" [alt]="portfolio?.portfolioSingleFields?.image2?.node?.title">
       </div>
     </div>
   </div>
-  <div class="wrapper wrapper--m-top-75 wrapper--m-bottom-75">
+  <div class="wrapper wrapper--bottom-60 wrapper--m-top-50 wrapper--m-bottom-195">
     <div class="images images--right images--inline">
-      <!--<img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">-->
-      <!--<img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">-->
       <div class="image-item">
-        <img class="img img--full"
-          src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/08/03_DW_balcony_.jpg" alt="EXAMPLE">
+        <img class="img img--full" [srcset]="portfolio?.portfolioSingleFields?.image2?.node?.srcSet" [alt]="portfolio?.portfolioSingleFields?.image2?.node?.title">
       </div>
       <div class="image-item">
-        <img class="img img--full"
-          src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/08/03_DW_balcony_.jpg" alt="EXAMPLE">
+        <img class="img img--full" [srcset]="portfolio?.portfolioSingleFields?.image3?.node?.srcSet" [alt]="portfolio?.portfolioSingleFields?.image3?.node?.title">
       </div>
     </div>
   </div>
-  <div class="wrapper wrapper--m-top-75 wrapper--m-bottom-75">
+  <div class="wrapper wrapper--bottom-60 wrapper--m-top-50 wrapper--m-bottom-195">
     <div class="testimonial">
-      <p class="testimonial-quote">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-        Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
-        type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-        into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-        Aldus PageMaker including versions of Lorem Ipsum.”</p>
+      <p class="testimonial-quote">"{{portfolio?.portfolioSingleFields?.quote}}”</p>
       <div class="testimonial-info">
-        <span class="testimonial-name">Testimonial Name</span>
-        <span class="testimonial-title">Testimonial Name</span>
-        <span class="testimonial-company">Testimonial Name</span>
+        <span class="testimonial-name">{{portfolio?.portfolioSingleFields?.quoteName}}</span>
+        <span class="testimonial-title">{{portfolio?.portfolioSingleFields?.quoteTitle}}</span>
+        <span class="testimonial-company">{{portfolio?.portfolioSingleFields?.quoteCompany}}</span>
       </div>
-      <!--<p class="testimonial-quote">"{{item?.node?.testimonialSingleFields?.description}}”</p>
-      <div class="testimonial-info">
-        <span class="testimonial-name">{{item?.node?.testimonialSingleFields?.name}}</span>
-        <span class="testimonial-title">{{item?.node?.testimonialSingleFields?.title}}</span>
-        <span class="testimonial-company">{{item?.node?.testimonialSingleFields?.company}}</span>
-      </div>-->
     </div>
   </div>
-  <div class="wrapper wrapper--m-top-75 wrapper--m-bottom-75">
+  <div class="wrapper wrapper--bottom-60 wrapper--m-top-50 wrapper--m-bottom-195">
     <div class="images images--left images--column">
       <div class="image-item">
-        <img class="img img--full"
-          src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/08/03_DW_balcony_.jpg" alt="EXAMPLE">
+        <img class="img img--full" [srcset]="portfolio?.portfolioSingleFields?.image4?.node?.srcSet" [alt]="portfolio?.portfolioSingleFields?.image4?.node?.title">
       </div>
       <div class="image-item">
-        <img class="img img--full"
-          src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/08/03_DW_balcony_.jpg" alt="EXAMPLE">
+        <img class="img img--full" [srcset]="portfolio?.portfolioSingleFields?.image5?.node?.srcSet" [alt]="portfolio?.portfolioSingleFields?.image5?.node?.title">
       </div>
-      <!--<img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">
-      <img class="img img--full" [srcset]="home?.mainImage?.node?.srcSet" [alt]="home?.mainImage?.node?.title">-->
     </div>
   </div>
-  <div class="wrapper wrapper--m-top-75 wrapper--m-bottom-75">
+  <div class="wrapper wrapper--bottom-60 wrapper--m-top-50 wrapper--m-bottom-195">
     <div class="container container--small">
-      <p class="text"> Since 1954, Hollub Group has set the standard for innovative, custom home building and
-        renovations in South Florida, elevating its lifestyle community canvas landscape from Pinecrest to Coral Gables
-        and Miami Beach. </p>
+      <p class="text" [innerHTML]="portfolio.portfolioSingleFields?.description2"></p>
     </div>
   </div>
-  <div class="wrapper wrapper--m-top-75 wrapper--m-bottom-75">
+  <div class="wrapper wrapper--bottom-60 wrapper--m-top-50 wrapper--m-bottom-195">
     <div class="gallery">
-      SLIDER
-      <!--    <app-gallery-horizontal #gallery
-                      [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"></app-gallery-horizontal>-->
+      <app-gallery-horizontal #gallery
+        [gallery]="portfolio?.portfolioSingleFields?.bottomGallery?.edges" [showButtons]="true" [showButtonsOutside]="true"></app-gallery-horizontal>      
     </div>
   </div>
-  <div class="wrapper wrapper--m-top-75">
+  <div class="wrapper wrapper--bottom-30 wrapper--m-top-75 wrapper--m-bottom-50">
     <div class="container d-flex justify-content-tablet-end">
       <h2 class="title title-s w-min text-uppercase text-tablet-end">
         <a class="link link--black">Next<br>Projects</a>
@@ -119,4 +89,4 @@
     </div>
   </div>
 </app-layout>
-<app-footer></app-footer>
+<app-footer *ngIf="portfolio"></app-footer>

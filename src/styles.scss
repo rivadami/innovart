@@ -510,6 +510,10 @@ table {
   gap: 70px
 }
 
+.gap-75 {
+  gap: 70px
+}
+
 .gap-100 {
   gap: 100px
 }
@@ -571,6 +575,7 @@ table {
     max-width: 400px;
   }
 
+  
   @media (min-width: $mq-tablet) {
     &--push-right {
       margin-left: 50%;
@@ -690,6 +695,22 @@ table {
       svg {
         path {
           fill: #fff !important;
+        }
+      }
+    }
+  }
+}
+
+.work{
+  .gallery{
+    .main-carousel{
+      .flickity-viewport{
+        height: 100%!important;
+        .carousel-cell{
+          height: 100%!important;
+          img{
+            height: 100%!important;
+          }
         }
       }
     }

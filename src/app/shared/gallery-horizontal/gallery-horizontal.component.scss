@@ -1,7 +1,15 @@
 @import "../../../variables";
 
 .main-carousel {
-  height: 100%;
+
+
+  @media (min-width: $mq-tablet) {
+    height: 39.4vw;
+  }
+
+  @media (min-width: $mq-wide) {
+    height: 630px;
+  }
 
   .carousel-cell {
     margin-right: 15px;
@@ -11,91 +19,102 @@
     }
 
     img {
-      /*width: calc(100% - 2px);*/
       padding: 0 1px;
       object-fit: cover;
-      height: 50vw;
       min-height: 200px;
-      max-height: 400px;
 
       @media (min-width: $mq-tablet) {}
 
-      @media (min-width: $mq-desktop) {
+      @media (min-width: $mq-wide) {
         height: 630px;
         max-height: unset;
       }
     }
   }
 
-  &.big{
+  &.big {
+    @media (min-width: $mq-tablet) {
+      height: 50vw;
+    }
+
+    @media (min-width: $mq-wide) {
+      height: 800px;
+    }
+
     .carousel-cell {
-  
       img {
-        @media (min-width: $mq-desktop) {
-          height: 800px;
+        @media (min-width: $mq-wide) {
           max-height: unset;
         }
       }
     }
   }
+}
 
-  .arrows {
-    &.inside {
-      position: absolute;
-      bottom: 22px;
-      left: 22px;
-
-      .arrow {
-        cursor: pointer;
-
-        svg {
-          rect {
-            fill: $black !important;
-            fill-opacity: 0;
-          }
-        }
-
-        &:hover {
-          svg {
-            rect {
-              fill-opacity: 1;
-            }
-          }
-        }
-      }
+.arrows {
+  &.inside {
+    @media (max-width: ($mq-tablet - 1px)) {
+      display: none !important;
     }
-
-    &.outside {
-      margin-top: 22px;
-
-      .arrow {
-        svg {
-          rect {
-            fill: $white !important;
-            fill-opacity: 0;
-          }
-        }
-
-        &:hover {
-          svg {
-            rect {
-              fill-opacity: 1;
-            }
-          }
-        }
-      }
-    }
-
-    display: flex;
-    gap: 10px;
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
 
     .arrow {
-      display: flex;
-      width: 52px;
+      cursor: pointer;
 
-      svg * {
-        transition: all .5s;
+      svg {
+        rect {
+          fill: $black !important;
+          fill-opacity: 0;
+        }
       }
+
+      &:hover {
+        svg {
+          rect {
+            fill-opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &.outside {
+
+    @media (max-width: ($mq-tablet - 1px)) {
+      display: none !important;
+    }
+
+    margin-top: 22px;
+
+    .arrow {
+      svg {
+        rect {
+          fill: $white !important;
+          fill-opacity: 0;
+        }
+      }
+
+      &:hover {
+        svg {
+          rect {
+            fill-opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  display: flex;
+  gap: 10px;
+
+  .arrow {
+    display: flex;
+    width: 52px;
+
+    svg * {
+      transition: all .5s;
     }
   }
 }

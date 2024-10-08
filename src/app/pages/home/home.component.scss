@@ -31,10 +31,10 @@
   @media (min-width: $mq-tablet) {
     gap: 0;
     flex-direction: row;
-    height: 400px;
+    height: 39.4vw;
   }
 
-  @media (min-width: $mq-desktop) {
+  @media (min-width: $mq-wide) {
     height: 630px;
   }
 
@@ -95,9 +95,9 @@
   }
 
   .gallery {
-    height: 50vw;
+    /*height: 50vw;*/
     min-height: 200px;
-    max-height: 400px;
+    /*max-height: 400px;*/
 
     @media (min-width: $mq-tablet) {
       flex-direction: row;
