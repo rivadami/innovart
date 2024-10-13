@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
-import { NgForOf, NgIf } from '@angular/common';
+import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
 import { LayoutComponent } from '../../shared/layout/layout.component';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
@@ -13,6 +13,9 @@ import { CurtainRevealComponent } from '../../shared/curtain-reveal/curtain-reve
 import ScrollReveal from 'scrollreveal';
 import { QUERY_PORTFOLIO, QUERY_PORTFOLIO_INFO } from '../../queries/portfolio';
 import { BaseComponentService } from '../../shared/services/base-component.service';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { map, Observable, startWith, tap } from 'rxjs';
+import { QueryRef } from '@apollo/client';
 
 @Component({
   selector: 'app-portfolio',
@@ -28,11 +31,14 @@ import { BaseComponentService } from '../../shared/services/base-component.servi
     ParagraphRevealComponent,
     FooterComponent,
     CurtainRevealComponent,
+    MatProgressSpinner,
+    AsyncPipe,
   ],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss'
 })
 export class PortfolioComponent extends BaseComponentService implements OnInit {
+  portfolio$: Observable<{ loading: boolean, portfolio: any[] }> | null = null;
   portfolioInfo: any = null;
   portfolio: any[] = [];
   noPosts = 0;
@@ -69,19 +75,44 @@ export class PortfolioComponent extends BaseComponentService implements OnInit {
 
   }
 
-  loadFirstN(noPosts: number = 3) {
+  loadFirstNv1(noPosts: number = 3) {
     this.apollo
-      .watchQuery({query: gql`${QUERY_PORTFOLIO(noPosts, this.afterKey)}`})
-      .valueChanges
-      .subscribe((result: any) => {
-        console.log("@==>", result.data.portfolioCompanies);
-        result.data.portfolioCompanies.edges.forEach((edge: any) => {
-          this.portfolio.push(edge)
-        });
-        this.afterKey = result.data.portfolioCompanies.pageInfo.endCursor;
-        this.noPosts = result.data.portfolioCompanies.edges.length;
-        this.hasMore = result.data.portfolioCompanies.pageInfo.hasNextPage;
+    .watchQuery({query: gql`${QUERY_PORTFOLIO(noPosts, this.afterKey)}`})
+    .valueChanges
+    .subscribe((result: any) => {
+      console.log("@==>", result.data.portfolioCompanies);
+      result.data.portfolioCompanies.edges.forEach((edge: any) => {
+        this.portfolio.push(edge)
       });
+      this.afterKey = result.data.portfolioCompanies.pageInfo.endCursor;
+      this.noPosts = result.data.portfolioCompanies.edges.length;
+      this.hasMore = result.data.portfolioCompanies.pageInfo.hasNextPage;
+    });
+  }
+
+  loadFirstN(noPosts: number = 3) {
+    const query: any = this.apollo.watchQuery({
+      query: gql`${QUERY_PORTFOLIO(noPosts, this.afterKey)}`
+    });
+
+    this.portfolio$ = query.valueChanges.pipe(
+      startWith({ loading: true}),
+      tap(({loading, data}) => {
+        if (!loading) {
+          const newItems = data.portfolioCompanies.edges;
+          // this.portfolio = [...this.portfolio, ...newItems];
+          newItems.forEach((edge: any) => {
+            this.portfolio.push(edge)
+          });
+          this.afterKey = data.portfolioCompanies.pageInfo.endCursor;
+          this.noPosts = newItems.length;
+          this.hasMore = data.portfolioCompanies.pageInfo.hasNextPage;
+        }
+      }),
+      map((result: any) => ({
+        loading: result.loading
+      }))
+    );
   }
 
   loadMore() {
