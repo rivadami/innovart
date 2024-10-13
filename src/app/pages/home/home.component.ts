@@ -42,13 +42,11 @@ export class HomeComponent extends BaseComponentService implements OnInit {
   }
 
   ngAfterViewInit(): void {
-
     ScrollReveal().reveal('body', {
       interval: 200,
       duration: 1000,
       viewFactor: .1,
     });
-
   }
 
   ngOnInit(): void {
