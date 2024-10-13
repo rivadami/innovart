@@ -60,4 +60,8 @@ export class CompanyComponent extends BaseComponentService implements OnInit {
     });
   }
 
+  toggleAccordion(event: any): void {
+    event.currentTarget.parentElement.parentElement.classList.toggle('active');
+  }
+
 }
