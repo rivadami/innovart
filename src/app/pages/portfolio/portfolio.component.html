@@ -6,7 +6,8 @@
         <div class="line horizontal"></div>
       </app-line-reveal>
     </div>
-    <div class="wrapper wrapper--x-gap-45 wrapper--bottom-30 wrapper--m-top-0 wrapper--m-bottom-25 min-h-400 d-flex flex-column justify-content-between gap-60">
+    <div
+      class="wrapper wrapper--x-gap-45 wrapper--bottom-30 wrapper--m-top-0 wrapper--m-bottom-25 min-h-400 d-flex flex-column justify-content-between gap-60">
       <app-paragraph-reveal classSelector="title">
         <h1 class="title text-uppercase">{{ portfolioInfo?.portfolioFields?.title }}</h1>
       </app-paragraph-reveal>
@@ -30,22 +31,25 @@
         </app-line-reveal>
         <div class="work">
           <div class="gallery">
-            <app-gallery-horizontal #gallery [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"
-              [showButtons]="false" classCss="big"></app-gallery-horizontal>
+            <app-gallery-horizontal #gallery
+                                    classCss="big"
+                                    [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"
+                                    [showButtons]="false"></app-gallery-horizontal>
           </div>
           <div class="info info--desktop">
             <div class="info-title">
-              <h3 class="text">{{item?.node?.portfolioSingleFields.title}}</h3>
-              <h4 class="text text-grey">{{item?.node?.portfolioSingleFields.clientLocation}}</h4>
+              <h3 class="text">{{ item?.node?.portfolioSingleFields.title }}</h3>
+              <h4 class="text text-grey">{{ item?.node?.portfolioSingleFields.clientLocation }}</h4>
             </div>
             <div class="info-description">
               <div class="info-box">
                 <div class="info-box-client"><span class="text-xs text-grey text-uppercase">Client</span>
-                  <h4 class="text-s">{{item?.node?.portfolioSingleFields.clientName}}</h4>
+                  <h4 class="text-s">{{ item?.node?.portfolioSingleFields.clientName }}</h4>
                 </div>
                 <div class="info-box-images">
                   <span class="text-xs text-grey text-uppercase">Images</span>
-                  <label *ngIf="gallery" class="text-s caption">{{ gallery.currentIndex }} of {{ gallery.totalSlides
+                  <label *ngIf="gallery" class="text-s caption">{{ gallery.currentIndex }} of {{
+                      gallery.totalSlides
                     }}</label>
                 </div>
               </div>
@@ -55,16 +59,17 @@
             <div class="info-description">
               <div class="info-box">
                 <div class="info-box-client"><span class="text-xs text-grey text-uppercase">Client</span>
-                  <h4 class="text-s">{{item?.node?.portfolioSingleFields.clientName}}</h4>
+                  <h4 class="text-s">{{ item?.node?.portfolioSingleFields.clientName }}</h4>
                 </div>
               </div>
             </div>
-          </div>          
+          </div>
         </div>
       </div>
     </ng-container>
   </div>
-  <div class="wrapper wrapper--top-0 wrapper--m-top-75 wrapper--bottom-45 wrapper--m-bottom-195" [class.hidden]="!hasMore">
+  <div class="wrapper wrapper--top-0 wrapper--m-top-75 wrapper--bottom-45 wrapper--m-bottom-195"
+       [class.hidden]="!hasMore">
     <app-line-reveal class="x-hidden">
       <div class="line horizontal"></div>
     </app-line-reveal>
