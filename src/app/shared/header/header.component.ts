@@ -22,7 +22,7 @@ import { QUERY_HEADER } from '../../queries/header';
 export class HeaderComponent implements OnInit {
   menu: string[] = [];
   menuActive = false;
-  classCss: string;  
+  classCss: string;
   constructor(private readonly apollo: Apollo,
               private dialog: MatDialog) {
   }
@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
   }
 
   openMenu() {
-    if(this.menuActive == true){
+    if(this.menuActive){
       this.menuActive = false;
       this.classCss = "";
     } else{
