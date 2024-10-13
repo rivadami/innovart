@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, View
 import { NgForOf, NgIf, NgOptimizedImage, NgClass } from '@angular/common';
 import Flickity from 'flickity';
 import { CurtainRevealComponent } from '../curtain-reveal/curtain-reveal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gallery-horizontal',
@@ -25,7 +26,19 @@ export class GalleryHorizontalComponent implements AfterViewInit {
   @Input() showButtonsOutside: boolean = false;
   currentIndex?: number;
   totalSlides?: number;
-  galleryEffect!: Flickity;  
+  galleryEffect!: Flickity;
+
+  constructor(private router: Router) {
+  }
+
+  navigateTo(item: any): void {
+    // Assuming item.node.portfolioRoute = "/portfolio/portfoliotest1"
+    // You should replace: "if (item.node.NAMEOFTHEPROPERTY)"
+    if (item.node.portfolioRoute) {
+      // This should be: this.router.navigate([item.node.portfolioRoute]);
+      this.router.navigate(['']);
+    }
+  }
 
   ngAfterViewInit(): void {
     const elem = this.carousel.nativeElement;
@@ -38,7 +51,7 @@ export class GalleryHorizontalComponent implements AfterViewInit {
       freeScroll: false,
       prevNextButtons: false,
       autoPlay: false,
-      resize: true,
+      resize: true
     });
 
     setTimeout(() => {
@@ -59,6 +72,13 @@ export class GalleryHorizontalComponent implements AfterViewInit {
         this.totalSlides = totalSlides;
       });
     }, 1000);
+
+    this.galleryEffect.on('staticClick', (event: any, pointer: any, cellElement: Element, cellIndex: number) => {
+      if (cellIndex !== undefined && this.gallery[cellIndex]) {
+        const clickedItem = this.gallery[cellIndex];
+        this.navigateTo(clickedItem);
+      }
+    });
   }
 
   goToNext(): void {
@@ -67,6 +87,6 @@ export class GalleryHorizontalComponent implements AfterViewInit {
 
   goToPrev(): void {
     this.galleryEffect.previous();
-  }  
+  }
 
 }
