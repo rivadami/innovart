@@ -48,16 +48,15 @@ export const QUERY_HEADER = `
     }
     menus {
       nodes {
+        databaseId
         name
         menuItems {
-          edges {
-            node {
-              label
-              url
-              uri
-              parentId
-              target
-            }
+          nodes {
+            label
+            url
+            uri
+            parentId
+            target
           }
         }
       }
