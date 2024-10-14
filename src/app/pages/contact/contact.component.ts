@@ -126,10 +126,13 @@ export class ContactComponent extends BaseComponentService implements OnInit {
         subject: "Contact page form submitted"
       }
     }).subscribe((response: any) => {
+      console.log("@==>", response);
       if (response.data.sendEmail.sent) {
         this.success = true;
+        console.log("@==>send");
       } else {
         this.error = true;
+        console.log("@==>error");
       }
     });
   }
