@@ -34,9 +34,10 @@ export class GalleryHorizontalComponent implements AfterViewInit {
   navigateTo(item: any): void {
     // Assuming item.node.portfolioRoute = "/portfolio/portfoliotest1"
     // You should replace: "if (item.node.NAMEOFTHEPROPERTY)"
-    if (item.node.portfolioRoute) {
+    if (item.node.uri) {
       // This should be: this.router.navigate([item.node.portfolioRoute]);
-      this.router.navigate(['']);
+      //this.router.navigate(['']);
+      //this.router.navigate([item.node.uri]);
     }
   }
 

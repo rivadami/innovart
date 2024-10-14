@@ -99,6 +99,7 @@ export class PortfolioComponent extends BaseComponentService implements OnInit {
       startWith({ loading: true}),
       tap(({loading, data}) => {
         if (!loading) {
+          console.log("@==>", data.portfolioCompanies.edges);
           const newItems = data.portfolioCompanies.edges;
           // this.portfolio = [...this.portfolio, ...newItems];
           newItems.forEach((edge: any) => {

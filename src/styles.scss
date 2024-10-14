@@ -1205,3 +1205,10 @@ body.contact {
     }
   }
 }
+.spinner-container{
+  width: 50px;
+  display: flex;
+}
+.spinner-container circle{
+  stroke: #000000;
+}
