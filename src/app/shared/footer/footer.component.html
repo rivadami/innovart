@@ -5,16 +5,13 @@
     </app-line-reveal>
   </div>
   <div class="wrapper wrapper--top-60 wrapper--m-top-25 wrapper--bottom-0 wrapper--m-bottom-195">
-    <div class="max-w-1250">
+    <div class="max-w-1250 no-br">
       <app-paragraph-reveal classSelector="title-s">
-        <p class="title-s mb-30">WE ARE YOUR ADVISOR, CREATIVE, ACCOUNT PLANNER, PHOTOGRAPHER, COPYWRITER, DESIGNER &
-          PRODUCER.
-          ALL OF THE ABOVE AND THEN SOME.</p>
+        <p class="title-s mb-30" [innerHTML]="footerInfo?.contactPhrase"></p>
           
       </app-paragraph-reveal>
       <app-paragraph-reveal classSelector="title-s">
-        <p class="title-s"><a class="link text-underline mobile-block" href="#">LET'S TALK</a> ABOUT WHAT'S NEXT FOR
-          YOUR BRAND.</p>
+        <p class="title-s" [innerHTML]="footerInfo?.contactPhraseLink"></p>
       </app-paragraph-reveal>
     </div>
   </div>
@@ -26,17 +23,16 @@
   <div class="wrapper wrapper--bottom-60 wrapper--x-gap-45 wrapper--top-45 wrapper--m-top-0 wrapper--bottom-m-75 s-flex footer-menu">
     <div class="x-hidden footer-col-1 gap-0">
       <h4 _ngcontent-ng-c823299906="" class="text-xs text-grey">SINCE 2003</h4>
-      <p class="text">We are a team of culture creators, brand launchers and advertising nerds. We are a creative and
-        consulting firm.</p>
+      <p class="text"> {{ footerInfo?.whoWeAre }}</p>
     </div>
     <div class="footer-col-2">
       <div class="text-s">
         <h4 class="text-xs text-grey">PHONE</h4>
-        <a class="link link--black" href="tel:3059931862" target="_blank">305 993 1862</a>
+        <a class="link link--black" href="{{ footerInfo?.phoneNumber.url }}" target="_blank">{{ footerInfo?.phoneNumber.title }}</a>
       </div>
       <div class="text-s">
         <h4 class="text-xs text-grey">EMAIL</h4>
-        <a class="link link--black" href="hello@innovart.agency" target="_blank">hello&#64;innovart.agency</a>
+        <a class="link link--black" href="{{ footerInfo?.emailAddress.url }}" target="_blank">{{ footerInfo?.emailAddress.title }}</a>
       </div>
     </div>
     <div class="footer-col-3">
@@ -101,11 +97,11 @@
       </svg>
     </div>
     <div class="footer-col-2">
-      <p class="text-m text-grey">© 2024 Innovart LLC</p>
+      <p class="text-m text-grey">{{ footerInfo?.copyright }}</p>
     </div>
     <div class="footer-col-3">
-      <a href="/contact/" class="btn btn--icon btn--discovery">
-        Book a Discovery Call <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.03 11.66"><path d="M0,5.4h25.56c-.65-.85-1.31-1.7-2.06-2.7l-2.06-2.7h1.2l4.4,5.83-4.4,5.83h-1.2l2.06-2.7c.74-.98,1.41-1.85,2.05-2.69H0v-.87Z" style="fill:#fff;" /></svg>
+      <a href="{{ footerInfo?.bookCall.url }}" class="btn btn--icon btn--discovery">
+        {{ footerInfo?.bookCall.title }} <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.03 11.66"><path d="M0,5.4h25.56c-.65-.85-1.31-1.7-2.06-2.7l-2.06-2.7h1.2l4.4,5.83-4.4,5.83h-1.2l2.06-2.7c.74-.98,1.41-1.85,2.05-2.69H0v-.87Z" style="fill:#fff;" /></svg>
       </a>
     </div>
   </div>

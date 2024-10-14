@@ -541,7 +541,7 @@ table {
 }
 
 .max-w-1250 {
-  max-width: 1250px;
+  max-width: 1265px;
 }
 
 @media (min-width: $mq-tablet) {
@@ -553,6 +553,10 @@ table {
 @media (min-width: $mq-desktop) {
   .min-w-m-250 {
     min-width: 250px;
+  }
+
+  .min-w-m-410 {
+    min-width: 410px;
   }
 
   .w-min-m {
@@ -704,6 +708,7 @@ table {
 .work{
   .gallery{
     .main-carousel{
+      height: 100%;
       .flickity-viewport{
         height: 100%!important;
         .carousel-cell{
@@ -1211,4 +1216,26 @@ body.contact {
 }
 .spinner-container circle{
   stroke: #000000;
+}
+
+@media (max-width: ($mq-tablet - 1px)) {
+  .no-br{
+    br{
+      display: none;
+    }
+  }
+}
+
+.height-unset{
+  .work{
+    height: unset!important;
+    @media (max-width: ($mq-tablet - 1px)) {
+      flex-direction: unset!important;
+    }
+    .info,
+    .gallery{
+      height: unset!important;
+      min-height: unset!important;
+    }
+  }
 }

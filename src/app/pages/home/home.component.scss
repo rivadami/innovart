@@ -72,9 +72,12 @@
       > p{
         margin: 0;
         display: -webkit-box;
-        -webkit-line-clamp: 10;
+        -webkit-line-clamp: 6;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        @media (min-width: $mq-desktop) {
+          -webkit-line-clamp: 10;
+        }
       }
 
       .info-box {
