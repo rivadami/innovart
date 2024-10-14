@@ -17,18 +17,21 @@
         <div class="d-grid grid-m-34 form-wrap form-wrap--extra form-radio ">
           <div class="col-left x-hidden">
           </div>
-          <div class="col-right align-inline">
-            <div class="form-group">
-              <input type="radio" formControlName="type" id="new-project" name="type" value="new-project" required>
-              <label for="new-project">New Project</label><br>
-            </div>
-            <div class="form-group">
-              <input type="radio" formControlName="type" id="careers" name="type" value="careers">
-              <label for="careers">Careers</label><br>
-            </div>
-            <div class="form-group">
-              <input type="radio" formControlName="type" id="Partnership" name="type" value="Partnership">
-              <label for="Partnership">Partnership</label>
+          <div class="col-right">
+            <div class="align-inline">
+              <!-- contact?.contactFields?.contactFormSubjectOptions -->
+              <div class="form-group">
+                <input type="radio" formControlName="type" id="new-project" name="type" value="new-project" required>
+                <label for="new-project">New Project</label><br>
+              </div>
+              <div class="form-group">
+                <input type="radio" formControlName="type" id="careers" name="type" value="careers">
+                <label for="careers">Careers</label><br>
+              </div>
+              <div class="form-group">
+                <input type="radio" formControlName="type" id="Partnership" name="type" value="Partnership">
+                <label for="Partnership">Partnership</label>
+              </div>
             </div>
             <ng-container *ngIf="formType?.invalid && (formType?.dirty || formType?.touched)">
               <span class="form-error">Please select one option.</span>
@@ -117,8 +120,9 @@
             <label for="inputHear">How did you hear from us?</label>
           </div>
           <div class="col-right">
+            <!-- contact?.contactFields?.howDidYouHearFromUs -->
             <select formControlName="hear" name="inputHear" id="inputHear" required>
-              <option value="" selected>Select *</option>
+              <option disabled selected value="">Select *</option>
               <option value="option 1">Option 1</option>
               <option value="option 2">Option 2</option>
               <option value="option 3">Option 3</option>
@@ -164,11 +168,14 @@
                   style="fill:#000;"/>
               </svg>
             </button>
+            <ng-container *ngIf="!formValid">
+              <span class="form-error">Please complete the required fields.</span>
+            </ng-container>
           </div>
         </div>
       </form>
-      <div *ngIf="success">SUCCESS</div>
-      <div *ngIf="error">ERROR</div>
+      <div *ngIf="success">The form was sent successfully</div>
+      <div *ngIf="error">There was an error in the form, please send us an email to <a href="mailto:hello@innovart.us" target="_blank">hello&#64;innovart.us</a></div>
     </div>
   </div>
 </app-layout>

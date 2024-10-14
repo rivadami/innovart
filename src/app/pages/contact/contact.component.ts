@@ -13,6 +13,7 @@ import { CurtainRevealComponent } from '../../shared/curtain-reveal/curtain-reve
 import { MUTATION_SEND_EMAIL, QUERY_CONTACT } from '../../queries/contact';
 import { BaseComponentService } from '../../shared/services/base-component.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import ScrollReveal from 'scrollreveal';
 
 @Component({
   selector: 'app-contact',
@@ -49,6 +50,7 @@ export class ContactComponent extends BaseComponentService implements OnInit {
   contact: any;
   error: boolean | null = null;
   success: boolean | null = null;
+  formValid : boolean;
 
   constructor(private readonly apollo: Apollo,
               elementRef: ElementRef,

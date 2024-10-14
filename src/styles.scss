@@ -915,7 +915,12 @@ table {
 
 .form {
 
+  .col-right{
+    flex-direction: column;
+  }
+
   .form-error {
+    font-size: var(--body-m-font-size);
   }
 
   .form-wrap {
@@ -943,10 +948,17 @@ table {
       gap: 60px;
     }
 
+    .form-error{
+      padding: 5px 0;
+      color: #fff;
+      @media (min-width: $mq-desktop) {
+        padding: 10px;
+      }
+    }
     label,
     input,
     select,
-    textarea {
+    textarea, {
       font-family: var(--body-font-family);
       font-weight: var(--body-font-weight);
       line-height: var(--body-line-height);
