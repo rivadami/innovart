@@ -14,6 +14,7 @@ import { MUTATION_SEND_EMAIL, QUERY_CONTACT } from '../../queries/contact';
 import { BaseComponentService } from '../../shared/services/base-component.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import ScrollReveal from 'scrollreveal';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -53,9 +54,10 @@ export class ContactComponent extends BaseComponentService implements OnInit {
   formValid : boolean;
 
   constructor(private readonly apollo: Apollo,
+              router: Router,
               elementRef: ElementRef,
               renderer: Renderer2) {
-    super(elementRef, renderer);
+    super(elementRef, renderer, router);
   }
 
   get formType() {

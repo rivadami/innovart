@@ -9,6 +9,7 @@ import { gql } from '@apollo/client/core';
 import { QUERY_METHODY } from '../../queries/methodology';
 import { NgIf } from '@angular/common';
 import { BaseComponentService } from '../../shared/services/base-component.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-methodology',
@@ -28,9 +29,10 @@ export class MethodologyComponent extends BaseComponentService implements OnInit
   page: any;
 
   constructor(private readonly apollo: Apollo,
+              router: Router,
               elementRef: ElementRef,
               renderer: Renderer2) {
-    super(elementRef, renderer);
+    super(elementRef, renderer, router);
   }
 
   ngOnInit(): void {

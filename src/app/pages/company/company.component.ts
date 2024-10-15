@@ -13,6 +13,7 @@ import { CurtainRevealComponent } from '../../shared/curtain-reveal/curtain-reve
 import ScrollReveal from 'scrollreveal';
 import { QUERY_COMPANY } from '../../queries/company';
 import { BaseComponentService } from '../../shared/services/base-component.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company',
@@ -36,9 +37,10 @@ export class CompanyComponent extends BaseComponentService implements OnInit {
   page: any;
 
   constructor(private readonly apollo: Apollo,
+              router: Router,
               elementRef: ElementRef,
               renderer: Renderer2) {
-    super(elementRef, renderer);
+    super(elementRef, renderer, router);
   }
 
   ngAfterViewInit(): void {

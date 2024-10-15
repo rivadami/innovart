@@ -9,7 +9,7 @@ import { ParagraphRevealComponent } from '../../shared/paragraph-reveal/paragrap
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QUERY_PORTFOLIO_SINGLE } from '../../queries/portfolio';
 import { BaseComponentService } from '../../shared/services/base-component.service';
 
@@ -36,9 +36,10 @@ export class SinglePortfolioComponent extends BaseComponentService implements On
 
   constructor(private readonly apollo: Apollo,
               private route: ActivatedRoute,
+              router: Router,
               elementRef: ElementRef,
               renderer: Renderer2) {
-    super(elementRef, renderer);
+    super(elementRef, renderer, router);
   }
 
   ngOnInit(): void {

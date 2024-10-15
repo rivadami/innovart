@@ -10,6 +10,7 @@ import { QUERY_METHODY } from '../../queries/methodology';
 import { QUERY_WORK_WITH_US } from '../../queries/work';
 import { NgIf } from '@angular/common';
 import { BaseComponentService } from '../../shared/services/base-component.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-work-with-us',
@@ -29,9 +30,10 @@ export class WorkWithUsComponent extends BaseComponentService implements OnInit 
   page: any;
 
   constructor(private readonly apollo: Apollo,
+              router: Router,
               elementRef: ElementRef,
               renderer: Renderer2) {
-    super(elementRef, renderer)
+    super(elementRef, renderer, router);
   }
 
   ngOnInit(): void {

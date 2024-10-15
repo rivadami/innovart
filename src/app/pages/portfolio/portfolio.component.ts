@@ -15,7 +15,6 @@ import { QUERY_PORTFOLIO, QUERY_PORTFOLIO_INFO } from '../../queries/portfolio';
 import { BaseComponentService } from '../../shared/services/base-component.service';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { map, Observable, startWith, tap } from 'rxjs';
-import { QueryRef } from '@apollo/client';
 import { Router } from '@angular/router';
 
 @Component({
@@ -47,10 +46,10 @@ export class PortfolioComponent extends BaseComponentService implements OnInit {
   afterKey = null;
 
   constructor(private readonly apollo: Apollo,
-              private router: Router,
+              router: Router,
               elementRef: ElementRef,
               renderer: Renderer2) {
-    super(elementRef, renderer);
+    super(elementRef, renderer, router);
   }
 
   ngAfterViewInit(): void {
