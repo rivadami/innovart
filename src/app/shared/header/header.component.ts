@@ -20,7 +20,7 @@ import { QUERY_HEADER } from '../../queries/header';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
-  menu: string[] = [];
+  menu: any[] = [];
   menuActive = false;
   classCss: string;
   constructor(private readonly apollo: Apollo,
@@ -32,7 +32,8 @@ export class HeaderComponent implements OnInit {
       query: gql`${QUERY_HEADER}`
     }).valueChanges.subscribe((result: any) => {
       console.log("@==>", result);
-      this.menu = result.data.menus.nodes;
+      const mainMenu = result.data.menus.nodes.find((item: any) => item.name === "Main Menu");
+      this.menu = mainMenu.menuItems.nodes;
     });
   }
 
