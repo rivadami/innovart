@@ -20,6 +20,7 @@ import { Router } from '@angular/router';
 export class GalleryHorizontalComponent implements AfterViewInit {
   @ViewChild('carousel') carousel!: ElementRef;
   @Output() slideChange = new EventEmitter<{ currentIndex: number, totalSlides: number }>();
+  @Output() slideClicked = new EventEmitter<any>();
   @Input() gallery: any;
   @Input() classCss: string;
   @Input() showButtons: boolean = false;
@@ -28,12 +29,13 @@ export class GalleryHorizontalComponent implements AfterViewInit {
   totalSlides?: number;
   galleryEffect!: Flickity;
 
-  constructor(private router: Router) {
+  constructor() {
   }
 
   navigateTo(item: any): void {
     // Assuming item.node.portfolioRoute = "/portfolio/portfoliotest1"
     // You should replace: "if (item.node.NAMEOFTHEPROPERTY)"
+    this.slideClicked.emit(item);
     if (item.node.uri) {
       // This should be: this.router.navigate([item.node.portfolioRoute]);
       //this.router.navigate(['']);

@@ -16,6 +16,7 @@ import { BaseComponentService } from '../../shared/services/base-component.servi
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { map, Observable, startWith, tap } from 'rxjs';
 import { QueryRef } from '@apollo/client';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-portfolio',
@@ -46,6 +47,7 @@ export class PortfolioComponent extends BaseComponentService implements OnInit {
   afterKey = null;
 
   constructor(private readonly apollo: Apollo,
+              private router: Router,
               elementRef: ElementRef,
               renderer: Renderer2) {
     super(elementRef, renderer);
@@ -64,6 +66,10 @@ export class PortfolioComponent extends BaseComponentService implements OnInit {
     this.loadPageInfo();
   }
 
+  redirectToPortfolio(item: any) {
+    this.router.navigate([item.node.uri]);
+  }
+
   loadPageInfo() {
     this.apollo
     .watchQuery({query: gql`${QUERY_PORTFOLIO_INFO}`})
@@ -72,7 +78,6 @@ export class PortfolioComponent extends BaseComponentService implements OnInit {
       console.log("@==>", result.data.page);
       this.portfolioInfo = result.data.page;
     });
-
   }
 
   loadFirstNv1(noPosts: number = 3) {
@@ -96,7 +101,7 @@ export class PortfolioComponent extends BaseComponentService implements OnInit {
     });
 
     this.portfolio$ = query.valueChanges.pipe(
-      startWith({ loading: true}),
+      startWith({loading: true}),
       tap(({loading, data}) => {
         if (!loading) {
           console.log("@==>", data.portfolioCompanies.edges);

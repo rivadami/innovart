@@ -34,7 +34,8 @@
             <app-gallery-horizontal #gallery
                                     classCss="big"
                                     [gallery]="item?.node?.portfolioSingleFields?.galleryGrid?.edges"
-                                    [showButtons]="false"></app-gallery-horizontal>
+                                    [showButtons]="false"
+                                    (slideClicked)="redirectToPortfolio(item)"></app-gallery-horizontal>
           </div>
           <div class="info info--desktop">
             <div class="info-title">
