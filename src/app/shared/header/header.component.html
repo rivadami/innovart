@@ -10,8 +10,10 @@
             [ngClass]="classCss"><span class="open">Menu</span><span class="close">Close</span></button>
     <!--AGREGAR CLASE ACTIVE CUANDO SE EJECUTA OPEN MENU-->
     <nav class="nav hidden s-flex">
-      <ul class="list" *ngFor="let item of menu">
-        <li class="menu-item"><a class="link" [routerLink]="item.uri">{{ item.label }}</a></li>
+      <ul class="list">
+        <ng-container *ngFor="let item of menu">
+          <li class="menu-item"><a class="link" [routerLink]="item.uri">{{ item.label }}</a></li>
+        </ng-container>
         <!--<li class="menu-item"><a class="link" routerLink="/portfolio">PORTFOLIO</a></li>
         <li class="menu-item"><a class="link" routerLink="/company">COMPANY</a></li>
         <li class="menu-item"><a class="link" routerLink="/methodology">METHODOLOGY</a></li>
@@ -20,8 +22,10 @@
     </nav>
     <nav class="mobile-nav nav s-hidden" [ngClass]="classCss">
       <div class="wrapper">
-        <ul class="vertical" *ngFor="let item of menu">
-          <li class="menu-item"><a class="link" [routerLink]="item.uri">{{ item.label }}</a></li>
+        <ul class="vertical">
+          <ng-container *ngFor="let item of menu">
+            <li class="menu-item"><a class="link" [routerLink]="item.uri">{{ item.label }}</a></li>
+          </ng-container>
           <!--<li class="menu-item"><a class="link" routerLink="/portfolio">PORTFOLIO</a></li>
           <li class="menu-item"><a class="link" routerLink="/company">COMPANY</a></li>
           <li class="menu-item"><a class="link" routerLink="/methodology">METHODOLOGY</a></li>
