@@ -226,57 +226,14 @@
   -->
   <div class="wrapper wrapper-m--top-0 wrapper--m-bottom-195">
     <div class="logos">
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
-      <div class="logo-img">
-        <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
-      </div>
+      <ng-container *ngFor="let item of page.companyFields.clientsLogos.edges">
+        <div class="logo-img">
+          <img [src]="item.node.featuredImage.node.id" />
+        </div>
+        <!--<div class="logo-img">
+          <img src="https://innovart.mystagingwebsite.com/wp-content/uploads/2024/09/logo_google_nuevo.jpg" />
+        </div>-->
+      </ng-container>
     </div>
   </div>
 </app-layout>
