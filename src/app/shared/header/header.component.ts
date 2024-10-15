@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
 import { NgIf, NgForOf, NgOptimizedImage, NgClass } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { QUERY_HEADER } from '../../queries/header';
+import ScrollReveal from 'scrollreveal';
 
 @Component({
   selector: 'app-header',
@@ -19,10 +20,11 @@ import { QUERY_HEADER } from '../../queries/header';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit {
-  menu: any[] = [];
+export class HeaderComponent implements OnInit, AfterViewInit {
+  menu: any = null
   menuActive = false;
   classCss: string;
+
   constructor(private readonly apollo: Apollo,
               private dialog: MatDialog) {
   }
@@ -34,7 +36,22 @@ export class HeaderComponent implements OnInit {
       console.log("@==>", result);
       const mainMenu = result.data.menus.nodes.find((item: any) => item.name === "Main Menu");
       this.menu = mainMenu.menuItems.nodes;
+      this.showMenu();
     });
+  }
+
+  ngAfterViewInit(): void {
+
+  }  
+
+  showMenu() {
+    setTimeout(() => { 
+      ScrollReveal().reveal('.menu-item', {
+        interval: 200,
+        duration: 1500,
+        viewFactor: .1,
+      });
+    }, 100);
   }
 
   openMenu() {
@@ -47,15 +64,5 @@ export class HeaderComponent implements OnInit {
     }
     console.log(this.classCss);
     console.log(this.menuActive);
-
-    /*
-    this.dialog.open(AnimatedMenuComponent, {
-      panelClass: 'fullscreen-dialog',
-      height: '100vh',
-      width: '100vw',
-      hasBackdrop: true,
-      backdropClass: 'custom-backdrop'
-    });
-    */
   }
 }

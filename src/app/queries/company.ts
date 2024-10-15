@@ -46,6 +46,7 @@ export const QUERY_COMPANY = `
             node {
               ... on TeamMember {
                 teamSingleFields {
+                  name
                   title
                   description
                 }
@@ -62,7 +63,10 @@ export const QUERY_COMPANY = `
                 title
                 featuredImage {
                   node {
-                    id
+                    title
+                    altText
+                    sourceUrl
+                    srcSet
                   }
                 }
               }

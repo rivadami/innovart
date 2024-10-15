@@ -13,7 +13,7 @@
   </div>
   <div class="wrapper wrapper--m-bottom-195">
     <div class="form">
-      <form [formGroup]="contactForm" (ngSubmit)="sendForm()">
+      <form *ngIf="!success" [formGroup]="contactForm" (ngSubmit)="sendForm()">
         <div class="d-grid grid-m-34 form-wrap form-wrap--extra form-radio ">
           <div class="col-left x-hidden">
           </div>
@@ -140,7 +140,7 @@
             <label for="inputBrief">Brief/Need</label>
           </div>
           <div class="col-right">
-            <textarea formControlName="message" rows="4" name="inputBrief" id="inputBrief"
+            <textarea formControlName="message" rows="3" name="inputBrief" id="inputBrief"
                       placeholder="Enter a brief description of your need. 500 characters maximum. *"
                       required></textarea>
             <!--<ng-container *ngIf="formMessage?.invalid && (formMessage?.dirty || formMessage?.touched)">-->
@@ -168,14 +168,18 @@
                   style="fill:#000;"/>
               </svg>
             </button>
-            <ng-container *ngIf="!formValid">
-              <span class="form-error">Please complete the required fields.</span>
-            </ng-container>
           </div>
-        </div>
+        </div>   
       </form>
-      <div *ngIf="success">The form was sent successfully</div>
-      <div *ngIf="error">There was an error in the form, please send us an email to <a href="mailto:hello@innovart.us" target="_blank">hello&#64;innovart.us</a></div>
+      <div *ngIf="submitted" class="d-grid grid-m-34 form-wrap form-wrap-m ">
+        <div class="col-left">
+        </div>
+        <div class="col-right">
+          <span class="form-error" *ngIf="submitted && !success">Please complete the required fields.</span>
+          <span class="form-alert" *ngIf="error">There was an error in the form, please send us an email to <a href="mailto:hello@innovart.us" target="_blank">hello&#64;innovart.us</a></span>
+        </div>
+      </div>          
+      <h4 class="title-s text-uppercase text-white" *ngIf="success">The form was sent successfully</h4>
     </div>
   </div>
 </app-layout>

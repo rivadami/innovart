@@ -642,6 +642,7 @@ table {
 }
 
 .btn {
+  cursor: pointer;
   background-color: #000;
   border-radius: 100px;
   color: #fff;
@@ -660,6 +661,7 @@ table {
     gap: 15px;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
 
     svg {
       width: 27px;
@@ -919,6 +921,7 @@ table {
     flex-direction: column;
   }
 
+  .form-alert,
   .form-error {
     font-size: var(--body-m-font-size);
   }
@@ -947,7 +950,7 @@ table {
     @media (min-width: $mq-desktop) {
       gap: 60px;
     }
-
+    .form-alert,
     .form-error{
       padding: 5px 0;
       color: #fff;

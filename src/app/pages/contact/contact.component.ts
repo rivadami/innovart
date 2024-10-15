@@ -108,6 +108,7 @@ export class ContactComponent extends BaseComponentService implements OnInit {
     }).valueChanges.subscribe((result: any) => {
       console.log("@==>", result.data.page);
       this.contact = result.data.page;
+      this.contactForm.get('hear')?.setValue("");
     });
   }
 
@@ -138,6 +139,7 @@ export class ContactComponent extends BaseComponentService implements OnInit {
         if (response.data.sendEmail.sent) {
           this.success = true;
           console.log("@==>send");
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
           this.error = true;
           console.log("@==>error");

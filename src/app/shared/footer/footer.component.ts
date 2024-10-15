@@ -36,12 +36,10 @@ export class FooterComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-
     ScrollReveal().reveal('footer', {
       interval: 200,
       duration: 3000,
       viewFactor: .1,
     });
-
   }
 }

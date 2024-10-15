@@ -51,6 +51,7 @@
     }
 
     .nav {
+        visibility: hidden;
         .list {
             display: flex;
             align-items: center;
@@ -61,6 +62,7 @@
             }
 
             .menu-item {
+                text-transform: uppercase;
                 font-size: var(--body-xs-font-size);
                 padding: 5px;
                 line-height: var(--body-line-height);
