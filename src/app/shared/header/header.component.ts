@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   menu: any = null
   menuActive = false;
   classCss: string;
+  classMenu: string;
 
   constructor(private readonly apollo: Apollo,
               private dialog: MatDialog) {
@@ -36,7 +37,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       console.log("@==>", result);
       const mainMenu = result.data.menus.nodes.find((item: any) => item.name === "Main Menu");
       this.menu = mainMenu.menuItems.nodes;
-      this.showMenu();
+      this.classMenu = "show";
+      //this.showMenu();
     });
   }
 
@@ -45,13 +47,15 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }  
 
   showMenu() {
-    setTimeout(() => { 
+    this.classMenu = "show";
+
+    /*setTimeout(() => { 
       ScrollReveal().reveal('.menu-item', {
         interval: 200,
-        duration: 1500,
+        duration: 1000,
         viewFactor: .1,
       });
-    }, 100);
+    }, 1);*/
   }
 
   openMenu() {
