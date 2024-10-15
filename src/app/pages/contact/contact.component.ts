@@ -108,17 +108,19 @@ export class ContactComponent extends BaseComponentService implements OnInit {
       console.log("@==>", result.data.page);
       this.contact = result.data.page;
     });
-    this.contactForm.markAllAsTouched();
   }
 
   sendForm() {
-    const form = this.contactForm.getRawValue();
-    console.log("@==>", form);
-    this.apollo.mutate({
-      mutation: gql`${MUTATION_SEND_EMAIL}`,
-      variables: {
-        email: form.email,
-        message: `
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+    } else {
+      const form = this.contactForm.getRawValue();
+      console.log("@==>", form);
+      this.apollo.mutate({
+        mutation: gql`${MUTATION_SEND_EMAIL}`,
+        variables: {
+          email: form.email,
+          message: `
           type: ${form.type},
           name: ${form.name},
           company: ${form.company},
@@ -127,18 +129,19 @@ export class ContactComponent extends BaseComponentService implements OnInit {
           hear: ${form.hear},
           message: ${form.message},
         `,
-        subject: "Contact page form submitted"
-      }
-    }).subscribe((response: any) => {
-      console.log("@==>", response);
-      if (response.data.sendEmail.sent) {
-        this.success = true;
-        console.log("@==>send");
-      } else {
-        this.error = true;
-        console.log("@==>error");
-      }
-    });
+          subject: "Contact page form submitted"
+        }
+      }).subscribe((response: any) => {
+        console.log("@==>", response);
+        if (response.data.sendEmail.sent) {
+          this.success = true;
+          console.log("@==>send");
+        } else {
+          this.error = true;
+          console.log("@==>error");
+        }
+      });
+    }
   }
 
 }
