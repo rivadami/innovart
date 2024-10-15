@@ -26,7 +26,8 @@
                 </div>
               </ng-container>
             </div>
-            <ng-container *ngIf="formType?.invalid && (formType?.dirty || formType?.touched)">
+            <!--<ng-container *ngIf="formType?.invalid && (formType?.dirty || formType?.touched)">-->
+            <ng-container *ngIf="submitted && formType?.invalid">
               <span class="form-error">Please select one option.</span>
             </ng-container>
           </div>
@@ -40,7 +41,8 @@
           </div>
           <div class="col-right">
             <input type="text" formControlName="name" name="inputName" id="inputName" placeholder="Name *" required>
-            <ng-container *ngIf="formName?.invalid && (formName?.dirty || formName?.touched)">
+            <!--<ng-container *ngIf="formName?.invalid && (formName?.dirty || formName?.touched)">-->
+            <ng-container *ngIf="submitted && formName?.invalid">
               <span class="form-error">Please include your name.</span>
             </ng-container>
           </div>
@@ -55,7 +57,8 @@
           <div class="col-right">
             <input type="text" formControlName="company" name="inputCompany" id="inputCompany" placeholder="Company *"
                    required>
-            <ng-container *ngIf="formCompany?.invalid && (formCompany?.dirty || formCompany?.touched)">
+            <!--<ng-container *ngIf="formCompany?.invalid && (formCompany?.dirty || formCompany?.touched)">-->
+            <ng-container *ngIf="submitted && formCompany?.invalid">
               <span class="form-error">Please include your company.</span>
             </ng-container>
           </div>
@@ -70,7 +73,8 @@
           <div class="col-right">
             <input type="text" formControlName="position" name="inputPosition" id="inputPosition"
                    placeholder="Position *" required>
-            <ng-container *ngIf="formPosition?.invalid && (formPosition?.dirty || formPosition?.touched)">
+            <!--<ng-container *ngIf="formPosition?.invalid && (formPosition?.dirty || formPosition?.touched)">-->
+            <ng-container *ngIf="submitted && formPosition?.invalid">
               <span class="form-error">Please include your position.</span>
             </ng-container>
           </div>
@@ -85,7 +89,8 @@
           <div class="col-right">
             <input type="email" formControlName="email" name="inputEmail" id="inputEmail" placeholder="Email *"
                    required>
-            <ng-container *ngIf="formEmail?.invalid && (formEmail?.dirty || formEmail?.touched)">
+            <!--<ng-container *ngIf="formEmail?.invalid && (formEmail?.dirty || formEmail?.touched)">-->
+            <ng-container *ngIf="submitted && formEmail?.invalid">
               <span class="form-error" *ngIf="formEmail?.hasError('required')">Please include your email.</span>
               <span class="form-error" *ngIf="formEmail?.hasError('email')">Please correct your email.</span>
             </ng-container>
@@ -100,7 +105,8 @@
           </div>
           <div class="col-right">
             <input type="text" formControlName="phone" name="inputPhone" id="inputPhone" placeholder="Phone *" required>
-            <ng-container *ngIf="formPhone?.invalid && (formPhone?.dirty || formPhone?.touched)">
+            <!--<ng-container *ngIf="formPhone?.invalid && (formPhone?.dirty || formPhone?.touched)">-->
+            <ng-container *ngIf="submitted && formPhone?.invalid">
               <span class="form-error">Please inclue your phone.</span>
             </ng-container>
           </div>
@@ -119,12 +125,9 @@
               <ng-container *ngFor="let item of contact.contactFields.howDidYouHearFromUs">
                 <option [value]="item.option">{{ item.option }}</option>
               </ng-container>
-              <!--<option value="option 1">Option 1</option>
-              <option value="option 2">Option 2</option>
-              <option value="option 3">Option 3</option>
-              <option value="option 4">Option 4</option>-->
             </select>
-            <ng-container *ngIf="formHear?.invalid && (formHear?.dirty || formHear?.touched)">
+            <!--<ng-container *ngIf="formHear?.invalid && (formHear?.dirty || formHear?.touched)">-->
+            <ng-container *ngIf="submitted && formHear?.invalid">
               <span class="form-error">Please select one option.</span>
             </ng-container>
           </div>
@@ -140,7 +143,8 @@
             <textarea formControlName="message" rows="4" name="inputBrief" id="inputBrief"
                       placeholder="Enter a brief description of your need. 500 characters maximum. *"
                       required></textarea>
-            <ng-container *ngIf="formMessage?.invalid && (formMessage?.dirty || formMessage?.touched)">
+            <!--<ng-container *ngIf="formMessage?.invalid && (formMessage?.dirty || formMessage?.touched)">-->
+            <ng-container *ngIf="submitted && formMessage?.invalid">
               <span class="form-error">Please include your Brief/Need.</span>
             </ng-container>
           </div>

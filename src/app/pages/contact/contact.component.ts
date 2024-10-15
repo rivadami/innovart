@@ -51,6 +51,7 @@ export class ContactComponent extends BaseComponentService implements OnInit {
   contact: any;
   error: boolean | null = null;
   success: boolean | null = null;
+  submitted: boolean | null = null;
   formValid : boolean;
 
   constructor(private readonly apollo: Apollo,
@@ -111,6 +112,7 @@ export class ContactComponent extends BaseComponentService implements OnInit {
   }
 
   sendForm() {
+    this.submitted = true;
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
     } else {
